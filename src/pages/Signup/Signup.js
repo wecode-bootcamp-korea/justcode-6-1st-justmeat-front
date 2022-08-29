@@ -1,9 +1,6 @@
 import React from 'react';
+import './Signup.module.scss';
 
-import css from './Signup.module.scss';
-
-function Signup() {
-  return <div className={css.container}></div>;
-}
+function Signup() {}
 
 export default Signup;
