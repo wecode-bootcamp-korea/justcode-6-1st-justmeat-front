@@ -1,0 +1,42 @@
+.register-input-title {
+  text-align: left;
+}
+
+.register-input-type {
+  width: 300px;
+}
+
+.register-input-wrap {
+  .register-input-type-content {
+    display: flex;
+    width: 70%;
+    input {
+      box-sizing: border-box;
+      width: 100%;
+    }
+  }
+
+  .register-input-phone {
+    display: flex;
+  }
+  .register-input-phone-content {
+    width: 70%;
+    display: flex;
+
+    div {
+      margin: 0px 20px;
+    }
+
+    input {
+      width: 100%;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+
+  .register-input-code {
+    display: flex;
+  }
+}

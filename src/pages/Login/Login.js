@@ -10,7 +10,7 @@ import LoginSuggestion from '../../components/LoginSuggestion/LoginSuggestion';
 
 function Login() {
   // id, pw state value
-  const [idInput, setIdInput] = useState('');
+  const [emailInput, setEmailInput] = useState('');
   const [pwInput, setPwInput] = useState('');
 
   // loginButton 색상 state
@@ -19,8 +19,8 @@ function Login() {
   const [btnDisabled, setBtnDisabled] = useState(true);
 
   // id, pw input handler
-  const handleIdInput = e => {
-    setIdInput(e.target.value);
+  const handleEmailInput = e => {
+    setEmailInput(e.target.value);
   };
   const handlePwInput = e => {
     setPwInput(e.target.value);
@@ -28,9 +28,9 @@ function Login() {
 
   // id, pw validation
   function pushValue() {
-    switch (!(idInput && pwInput)) {
+    switch (!(emailInput && pwInput)) {
       case false: // inpuID, inpuPW 에 값이 있는 경우
-        switch (!(idInput.includes('@') && pwInput.length >= 5)) {
+        switch (!(emailInput.includes('@') && pwInput.length >= 5)) {
           case false: // id "@" 포함시 && pw 5글자 이상이면 loginButton 활성화
             setBtnDisabled(false);
             setBtnColor('blue');
@@ -66,9 +66,9 @@ function Login() {
         <div className="login-title todo">로그인</div>
         {/* login input & button */}
         <LoginForm
-          idValue={idInput}
+          emailValue={emailInput}
           pwValue={pwInput}
-          handleIdInput={handleIdInput}
+          handleEmailInput={handleEmailInput}
           handlePwInput={handlePwInput}
           pushValue={pushValue}
           btnState1={btnDisabled}

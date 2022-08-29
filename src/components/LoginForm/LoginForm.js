@@ -3,9 +3,9 @@ import './LoginForm.scss';
 
 function LoginForm(props) {
   const {
-    idValue,
+    emailValue,
     pwValue,
-    handleIdInput,
+    handleEmailInput,
     handlePwInput,
     pushValue,
     btnState1,
@@ -23,8 +23,8 @@ function LoginForm(props) {
             <input
               type="text"
               placeholder="아이디(이메일 주소)를 입력하세요"
-              value={idValue}
-              onChange={handleIdInput}
+              value={emailValue}
+              onChange={handleEmailInput}
               onKeyUp={pushValue}
             />
             <input
