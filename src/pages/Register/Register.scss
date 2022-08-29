@@ -1,0 +1,43 @@
+.container {
+}
+
+.content {
+  width: 90%;
+}
+
+.register-title {
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.register-icon {
+  width: 40px;
+}
+
+.register-status-wrap {
+  flex-direction: row;
+  .register-status-text {
+    font-weight: bolder;
+    margin-left: 20px;
+  }
+}
+
+.register-agree-title {
+  text-align: left;
+}
+
+.register-agree-content {
+  iframe {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 0px 0px 10px;
+  }
+}
+
+.register-btn-wrap {
+  margin-top: 30px;
+  button {
+    width: 50%;
+    height: 50px;
+  }
+}
