@@ -1,0 +1,32 @@
+.container {
+  width: 100%;
+}
+
+.content {
+  width: 60%;
+  padding: 0px 40px;
+}
+
+.signup-title {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.signup-subtitle {
+  display: block;
+  text-align: left;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 10px;
+}
+
+.sns-signup-wrap {
+  button {
+    width: 100%; // column 정렬
+    padding: 10px;
+  }
+}

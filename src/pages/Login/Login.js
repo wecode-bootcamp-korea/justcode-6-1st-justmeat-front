@@ -1,11 +1,11 @@
 import React from 'react';
-import './Login.module.scss';
+import './Login.scss';
 
 // Components
-import LoginForm from './Components/LoginForm/LoginForm';
-import LoginFind from './Components/LoginFind/LoginFind';
-import SocailLogin from './Components/SocialLogin/SocailLogin';
-import LoginSuggestion from './Components/LoginSuggestion/LoginSuggestion';
+import LoginForm from '../../components/LoginForm/LoginForm';
+import LoginFind from '../../components/LoginFind/LoginFind';
+import SocailLogin from '../../components/SocialLogin/SocailLogin';
+import LoginSuggestion from '../../components/LoginSuggestion/LoginSuggestion';
 
 function Login() {
   // const validation = () => {};
@@ -18,8 +18,13 @@ function Login() {
         <div className="login-title todo">로그인</div>
         <LoginForm /> {/* login input & button */}
         <LoginFind /> {/* id pw 찾기  */}
-        <SocailLogin /> {/* SNS 간편 로그인  */}
-        <LoginSuggestion /> {/* login to signup  */}
+        <SocailLogin type={'login'} title={'SNS 간편 로그인'} />{' '}
+        {/* SNS 간편 로그인  */}
+        <LoginSuggestion
+          type={'login'}
+          text={['이 처음', '회원가입하기']}
+        />{' '}
+        {/* login to signup  */}
       </div>
     </div>
   );
