@@ -26,6 +26,12 @@ function Login() {
     setPwInput(e.target.value);
   };
 
+  // login API POST (email, password)
+  const [loginAPI, setloginAPI] = useState({
+    email: '',
+    password: 'password',
+  });
+
   // id, pw validation
   function pushValue() {
     switch (!(emailInput && pwInput)) {
@@ -50,9 +56,24 @@ function Login() {
 
   // main page 로 이동하는 함수
   const navigate = useNavigate();
-  const goToHome = () => {
-    navigate('/home');
+  const goToHome = e => {
+    fetch('http://localhost:10010/users/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: emailInput,
+        password: pwInput,
+      }),
+    })
+      .then(res => res.json())
+      .then(result => console.log(result));
+    e.preventDefault();
+    //navigate('/home');
   };
+
+  // backend DB 등록 user
+  // email: 9hyun@gmail.com
+  // password: 9hyun
+
   // register page 로 이동하는 함수
   const goToRegister = () => {
     navigate('/register');

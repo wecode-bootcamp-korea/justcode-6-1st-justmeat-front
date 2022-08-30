@@ -2,14 +2,14 @@
   text-align: left;
 }
 
-.register-input-type {
-  width: 300px;
-}
-
 .register-input-wrap {
+  .register-input-type {
+    width: 30%;
+  }
+
   .register-input-type-content {
     display: flex;
-    width: 70%;
+    width: 60%;
     input {
       box-sizing: border-box;
       width: 100%;
@@ -20,7 +20,7 @@
     display: flex;
   }
   .register-input-phone-content {
-    width: 70%;
+    width: 60%;
     display: flex;
 
     div {

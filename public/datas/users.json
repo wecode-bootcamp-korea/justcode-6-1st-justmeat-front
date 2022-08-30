@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "email": "user1@gmail.com",
+      "password": "1234",
+      "name": "user1Name",
+      "phone": "010-1234-1234",
+      "status_code": "??",
+      "createdAt": "yyyy-mm-dd",
+      "address1": "주소1",
+      "address2": "주소2",
+      "zipcode": "우편번호"
+    }
+  ]
+}

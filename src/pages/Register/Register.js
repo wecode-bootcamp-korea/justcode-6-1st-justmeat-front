@@ -2,8 +2,8 @@ import React from 'react';
 import './Register.scss';
 
 // Components
-import Register1st from '../../components/Register1st/Register1st';
-import Register2nd from '../../components/Register2nd/Register2nd';
+import Register1st from './Register1st/Register1st';
+import Register2nd from './Register2nd/Register2nd';
 
 function Register() {
   const registerData = [
