@@ -1,0 +1,37 @@
+{
+  "itemData": [
+    {
+      "id": 1,
+      "categoryId": 1,
+      "name": "Beef",
+      "price": 20000,
+      "weight": 300,
+      "productImg": "images/url",
+      "option": 15,
+      "stock": 200,
+      "salesAmount": 100
+    },
+    {
+      "id": 2,
+      "categoryId": 2,
+      "name": "Chicken",
+      "price": 5000,
+      "weight": 450,
+      "productImg": "images/url",
+      "option": 0,
+      "stock": 300,
+      "salesAmount": 150
+    },
+    {
+      "id": 3,
+      "categoryId": 3,
+      "name": "Pork",
+      "price": 9000,
+      "weight": 300,
+      "productImg": "images/url",
+      "option": 11,
+      "stock": 250,
+      "salesAmount": 200
+    }
+  ]
+}

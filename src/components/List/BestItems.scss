@@ -1,0 +1,24 @@
+.bestItems {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
+}
+
+img {
+  width: 276px;
+  height: 276px;
+  margin: 70px 0px 0px 50px;
+}
+
+.bestItem {
+  margin: 32px 0px 0px;
+}
+
+.productName {
+  font-size: 18px;
+}
+
+.price {
+  font-size: 16px;
+}
