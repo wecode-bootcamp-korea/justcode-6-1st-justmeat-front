@@ -29,7 +29,7 @@ function Register() {
     // 전체 감싸는 div
     <div className="container setting-center todo">
       {/* 너비 조절을 위한 div  */}
-      <div className="content todo">
+      <div className="register-content todo">
         <p className="register-title todo">회원가입</p>
         {/* 조건부 렌더링 - 01. 약관동의 or 02. 정보입력 */}
         <Register2nd inputDatas={registerData} />

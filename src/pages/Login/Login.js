@@ -74,6 +74,22 @@ function Login() {
   // email: 9hyun@gmail.com
   // password: 9hyun
 
+  //const [isSuggestion, setIsSuggestion] = useState('');
+  // const [suggestionText, setSuggestionText] = useState([
+  //   'login',
+  //   '이 처음',
+  //   '회원가입하기',
+  // ]);
+
+  // const changeSuggestion = () => {
+  //   setIsSuggestion(prev => !prev);
+  //   if (isSuggestion) {
+  //     setSuggestionText(['signup', ' 회원', '로그인하기']);
+  //   } else {
+  //     setSuggestionText(['login', '이 처음', '회원가입하기']);
+  //   }
+  // };
+
   // register page 로 이동하는 함수
   const goToRegister = () => {
     navigate('/register');
@@ -81,10 +97,10 @@ function Login() {
 
   return (
     // 전체 감싸는 div
-    <div className="container setting-center todo">
+    <div className="container setting-column todo">
       {/* 너비 조절을 위해 content 감싸는 div 생성 */}
       <div className="content">
-        <div className="login-title todo">로그인</div>
+        <div className="login-title setting-center todo">로그인</div>
         {/* login input & button */}
         <LoginForm
           emailValue={emailInput}
@@ -101,11 +117,7 @@ function Login() {
         {/* SNS 간편 로그인  */}
         <SocailLogin type={'login'} title={'SNS 간편 로그인'} />
         {/* login to signup  */}
-        <LoginSuggestion
-          type={'login'}
-          text={['이 처음', '회원가입하기']}
-          goToRegister={goToRegister}
-        />
+        <LoginSuggestion goToRegister={goToRegister} />
       </div>
     </div>
   );

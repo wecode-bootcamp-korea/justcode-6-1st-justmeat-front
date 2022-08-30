@@ -20,24 +20,28 @@ function LoginForm(props) {
         <form className="login-form todo">
           {/* login input */}
           <section className="login-input-wrap">
-            <input
-              type="text"
-              placeholder="아이디(이메일 주소)를 입력하세요"
-              value={emailValue}
-              onChange={handleEmailInput}
-              onKeyUp={pushValue}
-            />
-            <input
-              type="text"
-              placeholder="비밀번호를 입력하세요"
-              value={pwValue}
-              onChange={handlePwInput}
-              onKeyUp={pushValue}
-            />
+            <div className="email-input-wrap todo">
+              <input
+                type="text"
+                placeholder="아이디(이메일 주소)를 입력하세요"
+                value={emailValue}
+                onChange={handleEmailInput}
+                onKeyUp={pushValue}
+              />
+            </div>
+            <div className="password-input-wrap todo">
+              <input
+                type="text"
+                placeholder="비밀번호를 입력하세요"
+                value={pwValue}
+                onChange={handlePwInput}
+                onKeyUp={pushValue}
+              />
+            </div>
           </section>
           {/* login button  */}
           <button
-            className="btn-login todo"
+            className="btn-login"
             type="submit"
             disabled={btnState1}
             style={{ color: 'white', backgroundColor: btnState2 }}
