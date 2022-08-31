@@ -4,8 +4,8 @@ import './Register1st.scss';
 function Register1st() {
   return (
     <React.Fragment>
-      <section className="register-status-wrap todo">
-        <div className="register-status-element">
+      <section className="register-status-wrap">
+        <div className="register-status-element setting-center">
           <div>
             <img
               className="register-icon"
@@ -32,26 +32,20 @@ function Register1st() {
           </div>
         </div>
       </section>
-      <section className="register-1st-wrap todo">
+      <section className="register-1st-wrap">
         <div className="register-1st-title">
-          <input type="checkbox" name="전달할 값" value="전달될 값" />
+          <input type="checkbox" name="전달할 값" />
           <span>정육각 서비스 약관 동의</span>
         </div>
-        <div className="register-1st-content todo">
-          <iframe
-            src="https://yookgak.com/website/term-20191015.html"
-            frameBorder="0"
-          ></iframe>
+        <div className="register-1st-content">
+          <iframe src="https://yookgak.com/website/term-20191015.html"></iframe>
         </div>
-        <div className="register-1st-title todo">
-          <input type="checkbox" name="전달할 값" value="전달될 값" />
+        <div className="register-1st-title">
+          <input type="checkbox" name="전달할 값" />
           <span>개인정보 이용 방침</span>
         </div>
-        <div className="register-1st-content todo">
-          <iframe
-            src="https://yookgak.com/assets/private-20220502.html"
-            frameBorder="0"
-          ></iframe>
+        <div className="register-1st-content">
+          <iframe src="https://yookgak.com/assets/private-20220502.html"></iframe>
         </div>
       </section>
     </React.Fragment>
