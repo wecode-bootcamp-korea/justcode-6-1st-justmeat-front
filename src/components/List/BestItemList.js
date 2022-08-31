@@ -15,7 +15,7 @@ const BestItemList = () => {
   return (
     <Card className="bestItemList">
       <h5 className="bestItemTitle">저스트미트 베스트 상품</h5>
-      <div>
+      <div className="bestItemFlex">
         {bestItems &&
           bestItems.map(bestItem => (
             <BestItems

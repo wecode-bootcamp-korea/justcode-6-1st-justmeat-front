@@ -1,24 +1,41 @@
 .bestItems {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-right: 20px;
+  padding: 0px 0px 0px 0px;
 }
 
 img {
+  margin: 70px 0px 0px 40px;
   width: 276px;
   height: 276px;
-  margin: 70px 0px 0px 50px;
+}
+
+.cartIcon {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.cartIconWrapper {
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .bestItem {
   margin: 32px 0px 0px;
+  width: 365px;
+  height: 416px;
+  background-color: #f9f7f8;
+  cursor: pointer;
 }
 
 .productName {
   font-size: 18px;
+  width: 376px;
+  height: 27px;
+  margin: 16px 0px 0px 0px;
 }
 
 .price {
   font-size: 16px;
+  margin: 0px 0px 0px 0px;
 }

@@ -1,9 +1,19 @@
 .bestItemList {
   margin: 32px 0px 0px;
   width: 100%;
-  max-width: 95%;
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.bestItemFlex {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .bestItemTitle {
   font-size: 32px;
+  line-height: 32px;
+  margin: 0px 0px 0px 0px;
 }

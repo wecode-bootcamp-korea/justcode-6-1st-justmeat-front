@@ -12,11 +12,21 @@ const ItemList = () => {
   }, []);
 
   return (
-    <Card>
-      <div className="itemList">
+    <Card className="itemList">
+      <p>
+        <span>돼지</span>
+        <span>소</span>
+        <span>닭</span>
+        <span>수산</span>
+        <span>밀키트</span>
+        <span>우유</span>
+        <span>달걀</span>
+        <span>이유식</span>
+      </p>
+      <div className="itemFlex">
         {items &&
           items.map(item => (
-            <item
+            <Items
               key={item.id}
               img={item.productImg}
               name={item.name}
