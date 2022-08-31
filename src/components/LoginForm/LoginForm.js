@@ -15,12 +15,12 @@ function LoginForm(props) {
 
   return (
     <React.Fragment>
-      <span className="login-subtitle todo">이메일 로그인</span>
-      <article className="login-warap todo">
-        <form className="login-form todo">
+      <span className="login-subtitle">이메일 로그인</span>
+      <article className="login-warap">
+        <form className="login-form">
           {/* login input */}
           <section className="login-input-wrap">
-            <div className="email-input-wrap todo">
+            <div className="email-input-wrap">
               <input
                 type="text"
                 placeholder="아이디(이메일 주소)를 입력하세요"
@@ -41,10 +41,10 @@ function LoginForm(props) {
           </section>
           {/* login button  */}
           <button
-            className="btn-login"
+            className="login-btn"
             type="submit"
             disabled={btnState1}
-            style={{ color: 'white', backgroundColor: btnState2 }}
+            style={{ backgroundColor: btnState2 }}
             onClick={goToHome}
             onKeyUp={e => {
               if (e.key === 'Enter') return goToHome;

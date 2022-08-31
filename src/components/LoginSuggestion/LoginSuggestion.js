@@ -9,14 +9,14 @@ function LoginSuggestion(props) {
   const suggestionText = ['login', ' 회원', '회원가입하기'];
 
   return (
-    <article className={`${suggestionText[0]}-to-signup-wrap todo`}>
-      <p className="signup-suggestion setting-center todo">
+    <article className={`${suggestionText[0]}-suggestion-wrap`}>
+      <p className={`${suggestionText[0]}-suggestion setting-center`}>
         정육각{suggestionText[1]}이신가요?
         <Link
           to="/signup"
           // to={`${suggestionText[0]}`}
           // onClick={changeSuggestion}
-          style={{ marginLeft: '10px' }}
+          style={{ color: 'red', textDecoration: 'none', marginLeft: '10px' }}
         >
           {suggestionText[2]}
         </Link>

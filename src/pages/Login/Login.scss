@@ -1,26 +1,31 @@
-.container {
+.login-container {
   outline: 0;
 }
 
-.content {
+.login-content {
   width: 330px;
   margin: 100px auto;
 }
 
 .login-title {
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 800;
 }
 
 .login-subtitle {
   display: block;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 800;
   margin-top: 60px;
 }
 
 .login-input-wrap {
   // justify-content: space-between;
+  div {
+    border: 0.1px solid rgb(214, 214, 214);
+    margin-top: 10px;
+  }
+
   input {
     display: block;
     width: 100%; // column 정렬
@@ -30,18 +35,17 @@
     font-size: 14px;
     border: 0;
   }
-
-  div {
-    margin-top: 10px;
-  }
 }
 
-.btn-login {
+.login-btn {
   width: 100%;
   height: 50px;
-  padding: 10px;
   font-size: 16px;
+  font-weight: bold;
   margin-top: 10px;
+  border: 0;
+  border-radius: 4px;
+  color: white;
 }
 
 .login-find-wrap {
@@ -49,20 +53,29 @@
 
   .login-id-pw-find {
     font-size: 16px;
+    font-weight: 500;
   }
 }
 
 .sns-login-wrap {
+  div {
+    display: inline;
+  }
+
   button {
     width: 100%; // column 정렬
     height: 50px;
     padding: 10px;
     margin-top: 10px;
     font-size: 16px;
+    font-weight: bold;
+    border: 0;
+    border-radius: 4px;
   }
 }
 
-.signup-suggestion {
-  margin-top: 20px;
+.login-suggestion-wrap {
+  margin-top: 30px;
   font-size: 16px;
+  font-weight: 500;
 }

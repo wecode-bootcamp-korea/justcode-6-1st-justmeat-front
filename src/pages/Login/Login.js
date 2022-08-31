@@ -16,7 +16,7 @@ function Login() {
   // loginButton 색상 state
   const [btnColor, setBtnColor] = useState('gray');
   // loginButton 활성화 비활성화 state
-  const [btnDisabled, setBtnDisabled] = useState(true);
+  const [isDisabled, setisDisabled] = useState(true);
 
   // id, pw input handler
   const handleEmailInput = e => {
@@ -38,17 +38,17 @@ function Login() {
       case false: // inpuID, inpuPW 에 값이 있는 경우
         switch (!(emailInput.includes('@') && pwInput.length >= 5)) {
           case false: // id "@" 포함시 && pw 5글자 이상이면 loginButton 활성화
-            setBtnDisabled(false);
-            setBtnColor('blue');
+            setisDisabled(false);
+            setBtnColor('black');
             break;
           default: // id "@" 미포함시 && pw 5글자 미만이면 loginButton 비활성화
-            setBtnDisabled(true);
+            setisDisabled(true);
             setBtnColor('gray');
             break;
         }
         break;
       default: // inpuID, inpuPW 에 값이 없는 경우 loginButton 비활성화
-        setBtnDisabled(true);
+        setisDisabled(true);
         setBtnColor('gray');
         break;
     }
@@ -97,10 +97,10 @@ function Login() {
 
   return (
     // 전체 감싸는 div
-    <div className="container setting-column todo">
+    <div className="login-container setting-column">
       {/* 너비 조절을 위해 content 감싸는 div 생성 */}
-      <div className="content">
-        <div className="login-title setting-center todo">로그인</div>
+      <div className="login-content">
+        <div className="login-title setting-center">로그인</div>
         {/* login input & button */}
         <LoginForm
           emailValue={emailInput}
@@ -108,7 +108,7 @@ function Login() {
           handleEmailInput={handleEmailInput}
           handlePwInput={handlePwInput}
           pushValue={pushValue}
-          btnState1={btnDisabled}
+          btnState1={isDisabled}
           btnState2={btnColor}
           goToHome={goToHome}
         />
