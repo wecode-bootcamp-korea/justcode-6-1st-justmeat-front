@@ -14,7 +14,7 @@ function Register1st() {
             />
           </div>
           <div className="register-status-text">
-            <span>01.약관동의</span>
+            <span>01. 약관동의</span>
           </div>
           <div>
             <img src="/images/arrow-right.png" alt="arrow-icon" />
@@ -24,29 +24,30 @@ function Register1st() {
               className="register-icon"
               src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIxLjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IuugiOydtOyWtF8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiCgkgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNTQuNSA0NS4zIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1NC41IDQ1LjM7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbDpub25lO3N0cm9rZTojRDhEOEQ4O3N0cm9rZS13aWR0aDozLjY4NTtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQoJLnN0MXtmaWxsOiNGN0Y3Rjc7c3Ryb2tlOiNEOEQ4RDg7c3Ryb2tlLXdpZHRoOjMuNjg1O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9Cjwvc3R5bGU+CjxnPgoJPGxpbmUgY2xhc3M9InN0MCIgeDE9IjEuOCIgeTE9IjQzLjUiIHgyPSI1Mi43IiB5Mj0iNDMuNSIvPgoJPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSI1LjMsMzQuNCAxOS42LDM0LjMgNTIuNywxNC41IDQ1LjEsMS44IDEyLDIxLjYgNS4yLDM0LjIgCSIvPgoJPGxpbmUgY2xhc3M9InN0MSIgeDE9IjEyIiB5MT0iMjEuNiIgeDI9IjE5LjYiIHkyPSIzNC4zIi8+CjwvZz4KPC9zdmc+Cg=="
               alt="register-icon2"
+              style={{ width: '50px' }}
             />
           </div>
           <div>
-            <span className="register-status-text">02.정보입력</span>
+            <span className="register-status-text">02. 정보입력</span>
           </div>
         </div>
       </section>
-      <section className="register-agree-wrap todo">
-        <div className="register-agree-title">
+      <section className="register-1st-wrap todo">
+        <div className="register-1st-title">
           <input type="checkbox" name="전달할 값" value="전달될 값" />
           <span>정육각 서비스 약관 동의</span>
         </div>
-        <div className="register-agree-content todo">
+        <div className="register-1st-content todo">
           <iframe
             src="https://yookgak.com/website/term-20191015.html"
             frameBorder="0"
           ></iframe>
         </div>
-        <div className="register-agree-title todo">
+        <div className="register-1st-title todo">
           <input type="checkbox" name="전달할 값" value="전달될 값" />
           <span>개인정보 이용 방침</span>
         </div>
-        <div className="register-agree-content todo">
+        <div className="register-1st-content todo">
           <iframe
             src="https://yookgak.com/assets/private-20220502.html"
             frameBorder="0"

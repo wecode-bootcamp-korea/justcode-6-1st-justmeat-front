@@ -8,32 +8,32 @@ import Register2nd from './Register2nd/Register2nd';
 function Register() {
   const registerData = [
     {
-      type: 'email',
+      type: 'text',
       content: '아이디(이메일주소)',
     },
     {
-      type: 'pw',
+      type: 'password',
       content: '비밀번호',
     },
     {
-      type: 'checkpw',
+      type: 'password',
       content: '비밀번호 확인',
     },
     {
-      type: 'name',
+      type: 'text',
       content: '이름',
     },
   ];
 
   return (
     // 전체 감싸는 div
-    <div className="container setting-center todo">
+    <div className="register-container setting-center">
       {/* 너비 조절을 위한 div  */}
-      <div className="register-content todo">
-        <p className="register-title todo">회원가입</p>
+      <div className="register-content">
+        <p className="register-title">회원가입</p>
         {/* 조건부 렌더링 - 01. 약관동의 or 02. 정보입력 */}
-        <Register2nd inputDatas={registerData} />
-        {/* <Register1st /> */}
+        {/* <Register2nd inputDatas={registerData} /> */}
+        <Register1st />
 
         {/* button - pre or submit */}
         <div className="register-btn-wrap">

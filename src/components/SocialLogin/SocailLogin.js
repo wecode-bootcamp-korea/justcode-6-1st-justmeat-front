@@ -13,7 +13,7 @@ function SocailLogin(props) {
             className={`${type}-btn-kakao`}
             style={{ color: '#3A1D1D', backgroundColor: '#F7E600' }}
           >
-            <img src="" alt="kakao-logo" />
+            <img src="/images/kakao-logo.png" alt="kakao-logo" />
             <div>카카오로 시작하기</div>
           </button>
           {/* naver  */}
@@ -21,7 +21,7 @@ function SocailLogin(props) {
             className={`${type}-btn-naver`}
             style={{ color: 'white', backgroundColor: '#2DB400' }}
           >
-            <img src="" alt="naver-logo" />
+            <img src="/images/naver-logo.png" alt="naver-logo" />
             <div>네이버로 시작하기</div>
           </button>
         </form>

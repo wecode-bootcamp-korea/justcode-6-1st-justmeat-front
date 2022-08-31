@@ -22,7 +22,7 @@
 .login-input-wrap {
   // justify-content: space-between;
   div {
-    border: 0.1px solid rgb(214, 214, 214);
+    border: 1px solid rgb(214, 214, 214);
     margin-top: 10px;
   }
 
@@ -59,7 +59,8 @@
 
 .sns-login-wrap {
   div {
-    display: inline;
+    display: inline-table;
+    vertical-align: middle;
   }
 
   button {
@@ -71,6 +72,12 @@
     font-weight: bold;
     border: 0;
     border-radius: 4px;
+  }
+
+  img {
+    vertical-align: middle;
+    width: 20px;
+    margin-right: 10px;
   }
 }
 
