@@ -1,13 +1,22 @@
+.signup-container {
+  outline: 0;
+}
+
+.signup-content {
+  width: 330px;
+  margin: 100px auto;
+}
+
 .signup-title {
-  font-size: 25px;
-  font-weight: bold;
+  font-size: 24px;
+  font-weight: 800;
 }
 
 .signup-subtitle {
   display: block;
-  text-align: left;
-  font-size: 15px;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 800;
+  margin-top: 60px;
 }
 
 .btn-login {
@@ -16,14 +25,24 @@
 }
 
 .sns-signup-wrap {
+  div {
+    display: inline;
+  }
+
   button {
     width: 100%; // column 정렬
+    height: 50px;
     padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 0;
+    border-radius: 4px;
   }
 }
 
 .signup-suggestion-wrap {
-  margin-top: 30px;
+  margin-top: 40px;
   font-size: 16px;
   font-weight: 500;
 }
