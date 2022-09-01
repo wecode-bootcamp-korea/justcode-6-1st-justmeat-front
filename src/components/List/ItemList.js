@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
+import Items from './Items';
+import Category from './Category';
 import './ItemList.scss';
 
 const ItemList = () => {
@@ -12,33 +14,36 @@ const ItemList = () => {
   }, []);
 
   return (
-    <Card className="itemList">
-      <p>
-        <span>돼지</span>
-        <span>소</span>
-        <span>닭</span>
-        <span>수산</span>
-        <span>밀키트</span>
-        <span>우유</span>
-        <span>달걀</span>
-        <span>이유식</span>
-      </p>
-      <div className="itemFlex">
-        {items &&
-          items.map(item => (
-            <Items
-              key={item.id}
-              img={item.productImg}
-              name={item.name}
-              price={item.price}
-              weight={item.weight}
-              antibio={item.isAntibioticFree}
-              sales={item.salesAmount}
-              stock={item.stock}
-            />
-          ))}
-      </div>
-    </Card>
+    <div>
+      <img
+        className="itemListBanner"
+        alt="고기사진"
+        src="/images/kyle-mackie-qgfjZUXup1M-unsplash.jpg"
+      />
+      <Card className="itemList">
+        <p className="itemCategory">
+          {items &&
+            items.map(item => (
+              <Category key={item.id} category={item.categoryId} />
+            ))}
+        </p>
+        <Card className="itemFlex">
+          {items &&
+            items.map(item => (
+              <Items
+                key={item.id}
+                img={item.productImg}
+                name={item.name}
+                price={item.price}
+                weight={item.weight}
+                antibiotics={item.isAntibioticFree}
+                sales={item.salesAmount}
+                stock={item.stock}
+              />
+            ))}
+        </Card>
+      </Card>
+    </div>
   );
 };
 

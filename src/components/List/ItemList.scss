@@ -1,0 +1,20 @@
+.itemListBanner {
+  width: 100%;
+  height: 520px;
+}
+
+.itemList {
+  margin-top: 80px;
+  padding: 0px 0px 0px 35px;
+  width: 100%;
+}
+
+.itemCategory {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.itemFlex {
+  display: flex;
+  flex-wrap: wrap;
+}

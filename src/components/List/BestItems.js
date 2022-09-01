@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Card from './Card';
 import './BestItems.scss';
 
-const BestItems = ({ sales, img, name, price, weight, antibio, stock }) => {
+const BestItems = ({ img, name, price, weight, antibiotics, sales, stock }) => {
   return (
     <ul className="bestItems">
       <Link to="/details">
