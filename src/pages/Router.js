@@ -5,6 +5,7 @@ import Home from './Home/Home';
 import Login from './Login/Login';
 import Signup from './Signup/Signup';
 import Register from './Register/Register';
+import Event from './Event/Event';
 
 function Router() {
   return (
@@ -14,6 +15,7 @@ function Router() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/event" element={<Event />} />
       </Routes>
     </BrowserRouter>
   );
