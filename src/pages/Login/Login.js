@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 // Components
@@ -17,6 +16,9 @@ function Login() {
   const [btnColor, setBtnColor] = useState('gray');
   // loginButton 활성화 비활성화 state
   const [isDisabled, setisDisabled] = useState(true);
+
+  // loginSuggestion props
+  const suggestionText = ['login', '이 처음', '/signup', '회원가입하기'];
 
   // id, pw input handler
   const handleEmailInput = e => {
@@ -55,7 +57,6 @@ function Login() {
   }
 
   // main page 로 이동하는 함수
-  const navigate = useNavigate();
   const goToHome = e => {
     fetch('http://localhost:10010/users/login', {
       method: 'POST',
@@ -73,27 +74,6 @@ function Login() {
   // backend DB 등록 user
   // email: 9hyun@gmail.com
   // password: 9hyun
-
-  //const [isSuggestion, setIsSuggestion] = useState('');
-  // const [suggestionText, setSuggestionText] = useState([
-  //   'login',
-  //   '이 처음',
-  //   '회원가입하기',
-  // ]);
-
-  // const changeSuggestion = () => {
-  //   setIsSuggestion(prev => !prev);
-  //   if (isSuggestion) {
-  //     setSuggestionText(['signup', ' 회원', '로그인하기']);
-  //   } else {
-  //     setSuggestionText(['login', '이 처음', '회원가입하기']);
-  //   }
-  // };
-
-  // register page 로 이동하는 함수
-  const goToRegister = () => {
-    navigate('/register');
-  };
 
   return (
     // 전체 감싸는 div
@@ -117,7 +97,7 @@ function Login() {
         {/* SNS 간편 로그인  */}
         <SocailLogin type={'login'} title={'SNS 간편 로그인'} />
         {/* login to signup  */}
-        <LoginSuggestion goToRegister={goToRegister} />
+        <LoginSuggestion text={suggestionText} />
       </div>
     </div>
   );

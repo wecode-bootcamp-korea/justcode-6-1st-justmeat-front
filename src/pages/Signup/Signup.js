@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Signup.scss';
 
 // Components
@@ -6,6 +7,15 @@ import SocailLogin from '../../components/SocialLogin/SocailLogin';
 import LoginSuggestion from '../../components/LoginSuggestion/LoginSuggestion';
 
 function Signup() {
+  // loginSuggestion props
+  const suggestionText = ['signup', ' 회원', '/login', '로그인하기'];
+
+  // register page 로 이동하는 함수
+  const navigate = useNavigate();
+  const goToRegister = () => {
+    navigate('/register');
+  };
+
   return (
     <div className="signup-container setting-column">
       {/* 너비 조절을 위해 content 감싸는 div 생성 */}
@@ -22,6 +32,8 @@ function Signup() {
           <form>
             <button
               className="btn-login-email"
+              type="button"
+              onClick={goToRegister}
               style={{
                 backgroundColor: 'white',
                 border: '1px solid red',
@@ -33,7 +45,7 @@ function Signup() {
           </form>
         </article>
         {/* signup to login  */}
-        <LoginSuggestion type={'signup'} text={[' 회원', '로그인하기']} />{' '}
+        <LoginSuggestion text={suggestionText} />
       </div>
     </div>
   );
