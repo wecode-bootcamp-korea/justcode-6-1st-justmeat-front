@@ -1,0 +1,99 @@
+@mixin layoutborder {
+  border: solid 1px #aaa;
+}
+@mixin total-payment-font {
+  font-size: 18px;
+}
+@mixin button-style {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  padding: 10px 0px;
+  border: none;
+}
+.cart-payment-container {
+  width: 20%;
+  margin-left: 50px;
+  border-top: solid 1.5px black;
+  background-color: rgb(243, 241, 241);
+  .cart-payment-total-payment {
+    display: flex;
+    padding: 10px 0px;
+    margin: 0px 25px;
+    border-bottom: solid 1.5px #ddd;
+    .cart-item-payment-text {
+      width: 50%;
+      @include total-payment-font;
+    }
+    .cart-item-payment-price {
+      width: 50%;
+      text-align: end;
+      @include total-payment-font;
+    }
+  }
+  .cart-payment-total-delivery-fee {
+    display: flex;
+    padding: 10px 0px;
+    margin: 0px 25px;
+    .cart-item-payment-text {
+      width: 50%;
+      @include total-payment-font;
+    }
+    .cart-item-payment-price {
+      width: 50%;
+      text-align: end;
+      @include total-payment-font;
+    }
+  }
+  .cart-payment-default-delivery-fee {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px 25px;
+    span {
+      margin-left: 30px;
+    }
+  }
+  .cart-payment-delivery-fee-free {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 10px;
+    margin: 5px 25px;
+    border-bottom: solid 1.5px #ddd;
+    span {
+      margin-left: 30px;
+    }
+  }
+  .delivery-fee-free-applied {
+    text-align: center;
+    padding: 7px 0px;
+    margin: 0px 15px;
+  }
+  .expected-payment {
+    margin-top: 50px;
+    margin-right: 25px;
+    text-align: end;
+    font-weight: bold;
+  }
+  .expected-payment-amount {
+    margin-right: 25px;
+    text-align: end;
+    font-size: 35px;
+    font-weight: bold;
+    color: rgb(181, 5, 5);
+  }
+  .payment-buttons-box {
+    margin: 10px 25px;
+
+    .cart-order-btn {
+      margin-bottom: 10px;
+      width: 100%;
+      @include button-style;
+      background-color: rgb(181, 5, 5);
+    }
+    .cart-shopping-btn {
+      width: 100%;
+      @include button-style;
+      background-color: #777;
+    }
+  }
+}
