@@ -1,0 +1,40 @@
+{
+  "CartListData": [
+    {
+      "id": 0,
+      "productId": 0,
+      "userId": 0,
+      "productImg": "/images/porkbelly-fresh-detail.png",
+      "productName": "초신선 돼지 삼겹살 구이용",
+      "width": "보통 (16mm)",
+      "weight": 600,
+      "productAmount": 1,
+      "productPrice": 22800,
+      "paymentAmount": 22800
+    },
+    {
+      "id": 1,
+      "productId": 1,
+      "userId": 1,
+      "productImg": "/images/porkbelly-fresh-whole-detail.png",
+      "productName": "초신선 돼지 삼겹살 수육용",
+      "width": "보통 (16mm)",
+      "weight": 600,
+      "productAmount": 1,
+      "productPrice": 19800,
+      "paymentAmount": 19800
+    },
+    {
+      "id": 2,
+      "productId": 2,
+      "userId": 1,
+      "productImg": "/images/porkneck-fresh-detail.png",
+      "productName": "초신선 무항생제 돼지 목살 구이용",
+      "width": "보통 (16mm)",
+      "weight": 600,
+      "productAmount": 1,
+      "productPrice": 22800,
+      "paymentAmount": 22800
+    }
+  ]
+}
