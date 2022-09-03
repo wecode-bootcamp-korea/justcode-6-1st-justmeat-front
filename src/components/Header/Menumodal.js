@@ -1,10 +1,10 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping, faX } from "@fortawesome/free-solid-svg-icons";
-import "./MenuModal.scss";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartShopping, faX } from '@fortawesome/free-solid-svg-icons';
+import './Menumodal.scss';
 
-function MenuModal({ menuOpen, setMenuOpen }) {
+function Menumodal({ menuOpen, setMenuOpen }) {
   return (
-    <div className={menuOpen ? "activate" : "before-activate"}>
+    <div className={menuOpen ? 'activate' : 'before-activate'}>
       <section className="menu-wrapper">
         <div className="menu-header">
           <div className="menu-title">메뉴</div>
@@ -84,4 +84,4 @@ function MenuModal({ menuOpen, setMenuOpen }) {
     </div>
   );
 }
-export default MenuModal;
+export default Menumodal;
