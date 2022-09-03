@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import './Login.scss';
 
 // Components
-import LoginForm from '../../components/LoginForm/LoginForm';
-import LoginFind from '../../components/LoginFind/LoginFind';
-import SocailLogin from '../../components/SocialLogin/SocailLogin';
-import LoginSuggestion from '../../components/LoginSuggestion/LoginSuggestion';
+import LoginForm from './LoginForm/LoginForm';
+import LoginFind from './LoginFind/LoginFind';
+import SocailLogin from './SocialLogin/SocailLogin';
+import LoginSuggestion from './LoginSuggestion/LoginSuggestion';
 
 function Login() {
   // id, pw state value
@@ -38,7 +38,7 @@ function Login() {
   function pushValue() {
     switch (!(emailInput && pwInput)) {
       case false: // inpuID, inpuPW 에 값이 있는 경우
-        switch (!(emailInput.includes('@') && pwInput.length >= 5)) {
+        switch (!(emailInput.includes('@') && pwInput.length >= 10)) {
           case false: // id "@" 포함시 && pw 5글자 이상이면 loginButton 활성화
             setisDisabled(false);
             setBtnColor('black');

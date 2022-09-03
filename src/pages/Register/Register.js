@@ -37,7 +37,15 @@ function Register() {
 
   // 01. 동의하기 버튼 유효성 감사 함수
   const submitBtnValidation1 = () => {
-    isCheckbox1 && isCheckbox2 ? setIsSubmitBtn(true) : setIsSubmitBtn(false);
+    switch (isCheckbox1 && isCheckbox2) {
+      case true:
+        setIsSubmitBtn(true);
+        break;
+      case false:
+        setIsSubmitBtn(false);
+        alert('이용약관과 개인정보 이용 방침에 모두 동의해주세요.');
+        break;
+    }
   };
 
   return (

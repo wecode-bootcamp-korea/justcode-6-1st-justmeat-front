@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import './Signup.scss';
 
 // Components
-import SocailLogin from '../../components/SocialLogin/SocailLogin';
-import LoginSuggestion from '../../components/LoginSuggestion/LoginSuggestion';
+import SocailLogin from '../Login/SocialLogin/SocailLogin';
+import LoginSuggestion from '../Login/LoginSuggestion/LoginSuggestion';
 
 function Signup() {
   // loginSuggestion props

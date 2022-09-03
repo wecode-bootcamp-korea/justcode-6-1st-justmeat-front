@@ -11,6 +11,7 @@ function Register2nd() {
   const [regName, setRegName] = useState('');
   const [regCode, setRegCode] = useState('');
 
+  const [regPhoneNum0, setRegPhoneNum0] = useState('010');
   const [regPhoneNum1, setRegPhoneNum1] = useState('');
   const [regPhoneNum2, setRegPhoneNum2] = useState('');
   const [isRegPhoneNumBtnDisabled, setIsRegPhoneNumBtnDisabled] =
@@ -47,6 +48,11 @@ function Register2nd() {
     },
   ];
 
+  // 핸드폰 국번 값 handler
+  const handelSelect = e => {
+    setRegPhoneNum0(e.target.value);
+  };
+
   // 정보입력란(PhoneNum) 유효성 검사 함수
   const phoneNumValidation = e => {
     if (regPhoneNum1.length === 4 && regPhoneNum2.length === 4) {
@@ -59,6 +65,7 @@ function Register2nd() {
       setRegPhoneBtnTextColor('black');
     }
   };
+
   // regPhoneNum, setRegPhoneNume
   const phoneNumBtnValidation = e => {
     // 숫자로 4자리씩 입력할 경우 통과
@@ -73,14 +80,13 @@ function Register2nd() {
           Accept: 'application/json',
         },
         body: JSON.stringify({
-          phone: '010' + regPhoneNum1 + regPhoneNum2, // 형식 확인
+          phone: regPhoneNum0 + regPhoneNum1 + regPhoneNum2,
         }),
       })
         .then(res => res.json())
         .then(result => {
           // console.log('=============인증번호 받기 버튼===============');
           // console.log('phone:', '010' + regPhoneNum1 + regPhoneNum2);
-          console.log(result.message);
           setRegCode(result.message);
 
           // console.log('==========================================');
@@ -101,7 +107,7 @@ function Register2nd() {
         password: regPassword,
         pwconfirm: regCheckPassword,
         name: regName,
-        phone: '010' + regPhoneNum1 + regPhoneNum2, // 형식 확인
+        phone: regPhoneNum0 + regPhoneNum1 + regPhoneNum2, // 형식 확인
         verification: regCode,
       }),
     })
@@ -115,7 +121,7 @@ function Register2nd() {
         // console.log('phone:', '010' + regPhoneNum1 + regPhoneNum2);
         // console.log('verification:', regCode);
         // console.log('--result--');
-        console.log(result);
+        // console.log(result);
         // console.log('======================================');
       });
     //navigate('/home');
@@ -160,8 +166,11 @@ function Register2nd() {
                 <p>휴대폰번호</p>
               </div>
               <div className="register-2nd-input-phone-content">
-                <select className="phone-num" name="phoneNum">
-                  <option value="010">010</option>
+                <select
+                  className="phone-num"
+                  name="phoneNum"
+                  onChange={handelSelect}
+                >
                   <option value="010">010</option>
                   <option value="016">016</option>
                   <option value="017">017</option>
