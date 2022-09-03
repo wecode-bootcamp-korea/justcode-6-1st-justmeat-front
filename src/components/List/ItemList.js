@@ -33,7 +33,7 @@ const ItemList = () => {
               <Items
                 key={item.id}
                 img={item.productImg}
-                name={item.name}
+                name={item.productName}
                 price={item.price}
                 weight={item.weight}
                 antibiotics={item.isAntibioticFree}

@@ -31,11 +31,20 @@
   cursor: pointer;
 }
 
+.productInfo {
+  cursor: pointer;
+}
+
 .productName {
   font-size: 18px;
   width: 376px;
   height: 27px;
   margin: 16px 0px 0px 0px;
+}
+.productNum {
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
 }
 
 .price {

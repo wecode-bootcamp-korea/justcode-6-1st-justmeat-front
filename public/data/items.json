@@ -14,8 +14,8 @@
     },
     {
       "id": 2,
-      "categoryId": 1,
-      "name": "Chicken",
+      "categoryId": 2,
+      "productName": "Chicken",
       "price": 5000,
       "weight": 450,
       "productImg": "/images/kyle-mackie-MEnlQv-EQvY-unsplash.jpg",
@@ -27,7 +27,7 @@
     {
       "id": 3,
       "categoryId": 1,
-      "name": "Pork",
+      "productName": "Pork",
       "price": 9000,
       "weight": 300,
       "productImg": "/images/kyle-mackie-MEnlQv-EQvY-unsplash.jpg",
@@ -39,7 +39,7 @@
     {
       "id": 4,
       "categoryId": 3,
-      "name": "Beef",
+      "productName": "Beef",
       "price": 20000,
       "weight": 300,
       "productImg": "/images/kyle-mackie-MEnlQv-EQvY-unsplash.jpg",
@@ -51,7 +51,7 @@
     {
       "id": 5,
       "categoryId": 2,
-      "name": "Chicken",
+      "productName": "Chicken",
       "price": 5000,
       "weight": 450,
       "productImg": "/images/kyle-mackie-MEnlQv-EQvY-unsplash.jpg",
@@ -63,7 +63,7 @@
     {
       "id": 6,
       "categoryId": 2,
-      "name": "Pork",
+      "productName": "Pork",
       "price": 9000,
       "weight": 300,
       "productImg": "/images/kyle-mackie-MEnlQv-EQvY-unsplash.jpg",
