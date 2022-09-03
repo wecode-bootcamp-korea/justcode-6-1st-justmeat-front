@@ -62,22 +62,78 @@ function Register2nd() {
   // regPhoneNum, setRegPhoneNume
   const phoneNumBtnValidation = e => {
     // 숫자로 4자리씩 입력할 경우 통과
-    !isRegPhoneNumBtnDisabled
-      ? alert('인증번호가 발송되었습니다.')
-      : alert('전화번호 중복');
+    if (!isRegPhoneNumBtnDisabled) {
+      alert('인증번호가 발송되었습니다.');
+
+      // 인증번호 요청 API
+      fetch('http://localhost:10010/user/confirm', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          phone: '010' + regPhoneNum1 + regPhoneNum2, // 형식 확인
+        }),
+      })
+        .then(res => res.json())
+        .then(result => {
+          // console.log('=============인증번호 받기 버튼===============');
+          // console.log('phone:', '010' + regPhoneNum1 + regPhoneNum2);
+          console.log(result.message);
+          setRegCode(result.message);
+
+          // console.log('==========================================');
+        });
+    }
   };
 
   // 정보입력란 유효성 검사 함수
   const submitBtnValidation2 = e => {
-    if (regEmail && regPassword && regCheckPassword && regName && regCode) {
-      if (!regEmail.includes('@'))
-        alert(
-          `'@'과 '@'뒷 부분을 입력해주세요. '${regEmail}'(이)가 완전하지 않습니다.`
-        );
-      if (regPassword !== regCheckPassword) alert('비밀번호를 확인해주세요.');
-    } else {
-      alert('모든 정보를 입력해주세요.');
-    }
+    fetch('http://localhost:10010/user/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        email: regEmail,
+        password: regPassword,
+        pwconfirm: regCheckPassword,
+        name: regName,
+        phone: '010' + regPhoneNum1 + regPhoneNum2, // 형식 확인
+        verification: regCode,
+      }),
+    })
+      .then(res => res.json())
+      .then(result => {
+        // console.log('=============가입하기 버튼===============');
+        // console.log('email:', regEmail);
+        // console.log('pw:', regPassword);
+        // console.log('pw-confirm:', regCheckPassword);
+        // console.log('name:', regName);
+        // console.log('phone:', '010' + regPhoneNum1 + regPhoneNum2);
+        // console.log('verification:', regCode);
+        // console.log('--result--');
+        console.log(result);
+        // console.log('======================================');
+      });
+    //navigate('/home');
+
+    // password 10글자 이상
+    // email @만 포함
+
+    // if (regEmail && regPassword && regCheckPassword && regName && regCode) {
+    //   if (!regEmail.includes('@'))
+    //     alert(
+    //       `'@'과 '@'뒷 부분을 입력해주세요. '${regEmail}'(이)가 완전하지 않습니다.`
+    //     );
+    //   if (regPassword !== regCheckPassword) alert('비밀번호를 확인해주세요.');
+    // } else {
+    //   alert('모든 정보를 입력해주세요.');
+    // }
+    console.log('submit');
+    e.preventDefault();
   };
 
   return (

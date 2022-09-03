@@ -58,6 +58,11 @@
 }
 
 .sns-login-wrap {
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
   div {
     display: inline-table;
     vertical-align: middle;

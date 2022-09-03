@@ -58,22 +58,30 @@ function Login() {
 
   // main page 로 이동하는 함수
   const goToHome = e => {
-    fetch('http://localhost:10010/users/login', {
+    e.preventDefault();
+
+    fetch('http://localhost:10010/user/login', {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
       body: JSON.stringify({
         email: emailInput,
         password: pwInput,
       }),
     })
       .then(res => res.json())
-      .then(result => console.log(result));
-    e.preventDefault();
+      .then(result => {
+        console.log(emailInput, pwInput);
+        console.log(result);
+      });
     //navigate('/home');
   };
 
   // backend DB 등록 user
-  // email: 9hyun@gmail.com
-  // password: 9hyun
+  // email: tkdwk2889@naver.com
+  // password: qufqkqh2378
 
   return (
     // 전체 감싸는 div
