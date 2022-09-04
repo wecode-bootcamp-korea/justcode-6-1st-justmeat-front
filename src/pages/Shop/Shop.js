@@ -1,9 +1,9 @@
 import React from 'react';
-import Category from '../../components/ShopItems/Category';
-import ItemListBanner from './ItemListBanner';
-import ItemList from '../../components/ShopItems/ItemList';
+import Category from './Category/Category';
+import ItemListBanner from './ItemListBanner/ItemListBanner';
+import ItemList from '../../components/ItemList/ItemList';
 
-function ShopItems() {
+function Shop() {
   return (
     <div>
       <ItemListBanner />
@@ -13,4 +13,4 @@ function ShopItems() {
   );
 }
 
-export default ShopItems;
+export default Shop;

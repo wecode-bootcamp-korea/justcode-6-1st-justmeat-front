@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import Modal from '../ShopItems/Modal';
+import Modal from '../Modal/Modal';
 import './Items.scss';
 
 const Items = ({ img, name, price, weight, antibiotics, sales, stock }) => {

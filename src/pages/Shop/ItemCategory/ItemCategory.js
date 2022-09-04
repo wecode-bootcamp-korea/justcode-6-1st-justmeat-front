@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Category from './Category';
+import Category from '../Category/Category';
 import '/ItemCategory.scss';
 
 export default function ItemCategory() {
