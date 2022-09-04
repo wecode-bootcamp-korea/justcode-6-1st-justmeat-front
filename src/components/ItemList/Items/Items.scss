@@ -1,4 +1,4 @@
-.Items {
+.items {
   margin-right: 20px;
   padding: 0px 0px 0px 0px;
 }
@@ -7,6 +7,7 @@
   margin: 70px 0px 0px 40px;
   width: 276px;
   height: 276px;
+  border-radius: 5px;
 }
 
 .cartIcon {
@@ -23,7 +24,7 @@
   align-items: center;
 }
 
-.Item {
+.item {
   margin: 32px 0px 0px;
   width: 365px;
   height: 416px;
@@ -40,8 +41,10 @@
   width: 376px;
   height: 27px;
   margin: 16px 0px 0px 0px;
+  font-family: 'Noto Sans KR', sans-serif;
 }
-.productNum {
+
+.productAmount {
   display: flex;
   justify-content: space-between;
   font-size: 30px;
@@ -50,4 +53,5 @@
 .price {
   font-size: 16px;
   margin: 0px 0px 0px 0px;
+  font-family: 'Noto Sans KR', sans-serif;
 }

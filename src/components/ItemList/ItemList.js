@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Card from './Card';
 import Items from './Items';
-import Category from './Category';
 import './ItemList.scss';
 
 const ItemList = () => {
@@ -15,19 +13,8 @@ const ItemList = () => {
 
   return (
     <div>
-      <img
-        className="itemListBanner"
-        alt="고기사진"
-        src="/images/kyle-mackie-qgfjZUXup1M-unsplash.jpg"
-      />
-      <Card className="itemList">
-        <p className="itemCategory">
-          {items &&
-            items.map(item => (
-              <Category key={item.id} category={item.categoryId} />
-            ))}
-        </p>
-        <Card className="itemFlex">
+      <div className="itemList">
+        <div className="itemFlex">
           {items &&
             items.map(item => (
               <Items
@@ -41,8 +28,8 @@ const ItemList = () => {
                 stock={item.stock}
               />
             ))}
-        </Card>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 };

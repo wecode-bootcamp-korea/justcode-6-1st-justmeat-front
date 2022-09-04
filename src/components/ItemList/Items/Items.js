@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Card from './Card';
-import Modal from './Modal';
-import './BestItems.scss';
 
-const BestItems = ({ img, name, price, weight, antibiotics, sales, stock }) => {
+import Modal from '../ShopItems/Modal';
+import './Items.scss';
+
+const Items = ({ img, name, price, weight, antibiotics, sales, stock }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [count, setCount] = useState(1);
   const decrementCount = () => {
@@ -19,9 +19,9 @@ const BestItems = ({ img, name, price, weight, antibiotics, sales, stock }) => {
   };
 
   return (
-    <ul className="bestItems">
+    <ul className="items">
       <div>
-        <Card className="bestItem">
+        <div className="item">
           <img
             className="productImg"
             alt="고기사진"
@@ -38,14 +38,14 @@ const BestItems = ({ img, name, price, weight, antibiotics, sales, stock }) => {
               src="images/cart-icon.png"
             />
             <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-              <div className="productNum">
+              <div className="productAmount">
                 <button onClick={decrementCount}>-</button>
                 <span>{count}</span>
                 <button onClick={incrementCount}>+</button>
               </div>
             </Modal>
           </div>
-        </Card>
+        </div>
       </div>
       <div onClick={goToDetails} className="productInfo">
         <h6 className="productName">{name}</h6>
@@ -57,4 +57,4 @@ const BestItems = ({ img, name, price, weight, antibiotics, sales, stock }) => {
   );
 };
 
-export default BestItems;
+export default Items;
