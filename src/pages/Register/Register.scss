@@ -1,0 +1,63 @@
+.register-contain {
+}
+
+.register-content {
+  width: 780px;
+}
+
+.register-title {
+  font-size: 32px;
+  font-weight: 500;
+  margin-top: 100px;
+  text-align: center;
+}
+
+.register-status-element {
+  padding: 20px 0px;
+  background-color: rgb(246, 246, 246);
+
+  div {
+    margin-left: 15px;
+  }
+
+  .register-icon {
+    width: 55px;
+  }
+
+  .register-status-text {
+    font-size: 15px;
+    font-weight: bold;
+  }
+}
+
+.register-agree-title {
+  text-align: left;
+}
+
+.register-agree-content {
+  iframe {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 0px 0px 10px;
+  }
+}
+
+.register-btn-wrap {
+  margin-top: 30px;
+  button {
+    width: 50%;
+    height: 60px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border: 0;
+  }
+
+  .btn-previous {
+    background-color: gray;
+  }
+
+  .btn-submit {
+    background-color: black;
+  }
+}

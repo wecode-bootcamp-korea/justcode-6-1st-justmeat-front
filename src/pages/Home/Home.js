@@ -1,9 +1,6 @@
 import React from 'react';
+import './Home.scss';
 
-import css from './Home.module.scss';
-
-function Home() {
-  return <div className={css.container}></div>;
-}
+function Home() {}
 
 export default Home;
