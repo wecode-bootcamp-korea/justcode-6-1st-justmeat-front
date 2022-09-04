@@ -1,15 +1,15 @@
 import React from 'react';
 import './EventCard.scss';
 
-function EventCard({ mockData }) {
+function EventCard({ eventListData }) {
   return (
     <div className="event-wrap setting-center">
       <div className="event-img-wrap todo">
         <div className="event-tag setting-center">EVENT</div>
       </div>
       <div className="event-detail text-center">
-        <p className="event-detail-title">{mockData.title}</p>
-        <p className="event-detail-content">{mockData.content}</p>
+        <p className="event-detail-title">{eventListData.title}</p>
+        <p className="event-detail-content">{eventListData.content}</p>
       </div>
     </div>
   );
