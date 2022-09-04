@@ -1,0 +1,68 @@
+.register-2nd-title {
+  text-align: left;
+}
+
+.register-2nd-wrap {
+  .register-2nd-title {
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+}
+
+.register-2nd-input-wrap {
+  display: flex;
+  border-bottom: 1px solid rgb(214, 214, 214);
+}
+
+.register-2nd-content-wrap {
+  border: 1px solid rgb(214, 214, 214);
+}
+
+.register-2nd-input-type {
+  width: 180px;
+  height: 60px;
+  font-size: 13px;
+  background-color: rgb(246, 246, 246);
+  border-right: 1px solid rgb(214, 214, 214);
+}
+
+.register-2nd-input-content {
+  display: inline-flex;
+  width: 100%;
+
+  input {
+    width: 100%;
+    border: 1px solid rgb(214, 214, 214);
+    margin: 10px 100px 10px 20px;
+    padding-left: 20px;
+  }
+}
+
+.register-2nd-input-phone-content {
+  display: inline-flex;
+  width: 100%;
+
+  .phone-num {
+    width: 100px;
+    box-sizing: border-box;
+    margin: 10px 0px 10px 20px;
+    border: 1px solid rgb(214, 214, 214);
+  }
+
+  select,
+  input {
+    padding-left: 20px;
+  }
+
+  .phone-split {
+    line-height: 60px;
+    margin-left: 20px;
+  }
+
+  button {
+    margin-right: auto;
+    text-align: center;
+    color: black;
+    border: 0;
+  }
+}

@@ -4,6 +4,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './Home/Home';
 import Login from './Login/Login';
 import Signup from './Signup/Signup';
+import Register from './Register/Register';
+import Event from './Event/Event';
+import ReviewList from '../components/ReviewList/ReviewList';
 
 function Router() {
   return (
@@ -12,6 +15,10 @@ function Router() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/event" element={<Event />} />
+        <Route path="/review" element={<ReviewList />} />{' '}
+        {/*수정: /review << 페이지 아니고 컴포넌트*/}
       </Routes>
     </BrowserRouter>
   );
