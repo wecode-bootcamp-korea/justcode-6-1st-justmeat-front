@@ -4,7 +4,7 @@ import './EventCard.scss';
 function EventCard({ mockData }) {
   return (
     <div className="event-wrap setting-center">
-      <div className="event-img todo">
+      <div className="event-img-wrap todo">
         <div className="event-tag setting-center">EVENT</div>
       </div>
       <div className="event-detail text-center">
