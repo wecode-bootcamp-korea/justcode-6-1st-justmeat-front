@@ -4,39 +4,37 @@ import { useEffect, useState } from 'react';
 import CartPayment from './CartPayment/CartPayment';
 
 function Cart() {
-  const [cartList, setCartList] = useState([]);
+  const [cartListMockData, setCartListMockData] = useState([]);
   const [totalPayment, setTotalPayment] = useState(0);
   useEffect(() => {
     fetch('/data/CartList.json')
       .then(res => res.json())
       .then(data => {
-        setCartList(data.CartListData);
+        setCartListMockData(data.CartListData);
       });
   }, []);
 
-  const onChangeProps = (id, key, value) => {
-    setCartList(prevState => {
-      return prevState.map(obj => {
-        if (obj.id === id) {
-          return { ...obj, [key]: value };
-        } else {
-          return { ...obj };
-        }
-      });
-    });
+  const increaseProductPriceAndAmount = e => {
+    let copy = [...cartListMockData];
+
+    copy[e.target.id].productAmount = copy[e.target.id].productAmount + 1;
+    copy[e.target.id].paymentAmount =
+      copy[e.target.id].productAmount * copy[e.target.id].productPrice;
+    return setCartListMockData(copy);
+  };
+
+  const decreaseProductPriceAndAmount = e => {
+    let copy = [...cartListMockData];
+    copy[e.target.id].productAmount = copy[e.target.id].productAmount - 1;
+    copy[e.target.id].paymentAmount =
+      copy[e.target.id].productAmount * copy[e.target.id].productPrice;
+    return setCartListMockData(copy);
   };
 
   const deleteCartList = key => {
-    let copy = [...cartList];
+    let copy = [...cartListMockData];
     copy.splice(copy.id, 1);
-    setCartList(copy);
-  };
-
-  const totalPrice = () => {
-    for (let i = 0; i < cartList.length; i++) {
-      let add = cartList[0].paymentAmount + cartList[i].paymentAmount;
-      return setTotalPayment(add);
-    }
+    setCartListMockData(copy);
   };
 
   return (
@@ -49,21 +47,21 @@ function Cart() {
             <div className="cart-head-amount">수량</div>
             <div className="cart-head-price">가격</div>
           </div>
-          {cartList.map((cartList, i) => {
+          {cartListMockData.map(cartData => {
             return (
               <CartList
-                key={i}
-                cartListData={cartList}
-                onChangeProps={onChangeProps}
+                key={cartData.id}
+                id={cartData.id}
+                cartListData={cartData}
                 deleteCartList={deleteCartList}
+                increaseProductPriceAndAmount={increaseProductPriceAndAmount}
+                decreaseProductPriceAndAmount={decreaseProductPriceAndAmount}
               ></CartList>
             );
           })}
         </div>
         <CartPayment
-          cartList={cartList}
-          onChangeProps={onChangeProps}
-          totalPrice={totalPrice}
+          cartList={cartListMockData}
           totalPayment={totalPayment}
         ></CartPayment>
       </section>

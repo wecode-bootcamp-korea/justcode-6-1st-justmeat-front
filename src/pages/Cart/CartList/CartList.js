@@ -1,54 +1,21 @@
+import React from 'react';
 import './CartList.scss';
 
-function CartList({ cartListData, onChangeProps, key, deleteCartList }) {
-  // const [cartList, setCartList] = useState([]);
-  // useEffect(() => {
-  //   fetch("/data/CartList.json")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setCartList(data.CartListData);
-  //     });
-  // }, [cartList]);
-
-  const amountIncreaseHandler = event => {
-    onChangeProps(
-      cartListData.id,
-      'productAmount',
-      cartListData.productAmount + 1
-    );
-  };
-
-  const amountDecreaseHandler = event => {
-    onChangeProps(
-      cartListData.id,
-      'productAmount',
-      cartListData.productAmount - 1
-    );
-  };
-
+function CartList({
+  cartListData,
+  deleteCartList,
+  increaseProductPriceAndAmount,
+  decreaseProductPriceAndAmount,
+  id,
+}) {
   function activeMinusBtn() {
     if (cartListData.productAmount > 1) {
       return true;
     }
   }
 
-  const addPrice = () => {
-    onChangeProps(
-      cartListData.id,
-      'paymentAmount',
-      cartListData.productPrice * (cartListData.productAmount + 1)
-    );
-  };
-  const lowerPrice = () => {
-    onChangeProps(
-      cartListData.id,
-      'paymentAmount',
-      cartListData.productPrice * (cartListData.productAmount - 1)
-    );
-  };
-
   return (
-    <>
+    <div>
       <section className="cart-list-table">
         <div className="cart-list-container">
           <div className="cart-list-img-box">
@@ -70,10 +37,8 @@ function CartList({ cartListData, onChangeProps, key, deleteCartList }) {
           <div className="cart-list-amount-box">
             <div className="amount-minus">
               <button
-                onClick={() => {
-                  amountDecreaseHandler();
-                  lowerPrice();
-                }}
+                id={id}
+                onClick={decreaseProductPriceAndAmount}
                 disabled={!activeMinusBtn()}
               >
                 -
@@ -83,12 +48,7 @@ function CartList({ cartListData, onChangeProps, key, deleteCartList }) {
               <span>{cartListData.productAmount}</span>
             </div>
             <div className="amount-plus">
-              <button
-                onClick={() => {
-                  amountIncreaseHandler();
-                  addPrice();
-                }}
-              >
+              <button id={id} onClick={increaseProductPriceAndAmount}>
                 +
               </button>
             </div>
@@ -101,7 +61,7 @@ function CartList({ cartListData, onChangeProps, key, deleteCartList }) {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
 export default CartList;
