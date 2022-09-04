@@ -1,22 +1,22 @@
-import CartList from "./CartList/CartList";
-import "./Cart.scss";
-import { useEffect, useState } from "react";
-import CartPayment from "./CartPayment/CartPayment";
+import CartList from './CartList/CartList';
+import './Cart.scss';
+import { useEffect, useState } from 'react';
+import CartPayment from './CartPayment/CartPayment';
 
 function Cart() {
   const [cartList, setCartList] = useState([]);
   const [totalPayment, setTotalPayment] = useState(0);
   useEffect(() => {
-    fetch("/data/CartList.json")
-      .then((res) => res.json())
-      .then((data) => {
+    fetch('/data/CartList.json')
+      .then(res => res.json())
+      .then(data => {
         setCartList(data.CartListData);
       });
   }, []);
 
   const onChangeProps = (id, key, value) => {
-    setCartList((prevState) => {
-      return prevState.map((obj) => {
+    setCartList(prevState => {
+      return prevState.map(obj => {
         if (obj.id === id) {
           return { ...obj, [key]: value };
         } else {
@@ -26,9 +26,9 @@ function Cart() {
     });
   };
 
-  const deleteCartList = (key) => {
+  const deleteCartList = key => {
     let copy = [...cartList];
-    copy.splice(key, 1);
+    copy.splice(copy.id, 1);
     setCartList(copy);
   };
 

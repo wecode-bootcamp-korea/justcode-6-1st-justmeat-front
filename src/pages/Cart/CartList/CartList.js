@@ -1,4 +1,4 @@
-import "./CartList.scss";
+import './CartList.scss';
 
 function CartList({ cartListData, onChangeProps, key, deleteCartList }) {
   // const [cartList, setCartList] = useState([]);
@@ -10,18 +10,18 @@ function CartList({ cartListData, onChangeProps, key, deleteCartList }) {
   //     });
   // }, [cartList]);
 
-  const amountIncreaseHandler = (event) => {
+  const amountIncreaseHandler = event => {
     onChangeProps(
       cartListData.id,
-      "productAmount",
+      'productAmount',
       cartListData.productAmount + 1
     );
   };
 
-  const amountDecreaseHandler = (event) => {
+  const amountDecreaseHandler = event => {
     onChangeProps(
       cartListData.id,
-      "productAmount",
+      'productAmount',
       cartListData.productAmount - 1
     );
   };
@@ -35,14 +35,14 @@ function CartList({ cartListData, onChangeProps, key, deleteCartList }) {
   const addPrice = () => {
     onChangeProps(
       cartListData.id,
-      "paymentAmount",
+      'paymentAmount',
       cartListData.productPrice * (cartListData.productAmount + 1)
     );
   };
   const lowerPrice = () => {
     onChangeProps(
       cartListData.id,
-      "paymentAmount",
+      'paymentAmount',
       cartListData.productPrice * (cartListData.productAmount - 1)
     );
   };

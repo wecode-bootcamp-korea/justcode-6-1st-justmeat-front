@@ -1,4 +1,4 @@
-import "./CartPayment.scss";
+import './CartPayment.scss';
 
 function CartPayment({ cartList, onChangeProps, totalPrice, totalPayment }) {
   // const totalPrice = () => {
@@ -13,9 +13,7 @@ function CartPayment({ cartList, onChangeProps, totalPrice, totalPayment }) {
     <div className="cart-payment-container">
       <div className="cart-payment-total-payment">
         <p className="cart-item-payment-text">총 상품 금액</p>
-        <p className="cart-item-payment-price" onClick={totalPrice}>
-          {totalPayment}
-        </p>
+        <p className="cart-item-payment-price"></p>
       </div>
       <div className="cart-payment-total-delivery-fee">
         <p className="cart-item-payment-text">총 배송비</p>
