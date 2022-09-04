@@ -1,15 +1,19 @@
-.review-content {
-  display: flex;
-}
-
 .review-wrap {
   width: 980px;
   border: 2.5px solid rgb(223, 223, 223);
+  margin-bottom: 50px;
+}
+
+.review-detail-contain {
+  display: flex;
+  flex-direction: row;
 }
 
 .review-detail-wrap {
+  width: 100%;
   padding: 20px;
 }
+
 .review-detail-state-tag {
   font-size: 20px;
   font-weight: 800;
@@ -43,6 +47,11 @@
     color: gray;
     margin-left: auto;
   }
+}
+
+.review-detail-img-wrap {
+  width: 400px;
+  margin-left: auto;
 }
 
 .review-other-things-wrap {
