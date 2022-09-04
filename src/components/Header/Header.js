@@ -3,8 +3,7 @@ import { faBars, faCartShopping } from '@fortawesome/free-solid-svg-icons';
 // import { faCartShopping } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../Header/Header.scss';
-import Menumodal from './Menumodal.js';
-import { faL } from '@fortawesome/free-solid-svg-icons';
+import Menumodal from './Menumodal/Menumodal.js';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
