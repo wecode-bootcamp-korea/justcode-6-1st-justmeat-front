@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 // Components
@@ -17,6 +18,9 @@ function Login() {
   // loginButton 활성화 비활성화 state
   const [isDisabled, setisDisabled] = useState(true);
 
+  // login token
+  const [userToken, setUserToken] = useState('');
+
   // loginSuggestion props
   const suggestionText = ['login', '이 처음', '/signup', '회원가입하기'];
 
@@ -28,17 +32,17 @@ function Login() {
     setPwInput(e.target.value);
   };
 
-  // login API POST (email, password)
-  const [loginAPI, setloginAPI] = useState({
-    email: '',
-    password: 'password',
-  });
+  // // login API POST (email, password)
+  // const [loginAPI, setloginAPI] = useState({
+  //   email: '',
+  //   password: 'password',
+  // });
 
   // id, pw validation
   function pushValue() {
     switch (!(emailInput && pwInput)) {
       case false: // inpuID, inpuPW 에 값이 있는 경우
-        switch (!(emailInput.includes('@') && pwInput.length >= 10)) {
+        switch (!(emailInput.includes('@') && pwInput.length >= 8)) {
           case false: // id "@" 포함시 && pw 5글자 이상이면 loginButton 활성화
             setisDisabled(false);
             setBtnColor('black');
@@ -58,8 +62,6 @@ function Login() {
 
   // main page 로 이동하는 함수
   const goToHome = e => {
-    e.preventDefault();
-
     fetch('http://localhost:10010/user/login', {
       method: 'POST',
       headers: {
@@ -73,10 +75,17 @@ function Login() {
     })
       .then(res => res.json())
       .then(result => {
-        console.log(emailInput, pwInput);
         console.log(result);
+
+        if (result.message === 'LOGIN_SUCCESS') {
+          // setUserToken()
+          // navigate('/');
+          console.log('userToken: ', userToken);
+        } else if (result.message === 'NO USER') {
+          alert('등록되지 않은 사용자 입니다.');
+        }
       });
-    //navigate('/home');
+    e.preventDefault();
   };
 
   // backend DB 등록 user
