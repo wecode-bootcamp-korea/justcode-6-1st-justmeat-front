@@ -1,34 +1,60 @@
 {
   "EventListData": [
     {
-      "titleImg": "",
+      "id": 0,
+      "titleImg": "/images/fish.png",
       "title": "event title 1",
-      "content": "추석처럼 넉넉한 전상품 할인 쿠폰 4장!\n부담없이 추석 준비하세요"
+      "subtitle": "추석처럼 넉넉한 전상품 할인 쿠폰 4장!\n부담없이 추석 준비하세요",
+      "content": "a"
     },
     {
+      "id": 1,
       "titleImg": "",
       "title": "event title 2",
-      "content": "즐거운 일상의 변화 '초신선'을\n소중한 사람에게 알려주세요!"
+      "subtitle": "즐거운 일상의 변화 '초신선'을\n소중한 사람에게 알려주세요!",
+      "content": "b"
     },
     {
+      "id": 2,
       "titleImg": "",
       "title": "event title 3",
-      "content": "감사의 마음을 담은\n최고의 신선함"
+      "subtitle": "감사의 마음을 담은\n최고의 신선함",
+      "content": "c"
     },
     {
+      "id": 3,
       "titleImg": "",
       "title": "event title 4",
-      "content": "정육각 앱 설치하고\n초신선한 일상을 누려보세요!"
+      "subtitle": "정육각 앱 설치하고\n초신선한 일상을 누려보세요!",
+      "content": "d"
     },
     {
+      "id": 4,
       "titleImg": "",
       "title": "event title 5",
-      "content": "만족하신 마음을 담아\n상품 리뷰를 작성해주세요"
+      "subtitle": "만족하신 마음을 담아\n상품 리뷰를 작성해주세요",
+      "content": null
     },
     {
+      "id": 5,
       "titleImg": "",
       "title": "event title 6",
-      "content": "한번 배송비로\n4회 무료배송"
+      "subtitle": "한번 배송비로\n4회 무료배송",
+      "content": null
+    },
+    {
+      "id": 6,
+      "titleImg": "",
+      "title": "event title 5",
+      "subtitle": "만족하신 마음을 담아\n상품 리뷰를 작성해주세요",
+      "content": null
+    },
+    {
+      "id": 7,
+      "titleImg": "",
+      "title": "event title 6",
+      "subtitle": "한번 배송비로\n4회 무료배송",
+      "content": null
     }
   ]
 }

@@ -8,13 +8,6 @@ function Event() {
   // Event Data state value
   const [eventListMockData, setEventListMockData] = useState([]);
 
-  // 해당 DOM의 scrollLeft를 얻기 위해 useRef를 사용하여 DOM에 접근
-  const scrollRef = useRef(null);
-
-  // 마우스 클릭 슬라이드 이벤트를 위한 state value
-  const [isDrag, setIsDrag] = useState(false);
-  const [startX, setStartX] = useState();
-
   // Event mock data
   useEffect(() => {
     fetch('/data/EventList.json')
@@ -24,19 +17,35 @@ function Event() {
       });
   }, []);
 
-  // 드래그 시작 세팅
+  // {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //     Accept: 'application/json',
+  //   },
+  //   body: JSON.stringify({}),
+  // }
+
+  // 해당 DOM의 scrollLeft를 얻기 위해 useRef를 사용하여 DOM에 접근
+  const scrollRef = useRef(null);
+
+  // 마우스 클릭 슬라이드 이벤트를 위한 state value
+  const [isDrag, setIsDrag] = useState(false);
+  const [startX, setStartX] = useState();
+
+  // 드래그 시작 세팅  >> onMouseDown
   const onDragStart = e => {
     e.preventDefault();
     setIsDrag(true);
     setStartX(e.pageX + scrollRef.current.scrollLeft);
   };
 
-  // 드래그 종료 세팅
+  // 드래그 종료 세팅  >> onMouseUp, onMouseLeave
   const onDragEnd = () => {
     setIsDrag(false);
   };
 
-  // 드래그 중 마우스 x값 최신화
+  // 마우스 x값 최신화  >> onMouseMove
   const onDragMove = e => {
     if (isDrag) {
       const { scrollWidth, clientWidth, scrollLeft } = scrollRef.current;
@@ -62,8 +71,8 @@ function Event() {
         onMouseLeave={onDragEnd}
       >
         <div className="event-list-wrap">
-          {eventListMockData.map((data, index) => {
-            return <EventCard key={index} eventListData={data} />;
+          {eventListMockData.map(data => {
+            return <EventCard key={data.id} eventListData={data} />;
           })}
         </div>
       </div>

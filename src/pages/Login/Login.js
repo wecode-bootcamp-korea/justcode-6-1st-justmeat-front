@@ -20,6 +20,7 @@ function Login() {
 
   // login token
   const [userToken, setUserToken] = useState('');
+  const navigate = useNavigate();
 
   // loginSuggestion props
   const suggestionText = ['login', '이 처음', '/signup', '회원가입하기'];
@@ -78,15 +79,15 @@ function Login() {
         console.log(result);
 
         if (result.message === 'LOGIN_SUCCESS') {
-          // setUserToken()
+          setUserToken(result.token);
           // navigate('/');
-          console.log('userToken: ', userToken);
         } else if (result.message === 'NO USER') {
           alert('등록되지 않은 사용자 입니다.');
         }
       });
     e.preventDefault();
   };
+  console.log('userToken: ', userToken);
 
   // backend DB 등록 user
   // email: tkdwk2889@naver.com
@@ -111,6 +112,7 @@ function Login() {
         />
         {/* id pw 찾기  */}
         <LoginFind />
+        {}
         {/* SNS 간편 로그인  */}
         <SocailLogin type={'login'} title={'SNS 간편 로그인'} />
         {/* login to signup  */}
