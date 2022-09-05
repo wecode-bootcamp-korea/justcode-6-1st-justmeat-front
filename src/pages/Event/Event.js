@@ -10,21 +10,19 @@ function Event() {
 
   // Event mock data
   useEffect(() => {
-    fetch('/data/EventList.json')
+    fetch('http://localhost:10010/event', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      // body: JSON.stringify({}),
+    })
       .then(res => res.json())
       .then(data => {
-        setEventListMockData(data.EventListData);
+        setEventListMockData(data.itemData);
       });
   }, []);
-
-  // {
-  //   method: 'POST',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //     Accept: 'application/json',
-  //   },
-  //   body: JSON.stringify({}),
-  // }
 
   // 해당 DOM의 scrollLeft를 얻기 위해 useRef를 사용하여 DOM에 접근
   const scrollRef = useRef(null);
