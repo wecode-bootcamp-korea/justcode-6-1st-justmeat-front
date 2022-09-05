@@ -1,6 +1,13 @@
 import React from 'react';
-import './Home.scss';
+import BestItems from '../../components/BestItems/BestItems';
+import css from './Home.module.scss';
 
-function Home() {}
+function Home() {
+  return (
+    <div className={css.container}>
+      <BestItems />
+    </div>
+  );
+}
 
 export default Home;
