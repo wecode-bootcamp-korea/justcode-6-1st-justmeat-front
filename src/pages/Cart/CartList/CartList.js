@@ -56,7 +56,7 @@ function CartList({
           <div className="cart-list-price">
             <span>{cartListData.paymentAmount}원</span>
           </div>
-          <div className="cart-list-delete" onClick={deleteCartList}>
+          <div id={id} className="cart-list-delete" onClick={deleteCartList}>
             X
           </div>
         </div>

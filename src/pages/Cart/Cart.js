@@ -31,9 +31,9 @@ function Cart() {
     return setCartListMockData(copy);
   };
 
-  const deleteCartList = key => {
+  const deleteCartList = e => {
     let copy = [...cartListMockData];
-    copy.splice(copy.id, 1);
+    copy.splice(e.target.id, 1);
     setCartListMockData(copy);
   };
 
