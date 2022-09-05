@@ -4,7 +4,16 @@ import { useNavigate } from 'react-router-dom';
 import Modal from '../Modal/Modal';
 import './Items.scss';
 
-const Items = ({ img, name, price, weight, antibiotics, sales, stock }) => {
+const Items = ({
+  img,
+  name,
+  price,
+  weight,
+  category,
+  antibiotics,
+  sales,
+  stock,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [count, setCount] = useState(1);
   const decrementCount = () => {
@@ -39,9 +48,13 @@ const Items = ({ img, name, price, weight, antibiotics, sales, stock }) => {
             />
             <Modal open={isOpen} onClose={() => setIsOpen(false)}>
               <div className="productAmount">
-                <button onClick={decrementCount}>-</button>
+                <button className="minusBtn" onClick={decrementCount}>
+                  -
+                </button>
                 <span>{count}</span>
-                <button onClick={incrementCount}>+</button>
+                <button className="plusBtn" onClick={incrementCount}>
+                  +
+                </button>
               </div>
             </Modal>
           </div>
@@ -49,9 +62,26 @@ const Items = ({ img, name, price, weight, antibiotics, sales, stock }) => {
       </div>
       <div onClick={goToDetails} className="productInfo">
         <h6 className="productName">{name}</h6>
-        <p className="price">
-          기준가 {price}원/{weight}g
-        </p>
+        {(category === 1 ||
+          category === 2 ||
+          category === 3 ||
+          category === 4 ||
+          category === 5 ||
+          category === 8) && (
+          <p className="price">
+            기준가 {price}원/{weight}g
+          </p>
+        )}
+        {category === 6 && (
+          <p className="price">
+            기준가 {price}원/{weight}ml
+          </p>
+        )}
+        {category === 7 && (
+          <p className="price">
+            기준가 {price}원/{weight}구
+          </p>
+        )}
       </div>
     </ul>
   );

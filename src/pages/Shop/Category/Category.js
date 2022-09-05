@@ -1,11 +1,13 @@
 import React from 'react';
 import './Category.scss';
 
-const Category = ({ category }) => {
+const Category = props => {
+  const { categoryId, categoryName, changeCategory } = props;
+
   return (
     <div className="CategoryWrapper">
-      <div className="categories">
-        <span>{category}</span>
+      <div className="categories" id={categoryId} onClick={changeCategory}>
+        {categoryName}
       </div>
     </div>
   );
