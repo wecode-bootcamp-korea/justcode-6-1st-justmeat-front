@@ -21,7 +21,7 @@ function CartList({
           <div className="cart-list-img-box">
             <img
               className="cart-list-img"
-              src={cartListData.productImg}
+              src={cartListData.productImgMain}
               alt="초신선 무항생제 돼지 삼겹살 구이용"
             ></img>
           </div>
