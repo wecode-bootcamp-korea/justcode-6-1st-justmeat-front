@@ -4,8 +4,8 @@ import './CartList.scss';
 function CartList({
   cartListData,
   deleteCartList,
+  patchAmountIncrease,
   increaseProductPriceAndAmount,
-  decreaseProductPriceAndAmount,
   id,
 }) {
   function activeMinusBtn() {
@@ -38,7 +38,7 @@ function CartList({
             <div className="amount-minus">
               <button
                 id={id}
-                onClick={decreaseProductPriceAndAmount}
+                // onClick={patchAmount}
                 disabled={!activeMinusBtn()}
               >
                 -
@@ -48,7 +48,13 @@ function CartList({
               <span>{cartListData.productAmount}</span>
             </div>
             <div className="amount-plus">
-              <button id={id} onClick={increaseProductPriceAndAmount}>
+              <button
+                id={id - 1}
+                onClick={e => {
+                  increaseProductPriceAndAmount(e);
+                  patchAmountIncrease(e);
+                }}
+              >
                 +
               </button>
             </div>

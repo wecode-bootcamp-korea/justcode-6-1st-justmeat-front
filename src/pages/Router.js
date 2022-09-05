@@ -23,7 +23,7 @@ function Router() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/details" element={<ItemDetails />} />
         <Route path="/shop" element={<Shop />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/cart/:userId" element={<Cart />} />
         <Route path="/register" element={<Register />} />
         <Route path="/event" element={<Event />} />
         <Route path="/review" element={<ReviewList />} />{' '}
