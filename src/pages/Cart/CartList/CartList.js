@@ -70,7 +70,10 @@ function CartList({
           <div
             id={id}
             className="cart-list-delete"
-            onClick={deleteCartListData}
+            onClick={e => {
+              deleteCartList(e);
+              deleteCartListData(e);
+            }}
           >
             X
           </div>
