@@ -6,6 +6,8 @@ function CartList({
   deleteCartList,
   patchAmountIncrease,
   increaseProductPriceAndAmount,
+  decreaseProductPriceAndAmount,
+  deleteCartListData,
   id,
 }) {
   function activeMinusBtn() {
@@ -38,7 +40,10 @@ function CartList({
             <div className="amount-minus">
               <button
                 id={id}
-                // onClick={patchAmount}
+                onClick={e => {
+                  decreaseProductPriceAndAmount(e);
+                  patchAmountIncrease(e);
+                }}
                 disabled={!activeMinusBtn()}
               >
                 -
@@ -49,7 +54,7 @@ function CartList({
             </div>
             <div className="amount-plus">
               <button
-                id={id - 1}
+                id={id}
                 onClick={e => {
                   increaseProductPriceAndAmount(e);
                   patchAmountIncrease(e);
@@ -62,7 +67,11 @@ function CartList({
           <div className="cart-list-price">
             <span>{cartListData.paymentAmount}원</span>
           </div>
-          <div id={id} className="cart-list-delete" onClick={deleteCartList}>
+          <div
+            id={id}
+            className="cart-list-delete"
+            onClick={deleteCartListData}
+          >
             X
           </div>
         </div>

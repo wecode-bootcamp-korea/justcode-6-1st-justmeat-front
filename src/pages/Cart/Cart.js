@@ -9,11 +9,16 @@ import { faAppStoreIos } from '@fortawesome/free-brands-svg-icons';
 function Cart() {
   const [cartListMockData, setCartListMockData] = useState([]);
   const [totalPayment, setTotalPayment] = useState(0);
+
   let { pk } = useParams();
 
+  /*접속 user의 장바구니 데이터 서버에서 불러오기*/
   useEffect(() => {
-    fetch('http://localhost:10010/cart/3', {
+    fetch('http://localhost:10010/cart/1', {
       method: 'GET',
+      headers: {
+        Authorization: localStorage.getItem('access_token'),
+      },
     })
       .then(res => res.json())
       .then(data => {
@@ -21,12 +26,7 @@ function Cart() {
       });
   }, []);
 
-  // useEffect(() => {
-  //   axios.get('http://localhost:10010/cart/3').then(data => {
-  //     setCartListMockData(data.data);
-  //   });
-  // }, []);
-
+  /*접속 user의 장바구니 수량 및 가격 변경*/
   const increaseProductPriceAndAmount = e => {
     let copy = [...cartListMockData];
     console.log(e.target.id);
@@ -37,28 +37,15 @@ function Cart() {
     console.log(cartListMockData);
   };
 
-  // function patchAmountIncrease(e) {
-  //   // let copy = [...cartListMockData];
-  //   // copy[e.target.id].productAmount = copy[e.target.id].productAmount + 1;
-  //   // setCartListMockData(copy);
-
-  //   fetch('http://localhost:10010/cart', {
-  //     method: 'PATCH',
-  //     headers: { 'Content-type': 'application/json' },
-
-  //     body: JSON.stringify({
-  //       productId: cartListMockData[e.target.id].productId,
-  //       productAmount: cartListMockData[e.target.id].productAmount,
-  //     }),
-  //   }).then(res => {
-  //     return res.json();
-  //   });
-  // }
+  const decreaseProductPriceAndAmount = e => {
+    let copy = [...cartListMockData];
+    copy[e.target.id].productAmount = copy[e.target.id].productAmount - 1;
+    // copy[e.target.id].paymentAmount =
+    //   copy[e.target.id].productAmount * copy[e.target.id].productPrice;
+    return setCartListMockData(copy);
+  };
 
   function patchAmountIncrease(e) {
-    // let copy = [...cartListMockData];
-    // copy[e.target.id].productAmount = copy[e.target.id].productAmount + 1;
-    // setCartListMockData(copy);
     try {
       axios.patch('http://localhost:10010/cart', {
         userId: cartListMockData[e.target.id].userId,
@@ -77,29 +64,26 @@ function Cart() {
     }
   }
 
-  function deleteCartListData(pk) {
-    fetch('http://localhost:10010/cart/${pk}', {
-      method: 'DELETE',
-    })
-      .then(res => res.json())
-      .then(data => {
-        setCartListMockData(data.data);
-      });
+  /*접속 user의 장바구니 삭제*/
+  // const deleteCartList = e => {
+  //   let copy = [...cartListMockData];
+  //   copy.splice(e.target.id, 1);
+  //   setCartListMockData(copy);
+  // };
+  function deleteCartListData() {
+    try {
+      axios.delete('http://localhost:10010/cart/1');
+      console.log(cartListMockData);
+    } catch (err) {
+      if (err.response) {
+        console.log(err.response.data);
+        console.log(err.response.status);
+        console.log(err.response.headers);
+      } else {
+        console.log(`Error:${err.message}`);
+      }
+    }
   }
-
-  const decreaseProductPriceAndAmount = e => {
-    let copy = [...cartListMockData];
-    copy[e.target.id].productAmount = copy[e.target.id].productAmount - 1;
-    copy[e.target.id].paymentAmount =
-      copy[e.target.id].productAmount * copy[e.target.id].productPrice;
-    return setCartListMockData(copy);
-  };
-
-  const deleteCartList = e => {
-    let copy = [...cartListMockData];
-    copy.splice(e.target.id, 1);
-    setCartListMockData(copy);
-  };
 
   return (
     <div id="cart-wrapper">
@@ -111,15 +95,17 @@ function Cart() {
             <div className="cart-head-amount">수량</div>
             <div className="cart-head-price">가격</div>
           </div>
-          {cartListMockData.map(cartData => {
+          {cartListMockData.map((cartData, i) => {
             return (
               <CartList
-                key={cartData.id}
-                id={cartData.id}
+                key={i}
+                id={i}
                 cartListData={cartData}
-                deleteCartList={deleteCartList}
+                // deleteCartList={deleteCartList}
                 patchAmountIncrease={patchAmountIncrease}
                 increaseProductPriceAndAmount={increaseProductPriceAndAmount}
+                decreaseProductPriceAndAmount={decreaseProductPriceAndAmount}
+                deleteCartListData={deleteCartListData}
                 // decreaseProductPriceAndAmount={decreaseProductPriceAndAmount}
               ></CartList>
             );
