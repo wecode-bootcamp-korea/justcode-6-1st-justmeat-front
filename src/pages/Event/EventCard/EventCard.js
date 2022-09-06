@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './EventCard.scss';
 
 function EventCard({ eventListData }) {
@@ -17,31 +17,30 @@ function EventCard({ eventListData }) {
   }, [eventListData]);
 
   // go to event detail
-  const usenavigate = useNavigate();
+  const navigate = useNavigate();
   const goToEventDetail = e => {
-    console.log(e.target.className.split(' ')[1]);
-    console.log(e.target.id);
+    navigate(`/event/${e.target.id}`);
   };
 
   //opacity: 0.7;
 
   return (
     <div
-      className={`event-wrap ${eventListData.createdat} setting-center`}
+      className={`event-wrap setting-center`}
       id={eventListData.id}
       // value={eventListData.createdat}
       onClick={eventListData.content ? goToEventDetail : null} // content 가 null 이면 onClick 함수 x
       style={{ opacity: eventListData.content ? 1 : 0.3 }} // content 가 null 이면 불투명도 0.3
     >
       <div
-        className={`event-img-wrap ${eventListData.createdat} todo`}
+        className={`event-img-wrap todo`}
         id={eventListData.id}
         // value={eventListData.createdat}
         onClick={eventListData.content ? goToEventDetail : null}
         style={{ backgroundImage: `url(${eventListData.titleImg})` }}
       >
         <div
-          className={`event-tag ${eventListData.createdat} setting-center`}
+          className={`event-tag setting-center`}
           id={eventListData.id}
           // value={eventListData.createdat}
           onClick={eventListData.content ? goToEventDetail : null}
@@ -51,13 +50,13 @@ function EventCard({ eventListData }) {
         </div>
       </div>
       <div
-        className={`event-detail ${eventListData.createdat} text-center`}
+        className={`event-detail text-center`}
         id={eventListData.id}
         // value={eventListData.createdat}
         onClick={eventListData.content ? goToEventDetail : null}
       >
         <p
-          className={`event-detail-title ${eventListData.createdat}`}
+          className={`event-detail-title`}
           id={eventListData.id}
           // value={eventListData.createdat}
           onClick={eventListData.content ? goToEventDetail : null}
@@ -65,7 +64,7 @@ function EventCard({ eventListData }) {
           {eventListData.title}
         </p>
         <p
-          className={`event-detail-content ${eventListData.createdat}`}
+          className={`event-detail-content`}
           id={eventListData.id}
           // value={eventListData.createdat}
           onClick={eventListData.content ? goToEventDetail : null}

@@ -16,7 +16,6 @@ function Event() {
         'Content-Type': 'application/json',
         Accept: 'application/json',
       },
-      // body: JSON.stringify({}),
     })
       .then(res => res.json())
       .then(data => {
