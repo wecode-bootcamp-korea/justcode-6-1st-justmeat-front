@@ -1,3 +1,161 @@
-.event-detail-contain {
+.eventdetail-contain {
   margin-top: 50px;
+}
+
+.eventdetail-content-wrap {
+  width: 780px;
+}
+
+.eventdtail-title-wrap {
+  padding: 140px 40px 20px 100px;
+  background-color: rgb(253, 247, 239);
+}
+
+.eventdtail-subtitle {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.eventdetail-coupon-wrap {
+  padding-top: 100px;
+  background-color: rgb(235, 235, 235);
+}
+
+.eventdtail-title {
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(47, 47, 108);
+  margin: 10px 0px;
+}
+
+.eventdtail-coupon-title {
+  font-size: 25px;
+  font-weight: bold;
+  color: rgb(47, 47, 108);
+  margin: 5px 0px;
+}
+
+.eventdetail-coupons-wrap {
+  flex-wrap: wrap;
+  width: 400px;
+  margin: 10px auto;
+
+  .eventdetail-coupons {
+    width: 180px;
+    font-weight: bold;
+    padding: 20px 10px;
+    margin: 5px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid rgb(224, 224, 224);
+
+    .a {
+      color: rgb(38, 75, 99);
+    }
+
+    .b {
+      font-size: 30px;
+      margin: 10px 5px;
+    }
+  }
+}
+
+.eventdetail-download-wrap {
+  flex-direction: column;
+  margin-top: 30px;
+
+  .eventdetail-download {
+    padding: 20px 100px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(47, 47, 108);
+    border-radius: 10px;
+  }
+
+  .eventdetail-download-text {
+    font-size: 14px;
+    margin: 20px 0px;
+    color: gray;
+  }
+}
+
+.eventdetail-suggestion-wrap {
+  flex-direction: column;
+  padding-top: 100px;
+  background-color: rgb(223, 206, 206);
+}
+
+.eventdetail-suggestion-card {
+  display: flex;
+  margin-top: 20px;
+
+  .img {
+    width: 300px;
+    img {
+      width: 300px;
+      height: 260px;
+    }
+  }
+
+  .card-detail {
+    padding: 45px 30px 20px 30px;
+    background-color: white;
+  }
+}
+
+.eventdetail-suggestion-card-detail-card {
+  display: flex;
+  padding: 5px;
+  margin-top: 20px;
+  border: 1px solid rgb(224, 224, 224);
+  border-radius: 10px;
+  .img {
+    width: 100px;
+    height: 100px;
+    margin-right: 15px;
+  }
+  .cart {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    margin: auto 10px auto 30px;
+    background-color: rgb(172, 172, 216);
+
+    img {
+      width: 20px;
+    }
+  }
+}
+.card-detail-text {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+
+  .title {
+    color: gray;
+  }
+  .subtitle {
+    font-size: 20px;
+  }
+  .detail1 {
+    margin-top: 15px;
+  }
+  .weight {
+    font-size: 12px;
+    color: gray;
+  }
+  .price {
+    font-size: 20px;
+    color: rgb(65, 65, 133);
+    margin-top: 10px;
+  }
+}
+
+.eventdetail-suggestion-more {
+  margin: 50px 0px 100px 0px;
+  padding: 20px 100px;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(47, 47, 108);
+  border-radius: 10px;
 }

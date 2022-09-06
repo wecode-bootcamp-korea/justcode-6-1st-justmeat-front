@@ -27,7 +27,8 @@ function Router() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/register" element={<Register />} />
         <Route path="/event" element={<Event />} />
-        <Route path="/event/:id" element={<EventDetail />} />
+        {/* <Route path="/event/:id" element={<EventDetail />} /> */}
+        <Route path="/eventdetail" element={<EventDetail />} />
         <Route path="/review" element={<ReviewList />} />
         {/*수정: /review << 페이지 아니고 컴포넌트*/}
         {/* <Route path="event/" */}
