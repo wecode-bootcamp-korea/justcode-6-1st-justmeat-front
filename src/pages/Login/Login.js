@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 // Components
@@ -17,6 +18,11 @@ function Login() {
   // loginButton 활성화 비활성화 state
   const [isDisabled, setisDisabled] = useState(true);
 
+  // login token
+  // const [userToken, setUserToken] = useState('');
+  // const [userPk, setUserPk] = useState('');
+  // const navigate = useNavigate();
+
   // loginSuggestion props
   const suggestionText = ['login', '이 처음', '/signup', '회원가입하기'];
 
@@ -28,17 +34,11 @@ function Login() {
     setPwInput(e.target.value);
   };
 
-  // login API POST (email, password)
-  const [loginAPI, setloginAPI] = useState({
-    email: '',
-    password: 'password',
-  });
-
   // id, pw validation
   function pushValue() {
     switch (!(emailInput && pwInput)) {
       case false: // inpuID, inpuPW 에 값이 있는 경우
-        switch (!(emailInput.includes('@') && pwInput.length >= 10)) {
+        switch (!(emailInput.includes('@') && pwInput.length >= 8)) {
           case false: // id "@" 포함시 && pw 5글자 이상이면 loginButton 활성화
             setisDisabled(false);
             setBtnColor('black');
@@ -58,8 +58,6 @@ function Login() {
 
   // main page 로 이동하는 함수
   const goToHome = e => {
-    e.preventDefault();
-
     fetch('http://localhost:10010/user/login', {
       method: 'POST',
       headers: {
@@ -73,10 +71,18 @@ function Login() {
     })
       .then(res => res.json())
       .then(result => {
-        console.log(emailInput, pwInput);
         console.log(result);
+        if (result.message === 'LOGIN_SUCCESS') {
+          console.log(result.token.accessToken);
+          localStorage.setItem('accessToken', result.token.accessToken); //  token
+          localStorage.setItem('user_pk', result.token.user_pk); // id
+
+          // navigate('/');
+        } else if (result.message === 'NO USER') {
+          alert('등록되지 않은 사용자 입니다.');
+        }
       });
-    //navigate('/home');
+    e.preventDefault();
   };
 
   // backend DB 등록 user
@@ -102,6 +108,7 @@ function Login() {
         />
         {/* id pw 찾기  */}
         <LoginFind />
+        {}
         {/* SNS 간편 로그인  */}
         <SocailLogin type={'login'} title={'SNS 간편 로그인'} />
         {/* login to signup  */}

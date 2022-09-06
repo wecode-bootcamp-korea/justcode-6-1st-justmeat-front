@@ -1,0 +1,69 @@
+{
+  "ReviewListData": [
+    {
+      "id": 0,
+      "productName": "초신선 돼지 삼겹살 구이용",
+      "productOption": "보통(16mm)",
+      "productAmount": 1,
+      "함께구매상품": "초신선 돼지고기 x 1 / 수신선 소고기 x 2",
+      "name": "*현",
+      "title": "좋아요",
+      "content": "너무 신선해요 맛있어요",
+      "stock": 10,
+      "createdAt": "2022-09-03",
+      "reviewImg": ""
+    },
+    {
+      "id": 1,
+      "productName": "초신선 돼지 삼겹살 구이용",
+      "productOption": "보통(16mm)",
+      "productAmount": 1,
+      "함께구매상품": "초신선 돼지고기 x 1 / 수신선 소고기 x 1",
+      "name": "정*영",
+      "title": "굿",
+      "content": "초신선 삼겹살 굿굿 ~~",
+      "stock": 9,
+      "createdAt": "2022-09-02",
+      "reviewImg": ""
+    },
+    {
+      "id": 2,
+      "productName": "초신선 돼지 삼겹살 구이용",
+      "productOption": "얇게(11mm)",
+      "productAmount": 2,
+      "함께구매상품": "초신선 돼지고기 x 2 / 초신선 달걀 x 1",
+      "name": "오*환",
+      "title": "맛나네요",
+      "content": "구이용으로 수육해먹어도 좋네요 큰 덩어리보다 빨리익고 썰기도 편해요 ㅎ",
+      "stock": 18,
+      "createdAt": "2022-08-30",
+      "reviewImg": ""
+    },
+    {
+      "id": 3,
+      "productName": "초신선 돼지 삼겹살 구이용",
+      "productOption": "두껍(24mm)",
+      "productAmount": 1,
+      "함께구매상품": "초신선 돼지고기 x 1 / 수신선 소고기 x 4",
+      "name": "박*호",
+      "title": "아주 좋아요.",
+      "content": "맛잇습미다 맛나여 초ㅒ고",
+      "stock": 21,
+      "createdAt": "2022-08-13",
+      "reviewImg": ""
+    },
+    {
+      "id": 4,
+      "productName": "초신선 돼지 삼겹살 구이용",
+      "productOption": "보통(16mm)",
+      "productAmount": 1,
+      "함께구매상품": "초신선 돼지고기 x 1 / 초신선 이유식 x 1",
+      "name": "이*연",
+      "title": "존맛탱~",
+      "content": "포장도 꼼꼼하고 신선한 상태로 잘 도착해서 맛나게 먹었습니다\n다음에 또 주문할게요",
+      "stock": 11,
+      "createdAt": "2022-08-08",
+      "reviewImg": ""
+    }
+  ]
+}
