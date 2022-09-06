@@ -12,6 +12,7 @@ import Footer from '../components/Footer/Footer';
 import Register from './Register/Register';
 import Event from './Event/Event';
 import ReviewList from '../components/ReviewList/ReviewList';
+import EventDetail from './Event/EventDetail/EventDetail';
 
 function Router() {
   return (
@@ -26,8 +27,10 @@ function Router() {
         <Route path="/cart/:userId" element={<Cart />} />
         <Route path="/register" element={<Register />} />
         <Route path="/event" element={<Event />} />
-        <Route path="/review" element={<ReviewList />} />{' '}
+        <Route path="/event/:id" element={<EventDetail />} />
+        <Route path="/review" element={<ReviewList />} />
         {/*수정: /review << 페이지 아니고 컴포넌트*/}
+        {/* <Route path="event/" */}
       </Routes>
       <Footer />
     </BrowserRouter>

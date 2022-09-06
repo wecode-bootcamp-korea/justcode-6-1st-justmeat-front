@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import RegisterButton from '../RegisterButton/RegisterButton';
 import RegisterInput from '../RegisterInput/RegisterInput';
 import './Register2nd.scss';
@@ -19,6 +20,9 @@ function Register2nd() {
   const [regPhoneBtnBackColor, setRegPhoneBtnBackColor] =
     useState('rgb(246, 246, 246)');
   const [regPhoneBtnTextColor, setRegPhoneBtnTextColor] = useState('black');
+
+  // useNavigate
+  const navigate = useNavigate();
 
   // 정보입력란 type, content, handler
   const registerData = [
@@ -68,30 +72,29 @@ function Register2nd() {
 
   // regPhoneNum, setRegPhoneNume
   const phoneNumBtnValidation = e => {
-    // 숫자로 4자리씩 입력할 경우 통과
-    if (!isRegPhoneNumBtnDisabled) {
-      alert('인증번호가 발송되었습니다.');
-
-      // 인증번호 요청 API
-      fetch('http://localhost:10010/user/confirm', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          phone: regPhoneNum0 + regPhoneNum1 + regPhoneNum2,
-        }),
-      })
-        .then(res => res.json())
-        .then(result => {
-          // console.log('=============인증번호 받기 버튼===============');
-          // console.log('phone:', '010' + regPhoneNum1 + regPhoneNum2);
+    // 인증번호 요청 API
+    fetch('http://localhost:10010/user/confirm', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        phone: regPhoneNum0 + regPhoneNum1 + regPhoneNum2,
+      }),
+    })
+      .then(res => res.json())
+      .then(result => {
+        if (result.message === '존재하는 핸드폰 번호 입니다') {
+          alert(result.message);
+          setRegPhoneNum0('');
+          setRegPhoneNum1('');
+          setRegPhoneNum2('');
+        } else {
+          alert('인증번호를 발송하였습니다.');
           setRegCode(result.message);
-
-          // console.log('==========================================');
-        });
-    }
+        }
+      });
   };
 
   // 정보입력란 유효성 검사 함수
@@ -113,6 +116,7 @@ function Register2nd() {
     })
       .then(res => res.json())
       .then(result => {
+        console.log(result);
         // console.log('=============가입하기 버튼===============');
         // console.log('email:', regEmail);
         // console.log('pw:', regPassword);
@@ -123,22 +127,36 @@ function Register2nd() {
         // console.log('--result--');
         // console.log(result);
         // console.log('======================================');
+        if (regEmail || regPassword || regCheckPassword || regName || regCode) {
+          if (result.message === 'Not Found email') {
+            alert('email 이/가 없습니다.');
+          } else if (result.message === 'Not Found password') {
+            alert('password 이/가 없습니다.');
+          } else if (result.message === 'Not Found pwconfirm') {
+            alert('pwconfirm 이/가 없습니다.');
+          } else if (result.message === 'Not Found name') {
+            alert('name 이/가 없습니다.');
+          } else if (result.message === 'Not Found phone') {
+            alert('phone 이/가 없습니다.');
+          } else if (result.message === 'Not Found verification') {
+            alert('verification 이/가 없습니다.');
+          } else if (result.message === 'Password_INVALID') {
+            alert('비밀번호 10글자 이상');
+          } else if (result.message === 'Different_Password') {
+            alert('비밀번호 두개 다름');
+          } else if (result.message === 'userCreated') {
+            alert('회원가입이 완료되었습니다.');
+            navigate('/');
+          }
+        } else {
+          alert('모든 정보를 입력해주세요.');
+        }
       });
     //navigate('/home');
 
     // password 10글자 이상
     // email @만 포함
 
-    // if (regEmail && regPassword && regCheckPassword && regName && regCode) {
-    //   if (!regEmail.includes('@'))
-    //     alert(
-    //       `'@'과 '@'뒷 부분을 입력해주세요. '${regEmail}'(이)가 완전하지 않습니다.`
-    //     );
-    //   if (regPassword !== regCheckPassword) alert('비밀번호를 확인해주세요.');
-    // } else {
-    //   alert('모든 정보를 입력해주세요.');
-    // }
-    console.log('submit');
     e.preventDefault();
   };
 
