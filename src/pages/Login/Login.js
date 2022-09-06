@@ -19,8 +19,9 @@ function Login() {
   const [isDisabled, setisDisabled] = useState(true);
 
   // login token
-  const [userToken, setUserToken] = useState('');
-  const navigate = useNavigate();
+  // const [userToken, setUserToken] = useState('');
+  // const [userPk, setUserPk] = useState('');
+  // const navigate = useNavigate();
 
   // loginSuggestion props
   const suggestionText = ['login', '이 처음', '/signup', '회원가입하기'];
@@ -32,12 +33,6 @@ function Login() {
   const handlePwInput = e => {
     setPwInput(e.target.value);
   };
-
-  // // login API POST (email, password)
-  // const [loginAPI, setloginAPI] = useState({
-  //   email: '',
-  //   password: 'password',
-  // });
 
   // id, pw validation
   function pushValue() {
@@ -77,9 +72,11 @@ function Login() {
       .then(res => res.json())
       .then(result => {
         console.log(result);
-
         if (result.message === 'LOGIN_SUCCESS') {
-          setUserToken(result.token);
+          console.log(result.token.accessToken);
+          localStorage.setItem('accessToken', result.token.accessToken); //  token
+          localStorage.setItem('user_pk', result.token.user_pk); // id
+
           // navigate('/');
         } else if (result.message === 'NO USER') {
           alert('등록되지 않은 사용자 입니다.');
@@ -87,7 +84,6 @@ function Login() {
       });
     e.preventDefault();
   };
-  console.log('userToken: ', userToken);
 
   // backend DB 등록 user
   // email: tkdwk2889@naver.com
