@@ -79,33 +79,6 @@ function Cart() {
     copy.splice(e.target.id, 1);
     setCartListMockData(copy);
   };
-  // function deleteCartListData(e) {
-  //   // setCartId(cartListMockData[e.target.id].cartId);
-  //   try {
-  //     axios.delete(
-  //       `http://localhost:10010/cart/${localStorage.getItem('user_pk')}`,
-  //       {
-  //         // userId: cartListMockData[e.target.id].userId,
-  //         productId: cartListMockData[e.target.id].productId,
-  //         productAmount: cartListMockData[e.target.id].productAmount,
-  //       },
-  //       {
-  //         headers: {
-  //           Authorization: localStorage.getItem('accessToken'),
-  //         },
-  //       }
-  //     );
-  //     console.log(cartListMockData);
-  //   } catch (err) {
-  //     if (err.response) {
-  //       console.log(err.response.data);
-  //       console.log(err.response.status);
-  //       console.log(err.response.headers);
-  //     } else {
-  //       console.log(`Error:${err.message}`);
-  //     }
-  //   }
-  // }
 
   function deleteCartListData(e) {
     fetch('http://localhost:10010/cart/29', {
