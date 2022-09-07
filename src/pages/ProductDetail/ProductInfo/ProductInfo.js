@@ -3,6 +3,7 @@ import './ProductInfo.scss';
 
 function ProductInfo(props) {
   const { productInfo } = props;
+  console.log(productInfo);
 
   return (
     <>

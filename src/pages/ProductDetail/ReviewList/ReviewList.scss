@@ -18,7 +18,7 @@
   padding: 20px;
 }
 
-.review-detail-state-tag {
+.review-detail-title {
   font-size: 20px;
   font-weight: 800;
 }
@@ -63,7 +63,7 @@
   }
 }
 
-.review-other-things-wrap {
+.review-purchase-record-wrap {
   display: flex;
   border-top: 2.5px solid rgb(223, 223, 223);
   color: gray;
@@ -76,8 +76,8 @@
     border-right: 2.5px solid rgb(223, 223, 223);
   }
 
-  li {
+  span {
     list-style: none;
-    padding: 5px 30px;
+    padding: 5px 20px;
   }
 }
