@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './ProductDesc.scss';
 
@@ -11,13 +11,25 @@ export default function ProductDesc({
   category,
   decrementCount,
   incrementCount,
-  productId,
+  productCount,
 }) {
+  // useEffect(() => {
+  //   fetch(`http://localhost:10010/product/`, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       Accept: 'application/json',
+  //     },
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => setShopItems(data.itemData));
+  // }, []);
+
   return (
     <div className="product-desc-contain setting-center">
       <div className="product-desc-product-img-wrapper">
         <img
-          src={img}
+          src="{img}"
           alt="고기사진"
           className="product-desc-product-img"
         ></img>
@@ -55,7 +67,7 @@ export default function ProductDesc({
         {category === 7 && (
           <div>
             <p className="product-desc-product-detail">
-              {weight}rn당 {price}원
+              {weight}구당 {price}원
             </p>
             <p className="product-desc-price">
               기준가 {price}원/{weight}구
@@ -82,7 +94,7 @@ export default function ProductDesc({
               >
                 -
               </button>
-              <span>{productId}</span>
+              <div className="product-desc-count">{productCount}</div>
               <button
                 className="product-desc-plus-btn"
                 onClick={incrementCount}

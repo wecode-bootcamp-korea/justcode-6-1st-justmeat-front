@@ -7,7 +7,7 @@ export default function BestItems() {
   const [items, setItems] = useState();
 
   useEffect(() => {
-    fetch('http://localhost:10010/product/')
+    fetch('/Data/items.json')
       .then(res => res.json())
       .then(data => setItems(data.itemData));
   }, []);
