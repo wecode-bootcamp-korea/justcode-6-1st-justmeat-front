@@ -7,7 +7,10 @@ function ReviewCard({ reviewListData }) {
       <div className="review-detail-contain">
         <div className="review-detail-wrap">
           <div className="review-detail-state-tag">{reviewListData.title}</div>
-          <div className="review-detail-comment">
+          <div
+            className="review-detail-comment"
+            style={{ height: reviewListData.reviewImg ? '80%' : '180px' }}
+          >
             <span>{reviewListData.content}</span>
           </div>
           <div className="review-detail-user-info">
@@ -18,22 +21,19 @@ function ReviewCard({ reviewListData }) {
               {reviewListData.stock}회 구매
             </span>
             <span className="review-detail-createdAt">
-              {reviewListData.createdAt}
+              {reviewListData.createdAt.substr(0, 10)}
             </span>
           </div>
         </div>
         {reviewListData.reviewImg && (
-          <div className="review-detail-img-wrap todo">
+          <div className="review-detail-img-wrap">
             <img src={reviewListData.reviewImg} alt="review-img" />
           </div>
         )}
       </div>
       <div className="review-other-things-wrap">
-        <ul>
-          함께 구매하신 상품 (
-          {reviewListData.productAmount + reviewListData.함께구매상품.length})
-        </ul>
-        <li>{reviewListData.함께구매상품}</li>
+        <ul>함께 구매하신 상품 ()</ul>
+        <li>hi</li>
       </div>
     </article>
   );

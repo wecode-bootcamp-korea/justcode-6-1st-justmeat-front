@@ -1,26 +1,36 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import ReviewCard from './ReviewCard/ReviewCard';
 import './ReviewList.scss';
 
-function ReviewList() {
+function ReviewList({ productInfo }) {
   // ReviewList state value
-  const [reviewListMockData, setReviewListMockData] = useState([]);
+  const [reviewListData, setReviewListData] = useState([]);
+
+  const params = useParams();
+  const productId = params.id;
 
   // ReviewList MockData
   useEffect(() => {
-    fetch('/data/ReviewList.json')
+    fetch(`http://localhost:10010/product/review/${productId}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    })
       .then(res => res.json())
       .then(data => {
-        setReviewListMockData(data.ReviewListData);
+        console.log(data);
+        setReviewListData(data.itemData);
       });
   }, []);
 
   return (
     <div className="review-list-container setting-center">
-      {/* <section> 상품설명, 상품리뷰, 상품정보안내 menu bar */}
       <section className="review-list-content">
         <div className="review-list-wrap">
-          {reviewListMockData.map((data, index) => {
+          {reviewListData.map((data, index) => {
             return <ReviewCard key={index} reviewListData={data} />;
           })}
         </div>

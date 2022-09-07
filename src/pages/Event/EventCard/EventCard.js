@@ -28,21 +28,18 @@ function EventCard({ eventListData }) {
     <div
       className={`event-wrap setting-center`}
       id={eventListData.id}
-      // value={eventListData.createdat}
       onClick={eventListData.content ? goToEventDetail : null} // content 가 null 이면 onClick 함수 x
       style={{ opacity: eventListData.content ? 1 : 0.3 }} // content 가 null 이면 불투명도 0.3
     >
       <div
-        className={`event-img-wrap todo`}
+        className={`event-img-wrap`}
         id={eventListData.id}
-        // value={eventListData.createdat}
         onClick={eventListData.content ? goToEventDetail : null}
         style={{ backgroundImage: `url(${eventListData.titleImg})` }}
       >
         <div
           className={`event-tag setting-center`}
           id={eventListData.id}
-          // value={eventListData.createdat}
           onClick={eventListData.content ? goToEventDetail : null}
           style={{ backgroundColor: randomColor }}
         >
@@ -52,13 +49,11 @@ function EventCard({ eventListData }) {
       <div
         className={`event-detail text-center`}
         id={eventListData.id}
-        // value={eventListData.createdat}
         onClick={eventListData.content ? goToEventDetail : null}
       >
         <p
           className={`event-detail-title`}
           id={eventListData.id}
-          // value={eventListData.createdat}
           onClick={eventListData.content ? goToEventDetail : null}
         >
           {eventListData.title}
@@ -66,7 +61,6 @@ function EventCard({ eventListData }) {
         <p
           className={`event-detail-content`}
           id={eventListData.id}
-          // value={eventListData.createdat}
           onClick={eventListData.content ? goToEventDetail : null}
         >
           {eventListData.subtitle}

@@ -22,14 +22,20 @@ function EventDetail() {
       .then(data => {
         data.result.map(eventInfo => {
           setEventDetailContent(eventInfo.content);
+          console.log(eventInfo.content);
         });
       });
   }, [params.id]);
 
   return (
-    <div className="event-detail-contain">
-      <div className="event-detail-wrap">
-        <span dangerouslySetInnerHTML={{ __html: eventDetailContent }}></span>
+    <div className="eventdetail-contain setting-center">
+      <div className="eventdetail-content-wrap">
+        <img
+          className="eventdetail-content"
+          src={eventDetailContent}
+          alt="event content img"
+        />
+        {/* <img src="/images/content1.png" alt="content img" /> */}
       </div>
     </div>
   );

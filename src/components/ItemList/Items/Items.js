@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import Modal from '../Modal/Modal';
 import './Items.scss';
@@ -23,9 +23,12 @@ const Items = ({
   const incrementCount = () => {
     setCount(prevCount => prevCount + 1);
   };
+
+  const location = useLocation();
+
   const navigate = useNavigate();
   const goToDetails = e => {
-    navigate(`/product?id=${e.target.id}`);
+    navigate(`/product/${e.target.id}`);
   };
 
   return (
