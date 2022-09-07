@@ -2,14 +2,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faX } from '@fortawesome/free-solid-svg-icons';
 import './Menumodal.scss';
 
-function Menumodal({ menuOpen, setMenuOpen }) {
+function Menumodal({ menuOpen, setMenuOpen, logoutButtonClick }) {
   return (
     <div className={menuOpen ? 'activate' : 'before-activate'}>
       <section className="menu-wrapper">
         <div className="menu-header">
           <div className="menu-title">메뉴</div>
           <div className="menu-header-icon-box">
-            <div className="menu-header-logout">로그아웃</div>
+            {localStorage.getItem('accessToken') !== null ? (
+              <div className="menu-header-logout" onClick={logoutButtonClick}>
+                로그아웃
+              </div>
+            ) : null}
+
             <FontAwesomeIcon
               icon={faCartShopping}
               className="menu-cart-icon"

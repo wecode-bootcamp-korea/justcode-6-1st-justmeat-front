@@ -8,6 +8,10 @@ import Menumodal from './Menumodal/Menumodal.js';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  console.log(localStorage.getItem('accessToken'));
+  const logoutButtonClick = () => {
+    localStorage.removeItem('accessToken');
+  };
 
   return (
     <>
@@ -44,7 +48,8 @@ function Header() {
               <li>고객센터</li>
             </ul>
             <div className="navigation-submenu-split"></div>
-            {localStorage.getItem('user_pk') !== undefined ? (
+
+            {localStorage.getItem('accessToken') !== null ? (
               <div>
                 <Link to="/sale/localStorage.getItem('user_pk')">
                   <span className="navigation-mypage">마이페이지</span>
@@ -60,7 +65,6 @@ function Header() {
                 </Link>
               </ul>
             )}
-
             <div className="navigation-icons">
               <FontAwesomeIcon
                 className="navigation-cart"
@@ -77,7 +81,11 @@ function Header() {
           </div>
         </div>
       </header>
-      <Menumodal menuOpen={menuOpen} setMenuOpen={setMenuOpen}></Menumodal>
+      <Menumodal
+        logoutButtonClick={logoutButtonClick}
+        menuOpen={menuOpen}
+        setMenuOpen={setMenuOpen}
+      ></Menumodal>
     </>
   );
 }

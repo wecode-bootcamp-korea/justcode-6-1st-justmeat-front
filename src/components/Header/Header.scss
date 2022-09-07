@@ -25,6 +25,7 @@ header {
   width: 100%;
   background-color: $theme-color;
   position: fixed;
+  z-index: 1;
   top: 0%;
 
   .navigation-container {
