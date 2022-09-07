@@ -85,11 +85,15 @@
 }
 
 .product-desc-info {
-  font-size: 20px;
+  font-size: 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 350px;
+  width: 35%;
+
+  span {
+    cursor: pointer;
+  }
 }
 
 .product-desc-info-wrapper {

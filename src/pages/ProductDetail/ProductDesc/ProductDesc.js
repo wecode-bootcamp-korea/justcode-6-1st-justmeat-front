@@ -16,11 +16,7 @@ export default function ProductDesc({
   return (
     <div className="product-desc-contain setting-center">
       <div className="product-desc-product-img-wrapper">
-        <img
-          src={img}
-          alt="고기사진"
-          className="product-desc-product-img"
-        ></img>
+        <img src={img} alt="고기사진" className="product-desc-product-img" />
       </div>
       <div className="product-desc-content todo">
         <p className="product-desc-product-name">{name}</p>
@@ -92,7 +88,6 @@ export default function ProductDesc({
             </div>
           </div>
         </div>
-
         <div className="product-desc-btn-flex">
           <div className="product-desc-btn-wrapper">
             <button className="product-desc-buy-now">바로구매</button>

@@ -88,7 +88,6 @@ function Register2nd(props) {
     })
       .then(res => res.json())
       .then(result => {
-        console.log(result);
         if (result.message === '존재하는 핸드폰 번호 입니다') {
           setIsRegisterModal(true);
           setErrorMessage({
@@ -128,7 +127,6 @@ function Register2nd(props) {
     })
       .then(res => res.json())
       .then(result => {
-        console.log(result);
         if (regEmail || regPassword || regCheckPassword || regName || regCode) {
           if (result.message === 'Not Found email') {
             setCreatedCode(0);

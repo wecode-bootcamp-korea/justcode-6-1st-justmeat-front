@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import './ProductDetail.scss';
 import ProductDesc from './ProductDesc/ProductDesc';
 import ProductInfo from './ProductInfo/ProductInfo';
@@ -60,9 +60,36 @@ function ProductDetail() {
       </div>
       <div className="product-desc-info-wrapper">
         <div className="product-desc-info">
-          <span onClick={changeTap}>상품설명</span>
-          <span onClick={changeTap}>상품리뷰</span>
-          <span onClick={changeTap}>상품정보안내</span>
+          <span
+            onClick={changeTap}
+            style={{
+              fontWeight: tapType === '상품설명' ? 'bold' : '400',
+              color: tapType === '상품설명' ? 'black' : 'gray',
+              textDecoration: tapType === '상품설명' ? 'underline' : 'none',
+            }}
+          >
+            상품설명
+          </span>
+          <span
+            onClick={changeTap}
+            style={{
+              fontWeight: tapType === '상품리뷰' ? 'bold' : '400',
+              color: tapType === '상품리뷰' ? 'black' : 'gray',
+              textDecoration: tapType === '상품리뷰' ? 'underline' : 'none',
+            }}
+          >
+            상품리뷰
+          </span>
+          <span
+            onClick={changeTap}
+            style={{
+              fontWeight: tapType === '상품정보안내' ? 'bold' : '400',
+              color: tapType === '상품정보안내' ? 'black' : 'gray',
+              textDecoration: tapType === '상품정보안내' ? 'underline' : 'none',
+            }}
+          >
+            상품정보안내
+          </span>
         </div>
       </div>
       <div className="product-desc-product-info">

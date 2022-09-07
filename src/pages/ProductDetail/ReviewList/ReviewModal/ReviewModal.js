@@ -18,7 +18,7 @@ function ReviewModal(props) {
             {reviewData.createdAt.substr(0, 10)}
           </span>
         </div>
-        <div className="reviewmodal-line"></div>
+        <div className="reviewmodal-line" />
         <div className="reviewmodal-comment">
           <p className="reviewmodal-title">{reviewData.title}</p>
           <p className="reviewmodal-comment">{reviewData.content}</p>

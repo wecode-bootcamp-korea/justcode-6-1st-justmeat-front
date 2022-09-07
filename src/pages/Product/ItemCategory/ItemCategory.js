@@ -1,16 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Category from '../Category/Category';
 import './ItemCategory.scss';
 
 export default function ItemCategory({ changeCategory }) {
-  // const [items, setItems] = useState([]);
-
-  // useEffect(() => {
-  //   fetch('/data/items.json')
-  //     .then(res => res.json())
-  //     .then(data => setItems(data.itemData));
-  // }, []);
-
   const productTypes = [
     '돼지',
     '소',

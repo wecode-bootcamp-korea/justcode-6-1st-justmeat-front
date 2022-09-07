@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Register.scss';
 
@@ -51,6 +51,8 @@ function Register() {
           type: '약관 동의',
           content: '이용약관과 개인정보 이용 방침에 모두 동의해주세요.',
         });
+        break;
+      default:
         break;
     }
   };

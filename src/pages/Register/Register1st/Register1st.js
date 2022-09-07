@@ -18,7 +18,10 @@ function Register1st(props) {
           <span>정육각 서비스 약관 동의</span>
         </div>
         <div className="register-1st-content">
-          <iframe src="https://yookgak.com/website/term-20191015.html"></iframe>
+          <iframe
+            src="https://yookgak.com/website/term-20191015.html"
+            title="정육각 서비스 약관 동의"
+          />
         </div>
         <div className="register-1st-title">
           <input
@@ -31,7 +34,10 @@ function Register1st(props) {
           <span>개인정보 이용 방침</span>
         </div>
         <div className="register-1st-content">
-          <iframe src="https://yookgak.com/assets/private-20220502.html"></iframe>
+          <iframe
+            src="https://yookgak.com/assets/private-20220502.html"
+            title="개인정보 이용 방침"
+          />
         </div>
       </section>
     </React.Fragment>
