@@ -134,57 +134,64 @@ function Register2nd(props) {
             setCreatedCode(0);
             setIsRegisterModal(true);
             setErrorMessage({
-              type: '정보 입력',
+              type: '아아디(이메일주소) 확인',
               content: '아이디(이메일주소)가 없습니다.',
             });
           } else if (result.message === 'Not Found password') {
             setCreatedCode(0);
             setIsRegisterModal(true);
             setErrorMessage({
-              type: '정보 입력',
+              type: '비밀번호 확인',
               content: '비밀번호가 없습니다.',
             });
           } else if (result.message === 'Not Found pwconfirm') {
             setCreatedCode(0);
             setIsRegisterModal(true);
             setErrorMessage({
-              type: '정보 입력',
+              type: '비밀번호 확인',
               content: '비밀번호 확인이 없습니다.',
             });
           } else if (result.message === 'Not Found name') {
             setCreatedCode(0);
             setIsRegisterModal(true);
             setErrorMessage({
-              type: '정보 입력',
+              type: '이름 확인',
               content: '이름이 없습니다.',
             });
           } else if (result.message === 'Not Found phone') {
             setCreatedCode(0);
             setIsRegisterModal(true);
             setErrorMessage({
-              type: '정보 입력',
+              type: '휴대폰번호 확인',
               content: '휴대폰번호가 없습니다.',
             });
           } else if (result.message === 'Not Found verification') {
             setCreatedCode(0);
             setIsRegisterModal(true);
             setErrorMessage({
-              type: '정보 입력',
-              content: '인증코드가 없습니다.',
+              type: '인증번호 확인',
+              content: '인증번호가 없습니다.',
             });
           } else if (result.message === 'Password_INVALID') {
             setCreatedCode(0);
             setIsRegisterModal(true);
             setErrorMessage({
-              type: '정보 입력',
-              content: '비밀번호는 8글자 이상으로 설정해주세요.',
+              type: '비밀번호 확인',
+              content: '비밀번호를 8자 이상으로 입력해주세요.',
             });
           } else if (result.message === 'Different_Password') {
             setCreatedCode(0);
             setIsRegisterModal(true);
             setErrorMessage({
-              type: '정보 입력',
+              type: '비밀번호 확인',
               content: '비밀번호와 비밀번호 확인이 일치하지 않습니다.',
+            });
+          } else if (result.message === 'Different_verification') {
+            setCreatedCode(0);
+            setIsRegisterModal(true);
+            setErrorMessage({
+              type: '인증번호가 잘못되었습니다.',
+              content: `인증번호가 맞지 않습니다.\n휴대전화로 받으신 인증번호를 다시 입력해주세요`,
             });
           } else if (result.message === 'EXISTED_USER') {
             setCreatedCode(0);
