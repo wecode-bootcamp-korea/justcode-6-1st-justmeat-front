@@ -2,11 +2,25 @@ import React, { useState } from 'react';
 import { faBars, faCartShopping } from '@fortawesome/free-solid-svg-icons';
 // import { faCartShopping } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import '../Header/Header.scss';
 import Menumodal from './Menumodal/Menumodal.js';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  console.log(localStorage.getItem('accessToken'));
+  const logoutButtonClick = () => {
+    localStorage.removeItem('accessToken');
+  };
+
+  const navigate = useNavigate();
+  const goToCart = () => {
+    {
+      localStorage.getItem('accessToken') !== null
+        ? navigate(`/sale/localStorage.getItem('user_pk')`)
+        : navigate(`/login`);
+    }
+  };
 
   return (
     <>
@@ -14,17 +28,26 @@ function Header() {
         <div className="navigation-container">
           <div className="navigation-left">
             <div className="navigation-logo">
-              <p>로고</p>
+              <Link to="/">
+                <img
+                  src="/images/justmeat-logo-white.png"
+                  alt="justmeat-logo"
+                ></img>
+              </Link>
             </div>
             <ul className="navigation-mainmenu">
               <li>
-                <span>쇼핑하기</span>
+                <Link to="/shop" style={{ textDecoration: 'none' }}>
+                  <span>쇼핑하기</span>
+                </Link>
               </li>
               <li>
                 <span>배송안내</span>
               </li>
               <li>
-                <span>이벤트</span>
+                <Link to="/event">
+                  <span>이벤트</span>
+                </Link>
               </li>
             </ul>
           </div>
@@ -34,12 +57,26 @@ function Header() {
               <li>고객센터</li>
             </ul>
             <div className="navigation-submenu-split"></div>
-            <ul className="navigation-submenu">
-              <li>로그인</li>
-              <li>회원가입</li>
-            </ul>
+
+            {localStorage.getItem('accessToken') !== null ? (
+              <div>
+                <Link to="/sale/localStorage.getItem('user_pk')">
+                  <span className="navigation-mypage">마이페이지</span>
+                </Link>
+              </div>
+            ) : (
+              <ul className="navigation-submenu">
+                <Link to="/login">
+                  <li>로그인</li>
+                </Link>
+                <Link to="/signup">
+                  <li>회원가입</li>
+                </Link>
+              </ul>
+            )}
             <div className="navigation-icons">
               <FontAwesomeIcon
+                onClick={goToCart}
                 className="navigation-cart"
                 icon={faCartShopping}
               />
@@ -54,7 +91,11 @@ function Header() {
           </div>
         </div>
       </header>
-      <Menumodal menuOpen={menuOpen} setMenuOpen={setMenuOpen}></Menumodal>
+      <Menumodal
+        logoutButtonClick={logoutButtonClick}
+        menuOpen={menuOpen}
+        setMenuOpen={setMenuOpen}
+      ></Menumodal>
     </>
   );
 }

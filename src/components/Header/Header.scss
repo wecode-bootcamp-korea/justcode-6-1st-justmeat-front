@@ -1,13 +1,14 @@
 $theme-color: black;
 $header-font-color: #fff;
+
 @mixin navigation-left-fontstyle {
   color: #fff;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
 }
 @mixin navigation-right-fontstyle {
   color: #fff;
-  font-size: 17px;
+  font-size: 23px;
   font-weight: bold;
 }
 
@@ -15,10 +16,16 @@ $header-font-color: #fff;
   display: flex;
 }
 
+@mixin header-logo-size {
+  width: 140px;
+  height: 70px;
+}
+
 header {
   width: 100%;
   background-color: $theme-color;
   position: fixed;
+  z-index: 1;
   top: 0%;
 
   .navigation-container {
@@ -27,7 +34,8 @@ header {
       @include flex;
       width: 50%;
       .navigation-logo {
-        p {
+        img {
+          @include header-logo-size;
           margin: 20px;
           font-size: 40px;
           color: $header-font-color;
@@ -53,6 +61,10 @@ header {
         width: 1px;
         height: 17px;
         border-left: solid 1px #fff;
+      }
+      .navigation-mypage {
+        @include navigation-right-fontstyle;
+        margin: 10px;
       }
       .navigation-submenu {
         @include flex;

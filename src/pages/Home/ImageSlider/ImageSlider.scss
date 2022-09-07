@@ -1,0 +1,14 @@
+@mixin layoutborder {
+  border: solid 1px #aaa;
+}
+
+.image-slider-container {
+  display: flex;
+  width: 100%;
+  overflow-x: hidden;
+
+  img {
+    margin-top: 113px;
+    width: 1600px;
+  }
+}
