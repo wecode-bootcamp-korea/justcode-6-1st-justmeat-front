@@ -43,11 +43,19 @@
 }
 
 .product-desc-plus-btn {
+  display: flex;
+  justify-content: center;
+  padding: 0px 10px;
   font-size: 20px;
+  background-color: lightgray;
 }
 
 .product-desc-minus-btn {
   font-size: 30px;
+  display: flex;
+  justify-content: center;
+  padding: 0px 10px;
+  background-color: lightgray;
 }
 
 .product-desc-buy-now {
@@ -91,6 +99,7 @@
   width: 300px;
   font-size: 20px;
   background-color: white;
+  border: 1px solid gray;
   margin-right: 10px;
 }
 

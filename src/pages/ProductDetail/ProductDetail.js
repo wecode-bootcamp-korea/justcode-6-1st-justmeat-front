@@ -53,7 +53,7 @@ function ProductDetail() {
           // weight={itemDetail.weight}
           // decrementCount={decrementCount}
           // incrementCount={incrementCount}
-          // productId={count}
+          // productCount={count}
           />
           ))}
         </div>
