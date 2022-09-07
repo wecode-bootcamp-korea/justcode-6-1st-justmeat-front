@@ -1,8 +1,7 @@
-.productdetail-container {
-  margin-top: 30px;
+.ProductInfo-container {
 }
 
-.productdetail-content-title {
+.ProductInfo-content-title {
   .text {
     .title {
       margin-top: 80px;
@@ -16,7 +15,7 @@
   }
 }
 
-.productdetail-content-arrival-date {
+.ProductInfo-content-arrival-date {
   .title {
     font-size: 25px;
     font-weight: 500;
@@ -63,7 +62,7 @@
   }
 }
 
-.productdetail-content-detail {
+.ProductInfo-content-detail {
   display: flex;
   flex-direction: column;
   .title {
@@ -74,9 +73,14 @@
   .card-wrap {
     margin-top: 100px;
     margin-bottom: 200px;
+    border: 1px solid gray;
+    // border-radius: 10px;
     .card {
       display: flex;
+      margin-bottom: 20px;
       .card-img-wrap {
+        display: flex;
+        flex-direction: column;
         width: 500px;
         height: 300px;
         img {
@@ -98,6 +102,10 @@
           width: 30px;
           border: 1px solid rgb(200, 200, 200);
           margin: 15px 0px;
+        }
+        .content {
+          color: rgb(200, 200, 200);
+          font-size: 20px;
         }
       }
     }

@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import ItemCategory from './ItemCategory/ItemCategory';
 import ItemListBanner from './ItemListBanner/ItemListBanner';
 import ItemList from '../../components/ItemList/ItemList';
+import { useNavigate, useParams } from 'react-router-dom';
 
-function Shop() {
+function Product() {
   const [shopItems, setShopItems] = useState();
   const [categoryIdParams, setCategoryIdParams] = useState('1');
 
@@ -32,4 +33,4 @@ function Shop() {
   );
 }
 
-export default Shop;
+export default Product;

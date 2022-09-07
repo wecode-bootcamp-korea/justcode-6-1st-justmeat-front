@@ -7,7 +7,7 @@ export default function BestItems() {
   const [items, setItems] = useState();
 
   useEffect(() => {
-    fetch('/Data/items.json')
+    fetch('http://localhost:10010/product/')
       .then(res => res.json())
       .then(data => setItems(data.itemData));
   }, []);
@@ -22,3 +22,4 @@ export default function BestItems() {
 }
 
 //('http://localhost:10010/product/')
+// '/Data/items.json'
