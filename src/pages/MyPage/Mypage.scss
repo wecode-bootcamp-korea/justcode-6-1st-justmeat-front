@@ -1,0 +1,121 @@
+@mixin layoutborder {
+  border: 1px solid darkgray;
+}
+
+@mixin mypage-user-info-fontstyle {
+  font-size: 25px;
+  font-weight: bold;
+}
+@mixin mypage-user-info-details-fontstyle {
+  font-size: 20px;
+  font-weight: bold;
+  color: darkgray;
+}
+@mixin order-info-tab-fontstyle {
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+}
+@mixin order-else-tab-fontstyle {
+  font-size: 30px;
+  font-weight: bold;
+  color: darkgray;
+}
+
+@mixin mypage-header-border {
+  border-bottom: 2px solid black;
+}
+
+.mypage-wrapper {
+  @include layoutborder;
+  width: 100%;
+  margin-top: 10%;
+  .mypage-title {
+    @include layoutborder;
+    text-align: center;
+    font-size: 40px;
+  }
+  .mypage-user-info-container {
+    @include layoutborder;
+    display: flex;
+    width: 100%;
+    margin-left: 50px;
+    .mypage-user-level-icon {
+      @include layoutborder;
+      font-size: 200px;
+      color: rgb(18, 125, 175);
+    }
+    .mypage-user-info-box {
+      @include layoutborder;
+      width: 80%;
+
+      .mypage-user-info-box-header {
+        @include mypage-header-border;
+        display: flex;
+        align-items: center;
+        height: 30%;
+
+        .mypage-user-info-name {
+          @include layoutborder;
+          width: 30%;
+          font-size: 35px;
+          font-weight: bold;
+        }
+        .mypage-logout {
+          @include layoutborder;
+          width: 50%;
+          font-size: 25px;
+          font-weight: bold;
+          color: darkgray;
+        }
+        .mypage-user-info-myquestions-box {
+          display: flex;
+          justify-content: flex-end;
+          width: 20%;
+          @include layoutborder;
+          .mypage-user-info-myquestions-btn {
+            @include layoutborder;
+            width: 60%;
+            padding: 10px;
+            text-align: center;
+            @include mypage-user-info-details-fontstyle;
+            background-color: black;
+          }
+        }
+      }
+      .mypage-user-info-detail-container {
+        @include layoutborder;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        div {
+          @include layoutborder;
+          .mypage-user-info-detail-title {
+            @include mypage-user-info-fontstyle;
+            text-align: center;
+          }
+          .mypage-user-info-detail-content {
+            @include mypage-user-info-details-fontstyle;
+            text-align: center;
+          }
+        }
+      }
+      .order-info-header-container {
+        @include layoutborder;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 70px;
+        padding-bottom: 50px;
+        @include mypage-header-border;
+        .order-info-header {
+          @include layoutborder;
+          @include order-info-tab-fontstyle;
+        }
+        .order-info-else {
+          @include layoutborder;
+          @include order-else-tab-fontstyle;
+        }
+      }
+    }
+  }
+}

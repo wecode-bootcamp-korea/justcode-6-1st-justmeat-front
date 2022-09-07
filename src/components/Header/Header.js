@@ -44,14 +44,23 @@ function Header() {
               <li>고객센터</li>
             </ul>
             <div className="navigation-submenu-split"></div>
-            <ul className="navigation-submenu">
-              <Link to="/login">
-                <li>로그인</li>
-              </Link>
-              <Link to="/signup">
-                <li>회원가입</li>
-              </Link>
-            </ul>
+            {localStorage.getItem('user_pk') !== undefined ? (
+              <div>
+                <Link to="/sale/localStorage.getItem('user_pk')">
+                  <span className="navigation-mypage">마이페이지</span>
+                </Link>
+              </div>
+            ) : (
+              <ul className="navigation-submenu">
+                <Link to="/login">
+                  <li>로그인</li>
+                </Link>
+                <Link to="/signup">
+                  <li>회원가입</li>
+                </Link>
+              </ul>
+            )}
+
             <div className="navigation-icons">
               <FontAwesomeIcon
                 className="navigation-cart"

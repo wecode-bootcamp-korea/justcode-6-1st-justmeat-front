@@ -8,11 +8,9 @@ import { faAppStoreIos } from '@fortawesome/free-brands-svg-icons';
 
 function Cart() {
   const [cartListMockData, setCartListMockData] = useState([]);
-  const [totalPayment, setTotalPayment] = useState(0);
-  const [cartId, setCartId] = useState(0);
-  // const [payId, setPayID] = useState(0);
 
-  let { pk } = useParams();
+  // const [payId, setPayID] = useState(0);
+  const [message, setMessage] = useState('');
 
   /*접속 user의 장바구니 데이터 서버에서 불러오기*/
   useEffect(() => {
@@ -110,12 +108,13 @@ function Cart() {
   }
 
   function deleteCartListData(e) {
-    fetch('http://localhost:10010/cart/29', {
+    fetch(`http://localhost:10010/cart/${cartListMockData[e.target.id].id}`, {
       method: 'DELETE',
       headers: {
         Authorization: localStorage.getItem('accessToken'),
       },
       body: JSON.stringify({
+        id: cartListMockData[e.target.id].id,
         userId: cartListMockData[e.target.id].userId,
         productId: cartListMockData[e.target.id].productId,
         productAmount: cartListMockData[e.target.id].productAmount,
@@ -138,8 +137,16 @@ function Cart() {
       }),
     })
       .then(res => res.json())
-      .then(data => console.log(data))
+      .then(data => setMessage(data.message))
       .catch(error => console.log(error));
+
+    if (
+      message === '구매가 완료 되었습니다. 신선한 상품으로 배송해드리겠습니다'
+    ) {
+      alert('구매가 완료 되었습니다. 신선한 상품으로 배송해드리겠습니다');
+    } else if (message === 'Point가 없습니다. 구매에 실패하셨습니다.') {
+      alert('Point가 없습니다. 구매에 실패하셨습니다.');
+    }
   }
 
   function resetCart() {
@@ -182,7 +189,6 @@ function Cart() {
         </div>
         <CartPayment
           cartList={cartListMockData}
-          totalPayment={totalPayment}
           payForSales={payForSales}
           resetCart={resetCart}
         ></CartPayment>

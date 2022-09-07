@@ -16,8 +16,8 @@ function CartPayment({
   return (
     <div className="cart-payment-container">
       <div className="cart-payment-total-payment">
-        <p className="cart-item-payment-text">{totalPrice}원</p>
-        <p className="cart-item-payment-price"></p>
+        <p className="cart-item-payment-text">총가격</p>
+        <p className="cart-item-payment-price">{totalPrice}원</p>
       </div>
       <div className="cart-payment-total-delivery-fee">
         <p className="cart-item-payment-text">총 배송비</p>

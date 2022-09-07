@@ -24,7 +24,7 @@ function Footer() {
                 className="footer-navigation-external-icon2"
                 icon={faMobileScreenButton}
               />
-              정육각 앱 설치
+              JUSTMEAT 앱 설치
             </button>
             <FontAwesomeIcon
               className="footer-navigation-external-icon"
@@ -46,14 +46,14 @@ function Footer() {
             <div className="footer-main-team-info">
               <div className="front-members">
                 <h4>Front end</h4>
-                <p>구현</p>
-                <p>정세영</p>
-                <p>박기호</p>
+                <p>구현 3436hyun@gmail.com </p>
+                <p>박기호 gpontheg@gmail.com</p>
+                <p>정세영 siiyong16@naver.com</p>
               </div>
               <div className="back-members">
                 <h4>Back end</h4>
-                <p>이해연</p>
-                <p>오인환</p>
+                <p>이해연 haeyeon1796@gmail.com</p>
+                <p>오인환 yunoroy@gmail.com</p>
               </div>
             </div>
           </article>

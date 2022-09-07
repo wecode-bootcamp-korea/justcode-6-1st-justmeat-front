@@ -61,6 +61,10 @@ header {
         height: 17px;
         border-left: solid 1px #fff;
       }
+      .navigation-mypage {
+        @include navigation-right-fontstyle;
+        margin: 10px;
+      }
       .navigation-submenu {
         @include flex;
         li {

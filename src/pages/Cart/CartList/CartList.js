@@ -20,6 +20,7 @@ function CartList({
     <div>
       <section className="cart-list-table">
         <div className="cart-list-container">
+          <div>{cartListData.id}</div>
           <div className="cart-list-img-box">
             <img
               className="cart-list-img"

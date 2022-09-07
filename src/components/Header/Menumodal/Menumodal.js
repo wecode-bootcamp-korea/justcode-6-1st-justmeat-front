@@ -9,6 +9,7 @@ function Menumodal({ menuOpen, setMenuOpen }) {
         <div className="menu-header">
           <div className="menu-title">메뉴</div>
           <div className="menu-header-icon-box">
+            <div className="menu-header-logout">로그아웃</div>
             <FontAwesomeIcon
               icon={faCartShopping}
               className="menu-cart-icon"

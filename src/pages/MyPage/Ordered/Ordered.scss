@@ -1,0 +1,76 @@
+@mixin layoutborder {
+  border: 1px solid darkgray;
+}
+@mixin mypage-ordered-head-fontstyle {
+  font-size: 30px;
+  font-weight: bold;
+}
+$boxheight: 120px;
+$cart-list-font-size: 20px;
+
+.mypage-ordered-wrapper {
+  @include layoutborder;
+  // margin-bottom: 100px;
+  .mypage-ordered-head {
+    @include layoutborder;
+    display: flex;
+    justify-content: space-between;
+    .mypage-ordered-head-info {
+      @include layoutborder;
+      @include mypage-ordered-head-fontstyle;
+      padding-left: 100px;
+    }
+    .mypage-ordered-head-amount {
+      @include layoutborder;
+      @include mypage-ordered-head-fontstyle;
+    }
+    .mypage-ordered-head-price {
+      @include layoutborder;
+      @include mypage-ordered-head-fontstyle;
+      padding-right: 100px;
+    }
+  }
+  .mypage-ordered-container {
+    @include layoutborder;
+    display: flex;
+    .mypage-ordered-img-box {
+      @include layoutborder;
+      width: $boxheight;
+      height: $boxheight;
+      img {
+        width: $boxheight;
+        height: $boxheight;
+      }
+    }
+    .mypage-ordered-product-info {
+      @include layoutborder;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 25%;
+      p {
+        @include layoutborder;
+        font-size: $cart-list-font-size;
+      }
+      span {
+        @include layoutborder;
+        font-size: 18px;
+      }
+    }
+    .mypage-product-amount {
+      @include layoutborder;
+      width: 20%;
+      padding-top: 45px;
+      text-align: end;
+      font-size: $cart-list-font-size;
+    }
+    .mypage-price-amount {
+      @include layoutborder;
+      width: 40%;
+      padding-top: 45px;
+      text-align: end;
+      font-size: $cart-list-font-size;
+    }
+  }
+}

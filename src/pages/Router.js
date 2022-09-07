@@ -13,6 +13,7 @@ import Register from './Register/Register';
 import Event from './Event/Event';
 import ReviewList from '../components/ReviewList/ReviewList';
 import EventDetail from './Event/EventDetail/EventDetail';
+import Mypage from './MyPage/Mypage';
 
 function Router() {
   return (
@@ -29,6 +30,7 @@ function Router() {
         <Route path="/event" element={<Event />} />
         <Route path="/event/:id" element={<EventDetail />} />
         <Route path="/review" element={<ReviewList />} />
+        <Route path="/sale/:userId" element={<Mypage />} />
         {/*수정: /review << 페이지 아니고 컴포넌트*/}
         {/* <Route path="event/" */}
       </Routes>
