@@ -29,6 +29,18 @@ const Items = ({
     navigate(`/product/${e.target.id}`);
   };
 
+  // useEffect(() => {
+  //   fetch(`http://localhost:10010/product/`, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       Accept: 'application/json',
+  //     },
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => setShopItems(data.));
+  // }, []);
+
   return (
     <ul className="items">
       <div>
@@ -50,14 +62,16 @@ const Items = ({
               src="images/cart-icon.png"
             />
             <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-              <div className="product-amount">
-                <button className="minus-btn" onClick={decrementCount}>
-                  -
-                </button>
-                <span>{count}</span>
-                <button className="plus-btn" onClick={incrementCount}>
-                  +
-                </button>
+              <div className="product-amount-wrapper">
+                <div className="product-amount">
+                  <button className="minus-btn" onClick={decrementCount}>
+                    -
+                  </button>
+                  <span>{count}</span>
+                  <button className="plus-btn" onClick={incrementCount}>
+                    +
+                  </button>
+                </div>
               </div>
             </Modal>
           </div>

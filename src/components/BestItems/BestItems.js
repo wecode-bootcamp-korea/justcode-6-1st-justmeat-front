@@ -20,6 +20,3 @@ export default function BestItems() {
     </div>
   );
 }
-
-//('http://localhost:10010/product/')
-// '/Data/items.json'

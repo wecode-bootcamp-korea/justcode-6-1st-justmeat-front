@@ -3,7 +3,7 @@ import ReactDom from 'react-dom';
 import { Link } from 'react-router-dom';
 import './Modal.scss';
 
-export default function Modal({ open, onClose, children, name }) {
+export default function Modal({ open, onClose, children, name, price }) {
   if (!open) return null;
 
   return ReactDom.createPortal(
@@ -24,6 +24,9 @@ export default function Modal({ open, onClose, children, name }) {
               <option value="2">두껍 (24mm)</option>
             </select>
           </div>
+        </div>
+        <div className="modal-price-wrapper">
+          <span className="modal-price">{price}원</span>
         </div>
         <div className="btn-wrapper">
           <button className="buy-now">바로구매</button>
