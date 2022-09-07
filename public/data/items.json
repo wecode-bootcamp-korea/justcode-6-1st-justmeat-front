@@ -6,7 +6,7 @@
       "productName": "Beef",
       "price": 20000,
       "weight": 300,
-      "productImg": "/images/kyle-mackie-MEnlQv-EQvY-unsplash.jpg",
+      "productImgMain": "/images/kyle-mackie-MEnlQv-EQvY-unsplash.jpg",
       "option": 1,
       "stock": 200,
       "salesAmount": 100,
