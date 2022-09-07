@@ -1,14 +1,21 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faX } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import './Menumodal.scss';
 
-function Menumodal({ menuOpen, setMenuOpen }) {
+function Menumodal({ menuOpen, setMenuOpen, logoutButtonClick }) {
   return (
     <div className={menuOpen ? 'activate' : 'before-activate'}>
       <section className="menu-wrapper">
         <div className="menu-header">
           <div className="menu-title">메뉴</div>
           <div className="menu-header-icon-box">
+            {localStorage.getItem('accessToken') !== null ? (
+              <div className="menu-header-logout" onClick={logoutButtonClick}>
+                로그아웃
+              </div>
+            ) : null}
+
             <FontAwesomeIcon
               icon={faCartShopping}
               className="menu-cart-icon"
@@ -24,12 +31,14 @@ function Menumodal({ menuOpen, setMenuOpen }) {
         </div>
         <p className="menu-shop-text">쇼핑하기</p>
         <div className="menu-categories-container">
-          <div className="menu-category">
-            <div className="menu-category-img-box">
-              <img src="/images/pig.png" alt="돼지"></img>
+          <Link to="/shop">
+            <div className="menu-category">
+              <div className="menu-category-img-box">
+                <img src="/images/pig.png" alt="돼지"></img>
+              </div>
+              <div className="menu-category-name">돼지</div>
             </div>
-            <div className="menu-category-name">돼지</div>
-          </div>
+          </Link>
           <div className="menu-category">
             <div className="menu-category-img-box">
               <img src="/images/cow.png" alt="소"></img>
