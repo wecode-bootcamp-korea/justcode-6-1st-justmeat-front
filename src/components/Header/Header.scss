@@ -1,18 +1,24 @@
 $theme-color: black;
 $header-font-color: #fff;
+
 @mixin navigation-left-fontstyle {
   color: #fff;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
 }
 @mixin navigation-right-fontstyle {
   color: #fff;
-  font-size: 17px;
+  font-size: 23px;
   font-weight: bold;
 }
 
 @mixin flex {
   display: flex;
+}
+
+@mixin header-logo-size {
+  width: 140px;
+  height: 70px;
 }
 
 header {
@@ -27,7 +33,8 @@ header {
       @include flex;
       width: 50%;
       .navigation-logo {
-        p {
+        img {
+          @include header-logo-size;
           margin: 20px;
           font-size: 40px;
           color: $header-font-color;

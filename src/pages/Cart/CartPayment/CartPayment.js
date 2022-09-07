@@ -1,18 +1,22 @@
 import './CartPayment.scss';
 
-function CartPayment({ cartList, onChangeProps, totalPrice, totalPayment }) {
-  // const totalPrice = () => {
-  //   onChangeProps(
-  //     cartList.id,
-  //     "paymentAmount",
-  //     cartList.productPrice * (cartList.productAmount + 1)
-  //   );
-  // };
+function CartPayment({
+  cartList,
+  onChangeProps,
+  totalPayment,
+  payForSales,
+  resetCart,
+}) {
+  const price = cartList.map(el => {
+    return el.productAmount * el.price;
+  });
+
+  const totalPrice = price.reduce((a, b) => a + b, 0).toLocaleString('en');
 
   return (
     <div className="cart-payment-container">
       <div className="cart-payment-total-payment">
-        <p className="cart-item-payment-text">총 상품 금액</p>
+        <p className="cart-item-payment-text">{totalPrice}원</p>
         <p className="cart-item-payment-price"></p>
       </div>
       <div className="cart-payment-total-delivery-fee">
@@ -29,9 +33,17 @@ function CartPayment({ cartList, onChangeProps, totalPrice, totalPayment }) {
         첫구매 무료배송 혜택이 적용되었습니다.
       </p>
       <p className="expected-payment">예상 결제 금액</p>
-      <p className="expected-payment-amount">62,400원</p>
+      <p className="expected-payment-amount">{totalPrice}원</p>
       <div className="payment-buttons-box">
-        <button className="cart-order-btn">전체상품 주문하기</button>
+        <button
+          className="cart-order-btn"
+          onClick={() => {
+            payForSales();
+            resetCart();
+          }}
+        >
+          전체상품 주문하기
+        </button>
         <button className="cart-shopping-btn">쇼핑계속하기</button>
       </div>
     </div>

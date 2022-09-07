@@ -38,7 +38,10 @@ function Footer() {
         </section>
         <section className="footer-main">
           <article className="footer-main-info">
-            <p className="footer-logo">로고</p>
+            <img
+              src="/images/justmeat-logo-black.png"
+              className="footer-logo"
+            ></img>
 
             <div className="footer-main-team-info">
               <div className="front-members">
