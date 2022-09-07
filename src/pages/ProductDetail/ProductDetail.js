@@ -42,20 +42,20 @@ function ProductDetail() {
     <>
       <div className="details-wrapper">
         <div className="details-product-details">
-          {itemDetails &&
-            itemDetails.map((itemDetail, index) => (
-              <ProductDesc
-                key={index}
-                id={itemDetail.id}
-                img={itemDetail.productImgMain}
-                name={itemDetail.productName}
-                price={itemDetail.price}
-                weight={itemDetail.weight}
-                decrementCount={decrementCount}
-                incrementCount={incrementCount}
-                productId={count}
-              />
-            ))}
+          {/* {itemDetails &&
+            itemDetails.map((itemDetail, index) => ( */}
+          <ProductDesc
+          // key={index}
+          // id={itemDetail.id}
+          // img={itemDetail.productImgMain}
+          // name={itemDetail.productName}
+          // price={itemDetail.price}
+          // weight={itemDetail.weight}
+          // decrementCount={decrementCount}
+          // incrementCount={incrementCount}
+          // productId={count}
+          />
+          ))}
         </div>
       </div>
       <div className="product-desc-info-wrapper">

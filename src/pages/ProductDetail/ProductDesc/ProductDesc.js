@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ProductDesc.scss';
 
@@ -13,17 +13,19 @@ export default function ProductDesc({
   incrementCount,
   productId,
 }) {
+  const [count, setCount] = useState(1);
+
   return (
     <div className="product-desc-contain setting-center">
       <div className="product-desc-product-img-wrapper">
         <img
-          src={img}
+          src="images/porkneck-fresh-detail.png"
           alt="고기사진"
           className="product-desc-product-img"
         ></img>
       </div>
       <div className="product-desc-content todo">
-        <p className="product-desc-product-name">{name}</p>
+        <p className="product-desc-product-name">상품명</p>
         <p className="product-desc-price">
           기준가 {price}원 ({weight}g)
         </p>
@@ -82,7 +84,7 @@ export default function ProductDesc({
               >
                 -
               </button>
-              <span>{productId}</span>
+              <div className="product-desc-count">{count}</div>
               <button
                 className="product-desc-plus-btn"
                 onClick={incrementCount}
@@ -105,3 +107,6 @@ export default function ProductDesc({
     </div>
   );
 }
+
+// {img}
+// {name}
