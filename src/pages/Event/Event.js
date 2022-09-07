@@ -8,7 +8,7 @@ function Event() {
   // Event Data state value
   const [eventListMockData, setEventListMockData] = useState([]);
 
-  // Event mock data
+  // Event data
   useEffect(() => {
     fetch('http://localhost:10010/event', {
       method: 'GET',

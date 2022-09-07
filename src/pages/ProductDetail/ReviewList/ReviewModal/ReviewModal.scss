@@ -1,0 +1,90 @@
+.reviewmodal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.reviewmodal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  padding: 30px;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.reviewmodal-closed-button {
+  position: absolute;
+  margin-top: -50px;
+  margin-left: 750px;
+  width: 40px;
+  height: 40px;
+  line-height: 34px;
+  font-size: 30px;
+  color: white;
+  background-color: black;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+.reviewmodal-top {
+  display: flex;
+  font-size: 20px;
+  font-weight: bold;
+  color: gray;
+
+  .reviewmodal-user-name {
+  }
+  .reviewmodal-createdAt {
+    margin-left: auto;
+  }
+}
+
+.reviewmodal-line {
+  border: 1px solid rgb(214, 214, 214);
+  margin: 10px 0px;
+}
+
+.reviewmodal-comment {
+  .reviewmodal-title {
+    font-size: 23px;
+    font-weight: bold;
+  }
+  .reviewmodal-comment {
+    font-size: 20px;
+    color: rgb(81, 81, 81);
+  }
+}
+
+.reviewmodal-purchase-record-wrap {
+  margin-top: 20px;
+  margin-bottom: 10px;
+
+  .reviewmodal-purchase-record-top {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    padding: 5px 10px;
+  }
+
+  .reviewmodal-purchase-record-content {
+    padding: 20px;
+    border: 1px solid black;
+    ul {
+      font-size: 20px;
+      font-weight: bold;
+
+      li {
+        font-size: 18px;
+        font-weight: 500;
+        margin-top: 10px;
+      }
+    }
+  }
+}

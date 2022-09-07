@@ -2,30 +2,25 @@ import React, { useState, useEffect } from 'react';
 import Items from './Items/Items';
 import './ItemList.scss';
 
-const ItemList = () => {
-  const [items, setItems] = useState();
-
-  useEffect(() => {
-    fetch('/data/items.json')
-      .then(res => res.json())
-      .then(data => setItems(data.itemData));
-  }, []);
-
+const ItemList = props => {
+  const { data } = props;
   return (
     <div>
-      <div className="itemList">
-        <div className="itemFlex">
-          {items &&
-            items.map(item => (
+      <div className="item-list setting-center">
+        <div className="item-flex">
+          {data &&
+            data.map((item, index) => (
               <Items
-                key={item.id}
-                img={item.productImg}
+                key={index}
+                id={item.id}
+                img={item.productImgMain}
                 name={item.productName}
                 price={item.price}
                 weight={item.weight}
                 antibiotics={item.isAntibioticFree}
                 sales={item.salesAmount}
                 stock={item.stock}
+                category={item.categoryId}
               />
             ))}
         </div>

@@ -1,0 +1,129 @@
+.details-wrapper {
+  padding: 70px 0px;
+  background-color: #1c1c1c;
+  margin-top: 17px;
+}
+
+.product-desc-product-img-wrapper {
+  img {
+    width: 65%;
+  }
+}
+
+.product-desc-content {
+  display: flex;
+  flex-direction: column;
+}
+.product-desc-content {
+  height: 450px;
+  .product-desc-product-name {
+    font-size: 35px;
+    font-weight: bold;
+    color: white;
+  }
+
+  .product-desc-price {
+    font-size: 25px;
+    color: gray;
+    margin-top: 20px;
+  }
+}
+
+.product-desc-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 450px;
+  justify-content: space-evenly;
+}
+
+.product-desc-btn-flex {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.product-desc-buy-now {
+  border: 1px solid black;
+  background-color: #888888;
+  color: white;
+  padding: 20px 60px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.product-desc-to-cart {
+  border: 1px solid black;
+  color: white;
+  background-color: #d0021b;
+  color: white;
+  padding: 20px 60px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.product-desc-custom-order-title {
+  font-size: 20px;
+  color: white;
+}
+
+.product-desc-amount-title {
+  font-size: 20px;
+  color: white;
+}
+
+.product-desc-custom-order {
+  width: 300px;
+  height: 30px;
+}
+
+.product-desc-amount {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  font-size: 20px;
+  color: white;
+  margin-right: 10px;
+}
+
+.product-desc-info {
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 350px;
+}
+
+.product-desc-info-wrapper {
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: center;
+  padding: 35px 0px;
+}
+
+.product-desc-custom-order-flex {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.product-desc-amount-flex {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.product-desc-amount-wrapper {
+  display: flex;
+  width: 400px;
+  justify-content: space-between;
+}
+
+.product-desc-custom-order-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  margin: 0px 10px 20px 0px;
+}
+
+.product-desc-product-img-wrapper {
+  width: 800px;
+  display: flex;
+  justify-content: flex-end;
+}

@@ -5,7 +5,7 @@ export default function ItemListBanner() {
   return (
     <div>
       <img
-        className="itemListBanner"
+        className="item-list-banner"
         alt="고기사진"
         src="/images/kyle-mackie-qgfjZUXup1M-unsplash.jpg"
       />
