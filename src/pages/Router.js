@@ -5,7 +5,7 @@ import Header from '../components/Header/Header';
 import Home from './Home/Home';
 import Login from './Login/Login';
 import Signup from './Signup/Signup';
-import ItemDetails from './ShopDetails/ShopDetails';
+import ShopDetails from './ShopDetails/ShopDetails';
 import Shop from './Shop/Shop';
 import Cart from './Cart/Cart';
 import Footer from '../components/Footer/Footer';
@@ -21,8 +21,11 @@ function Router() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/details" element={<ItemDetails />} />
-        <Route path="/shop" element={<Shop />} />
+        <Route
+          path="/details"
+          /*"/product?id=:id"*/ element={<ShopDetails />}
+        />
+        <Route path="/product" element={<Shop />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/register" element={<Register />} />
         <Route path="/event" element={<Event />} />

@@ -5,6 +5,7 @@ import Modal from '../Modal/Modal';
 import './Items.scss';
 
 const Items = ({
+  id,
   img,
   name,
   price,
@@ -23,8 +24,8 @@ const Items = ({
     setCount(prevCount => prevCount + 1);
   };
   const navigate = useNavigate();
-  const goToDetails = () => {
-    navigate('/details');
+  const goToDetails = e => {
+    navigate(`/product?id=${e.target.id}`);
   };
 
   return (
@@ -32,27 +33,28 @@ const Items = ({
       <div>
         <div className="item">
           <img
-            className="productImg"
+            className="product-img"
             alt="고기사진"
             src={img}
+            id={id}
             onClick={goToDetails}
           />
-          <div className="cartIconWrapper">
+          <div className="cart-icon-wrapper">
             <img
               onClick={() => {
                 setIsOpen(true);
               }}
-              className="cartIcon"
+              className="cart-icon"
               alt="장바구니"
               src="images/cart-icon.png"
             />
             <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-              <div className="productAmount">
-                <button className="minusBtn" onClick={decrementCount}>
+              <div className="product-amount">
+                <button className="minus-btn" onClick={decrementCount}>
                   -
                 </button>
                 <span>{count}</span>
-                <button className="plusBtn" onClick={incrementCount}>
+                <button className="plus-btn" onClick={incrementCount}>
                   +
                 </button>
               </div>
@@ -60,8 +62,8 @@ const Items = ({
           </div>
         </div>
       </div>
-      <div onClick={goToDetails} className="productInfo">
-        <h6 className="productName">{name}</h6>
+      <div className="product-info" id={id} onClick={goToDetails}>
+        <h6 className="product-name">{name}</h6>
         {(category === 1 ||
           category === 2 ||
           category === 3 ||

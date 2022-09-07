@@ -5,22 +5,22 @@ import ItemList from '../../components/ItemList/ItemList';
 
 function Shop() {
   const [shopItems, setShopItems] = useState();
-  const [queryCategoryId, setQueryCategoryId] = useState();
+  const [categoryIdParams, setCategoryIdParams] = useState('1');
 
-  // useEffect(() => {
-  //   fetch(`http://localhost:10010/product/${queryCategoryId}`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       Accept: 'application/json',
-  //     },
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => setShopItems(data.itemData));
-  // }, [queryCategoryId]);
+  useEffect(() => {
+    fetch(`http://localhost:10010/product/${categoryIdParams}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    })
+      .then(res => res.json())
+      .then(data => setShopItems(data.itemData));
+  }, [categoryIdParams]);
 
   const changeCategory = e => {
-    setQueryCategoryId(e.target.id);
+    setCategoryIdParams(e.target.id);
   };
 
   return (

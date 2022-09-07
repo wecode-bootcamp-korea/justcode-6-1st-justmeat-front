@@ -6,12 +6,13 @@ const ItemList = props => {
   const { data } = props;
   return (
     <div>
-      <div className="itemList">
-        <div className="itemFlex">
+      <div className="item-list setting-center">
+        <div className="item-flex">
           {data &&
-            data.map(item => (
+            data.map((item, index) => (
               <Items
-                key={item.id}
+                key={index}
+                id={item.id}
                 img={item.productImgMain}
                 name={item.productName}
                 price={item.price}

@@ -5,7 +5,7 @@ const Category = props => {
   const { categoryId, categoryName, changeCategory } = props;
 
   return (
-    <div className="CategoryWrapper">
+    <div className="category-wrapper">
       <div className="categories" id={categoryId} onClick={changeCategory}>
         {categoryName}
       </div>

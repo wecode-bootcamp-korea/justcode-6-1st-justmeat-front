@@ -24,7 +24,7 @@ export default function ItemCategory({ changeCategory }) {
 
   return (
     <div>
-      <div className="itemCategory">
+      <div className="item-category">
         {productTypes.map((productType, index) => (
           <Category
             key={index}
