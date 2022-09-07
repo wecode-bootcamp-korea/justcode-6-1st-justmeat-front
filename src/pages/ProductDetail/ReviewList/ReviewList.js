@@ -21,7 +21,6 @@ function ReviewList({ productInfo }) {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         setReviewListData(data.itemData);
       });
   }, []);
@@ -31,7 +30,13 @@ function ReviewList({ productInfo }) {
       <section className="review-list-content">
         <div className="review-list-wrap">
           {reviewListData.map((data, index) => {
-            return <ReviewCard key={index} reviewListData={data} />;
+            return (
+              <ReviewCard
+                key={index}
+                reviewListData={data}
+                productName={productInfo.productName}
+              />
+            );
           })}
         </div>
       </section>

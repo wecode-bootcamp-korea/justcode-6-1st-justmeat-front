@@ -12,6 +12,7 @@ import Footer from '../components/Footer/Footer';
 import Register from './Register/Register';
 import Event from './Event/Event';
 import EventDetail from './Event/EventDetail/EventDetail';
+import Mypage from './MyPage/Mypage';
 
 function Router() {
   return (
@@ -21,7 +22,9 @@ function Router() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/details" /*"/product/:id"*/ element={<ProductDetail />} />
+        <Route path="/cart/:userId" element={<Cart />} />
+        <Route path="/sale/:userId" element={<Mypage />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/product" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/register" element={<Register />} />

@@ -21,10 +21,11 @@ $menu-modal-category-font-style: 20px;
   height: 100vh;
   position: fixed;
   top: 0%;
-  left: 105%;
+  right: -105%;
+  z-index: 2;
 
   background-color: white;
-  transition: 0.5s;
+  transition: 1s;
   @include menu-box-shadow;
 }
 .activate {
@@ -33,7 +34,8 @@ $menu-modal-category-font-style: 20px;
   height: 100vh;
   position: fixed;
   top: 0%;
-  left: 65%;
+  right: 0%;
+  z-index: 2;
 
   background-color: white;
   @include menu-box-shadow;
@@ -48,9 +50,20 @@ $menu-modal-category-font-style: 20px;
       font-weight: bold;
       padding: 20px 0px 0px 30px;
     }
-    .menu-cart-icon {
-      font-size: 28px;
-      margin: 20px 30px 20px 0px;
+    .menu-header-icon-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .menu-header-logout {
+        margin: 15px;
+        font-size: 23px;
+        font-weight: bold;
+        color: rgb(81, 81, 81);
+      }
+      .menu-cart-icon {
+        font-size: 28px;
+        margin: 20px 30px 20px 0px;
+      }
     }
   }
   .menu-shop-text {
@@ -83,6 +96,7 @@ $menu-modal-category-font-style: 20px;
       .menu-category-name {
         font-size: $menu-modal-category-font-style;
         text-align: center;
+        color: black;
       }
     }
   }
