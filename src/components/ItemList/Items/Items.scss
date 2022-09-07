@@ -3,20 +3,20 @@
   padding: 0px 0px 0px 0px;
 }
 
-.productImg {
+.product-img {
   margin: 70px 0px 0px 40px;
   width: 276px;
   height: 276px;
   border-radius: 5px;
 }
 
-.cartIcon {
+.cart-icon {
   width: 32px;
   height: 32px;
   cursor: pointer;
 }
 
-.cartIconWrapper {
+.cart-icon-wrapper {
   height: 70px;
   margin: 0px 10px 0px 0px;
   display: flex;
@@ -32,11 +32,11 @@
   cursor: pointer;
 }
 
-.productInfo {
+.product-info {
   cursor: pointer;
 }
 
-.productName {
+.product-name {
   font-size: 18px;
   width: 376px;
   height: 27px;
@@ -44,10 +44,28 @@
   font-family: 'Noto Sans KR', sans-serif;
 }
 
-.productAmount {
+.product-amount {
   display: flex;
   justify-content: space-between;
-  font-size: 30px;
+  align-items: center;
+  font-size: 20px;
+  border: 1px solid gray;
+}
+
+.minus-btn {
+  display: flex;
+  justify-content: center;
+  padding: 0px 10px;
+  font-size: 20px;
+  background-color: lightgray;
+}
+
+.plus-btn {
+  display: flex;
+  justify-content: center;
+  padding: 0px 10px;
+  font-size: 20px;
+  background-color: lightgray;
 }
 
 .price {

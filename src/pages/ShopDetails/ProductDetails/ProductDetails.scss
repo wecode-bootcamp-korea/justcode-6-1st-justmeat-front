@@ -1,0 +1,26 @@
+.product-details-product-img {
+  width: 500px;
+  height: 500px;
+}
+
+.product-details-product-img-wrapper {
+  width: 800px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.product-details-product-name {
+  color: white;
+  font-size: 50px;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 300px;
+}
+
+.product-details-price {
+  color: white;
+  font-size: 30px;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 280px;
+}
