@@ -13,6 +13,7 @@ function Register1st(props) {
             id="checkbox1"
             checked={isCheckbox[0]}
             onChange={checkboxValidation}
+            style={{ cursor: 'pointer' }}
           />
           <span>정육각 서비스 약관 동의</span>
         </div>
@@ -25,6 +26,7 @@ function Register1st(props) {
             id="checkbox2"
             checked={isCheckbox[1]}
             onChange={checkboxValidation}
+            style={{ cursor: 'pointer' }}
           />
           <span>개인정보 이용 방침</span>
         </div>

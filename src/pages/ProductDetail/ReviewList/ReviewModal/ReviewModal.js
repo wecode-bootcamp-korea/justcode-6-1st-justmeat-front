@@ -2,14 +2,13 @@ import React from 'react';
 import './ReviewModal.scss';
 
 function ReviewModal(props) {
-  const { reviewData, productName, closeModal } = props;
-  // console.log(reviewData);
+  const { reviewData, productName, closeReviewModal } = props;
   return (
     <div className="reviewmodal-container">
       <div className="reviewmodal-content">
         <div
           className="reviewmodal-closed-button text-center"
-          onClick={closeModal}
+          onClick={closeReviewModal}
         >
           x
         </div>
