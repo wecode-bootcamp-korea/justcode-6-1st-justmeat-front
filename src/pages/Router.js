@@ -11,8 +11,9 @@ import Cart from './Cart/Cart';
 import Footer from '../components/Footer/Footer';
 import Register from './Register/Register';
 import Event from './Event/Event';
-import ReviewList from '../components/ReviewList/ReviewList';
 import EventDetail from './Event/EventDetail/EventDetail';
+import ReviewList from '../components/ReviewList/ReviewList';
+import ProductDetail from '../components/ProductDetail/ProductDetail';
 
 function Router() {
   return (
@@ -27,11 +28,9 @@ function Router() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/register" element={<Register />} />
         <Route path="/event" element={<Event />} />
-        {/* <Route path="/event/:id" element={<EventDetail />} /> */}
-        <Route path="/eventdetail" element={<EventDetail />} />
-        <Route path="/review" element={<ReviewList />} />
-        {/*수정: /review << 페이지 아니고 컴포넌트*/}
-        {/* <Route path="event/" */}
+        <Route path="/event/:id" element={<EventDetail />} />
+        {/* <Route path="/review" element={<ReviewList />} /> */}
+        <Route path="/productdetail" element={<ProductDetail />} />
       </Routes>
       <Footer />
     </BrowserRouter>
