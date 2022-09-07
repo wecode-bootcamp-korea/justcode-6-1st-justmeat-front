@@ -1,5 +1,8 @@
 $footer-navigation-fontsize: 18px;
 $footer-padding: 10px 100px;
+@mixin layoutborder {
+  border: 1px solid darkgray;
+}
 
 @mixin footer-main-cs-text-align {
   text-align: right;
@@ -10,78 +13,80 @@ $footer-padding: 10px 100px;
   height: 70px;
 }
 
-.footer-navigation {
-  display: flex;
-  margin-top: 100px;
-
-  padding: $footer-padding;
-  border-top: solid 1.5px #aaa;
-  border-bottom: solid 1px #ccc;
-  .footer-navigation-main {
+.footer-container {
+  margin-top: 200px;
+  .footer-navigation {
     display: flex;
-    width: 50%;
-    a {
-      margin: 10px;
-      font-size: $footer-navigation-fontsize;
-    }
-    p {
-      margin: 10px;
-      font-size: $footer-navigation-fontsize;
-    }
-  }
 
-  .footer-navigation-external {
-    display: flex;
-    justify-content: flex-end;
-    width: 50%;
-    button {
-      margin: 5px 20px;
-      padding: 5px;
-      font-size: $footer-navigation-fontsize;
-      .footer-navigation-external-icon2 {
+    padding: $footer-padding;
+    border-top: solid 1.5px #aaa;
+    border-bottom: solid 1px #ccc;
+    .footer-navigation-main {
+      display: flex;
+      width: 50%;
+      a {
+        margin: 10px;
+        font-size: $footer-navigation-fontsize;
+      }
+      p {
+        margin: 10px;
         font-size: $footer-navigation-fontsize;
       }
     }
-    .footer-navigation-external-icon {
-      font-size: 25px;
-      margin: 10px;
-    }
-  }
-}
 
-.footer-main {
-  display: flex;
-  padding: $footer-padding;
-  .footer-main-info {
-    width: 50%;
-
-    .footer-logo {
-      margin-top: 10px;
-      @include footer-logo-size;
-    }
-    .footer-main-team-info {
+    .footer-navigation-external {
       display: flex;
-    }
-    .front-members {
-      border-right: solid 1px #aaa;
-      padding-right: 30px;
-      margin-top: 10px;
-    }
-    .back-members {
-      margin-left: 30px;
-      margin-top: 10px;
+      justify-content: flex-end;
+      width: 50%;
+      button {
+        margin: 5px 20px;
+        padding: 5px;
+        font-size: $footer-navigation-fontsize;
+        .footer-navigation-external-icon2 {
+          font-size: $footer-navigation-fontsize;
+        }
+      }
+      .footer-navigation-external-icon {
+        font-size: 25px;
+        margin: 10px;
+      }
     }
   }
-  .footer-main-cs {
-    width: 50%;
+
+  .footer-main {
     display: flex;
-    justify-content: flex-end;
-    @include footer-main-cs-text-align;
-    button {
-      padding: 5px 15px;
-      margin: 5px 0px 5px 10px;
-      background-color: #fff;
-      border-radius: 5px;
+    padding: $footer-padding;
+    .footer-main-info {
+      width: 50%;
+
+      .footer-logo {
+        margin-top: 10px;
+        @include footer-logo-size;
+      }
+      .footer-main-team-info {
+        display: flex;
+      }
+      .front-members {
+        border-right: solid 1px #aaa;
+        padding-right: 30px;
+        margin-top: 10px;
+      }
+      .back-members {
+        margin-left: 30px;
+        margin-top: 10px;
+      }
+    }
+    .footer-main-cs {
+      width: 50%;
+      display: flex;
+      justify-content: flex-end;
+      @include footer-main-cs-text-align;
+      button {
+        padding: 5px 15px;
+        margin: 5px 0px 5px 10px;
+        background-color: #fff;
+        border-radius: 5px;
+      }
     }
   }
 }

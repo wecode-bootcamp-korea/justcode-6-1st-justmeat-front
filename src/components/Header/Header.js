@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { faBars, faCartShopping } from '@fortawesome/free-solid-svg-icons';
 // import { faCartShopping } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import '../Header/Header.scss';
 import Menumodal from './Menumodal/Menumodal.js';
 
@@ -11,6 +11,15 @@ function Header() {
   console.log(localStorage.getItem('accessToken'));
   const logoutButtonClick = () => {
     localStorage.removeItem('accessToken');
+  };
+
+  const navigate = useNavigate();
+  const goToCart = () => {
+    {
+      localStorage.getItem('accessToken') !== null
+        ? navigate(`/sale/localStorage.getItem('user_pk')`)
+        : navigate(`/login`);
+    }
   };
 
   return (
@@ -67,6 +76,7 @@ function Header() {
             )}
             <div className="navigation-icons">
               <FontAwesomeIcon
+                onClick={goToCart}
                 className="navigation-cart"
                 icon={faCartShopping}
               />
