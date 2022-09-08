@@ -31,7 +31,7 @@ function Menumodal({ menuOpen, setMenuOpen, logoutButtonClick }) {
         </div>
         <p className="menu-shop-text">쇼핑하기</p>
         <div className="menu-categories-container">
-          <Link to="/shop">
+          <Link to="/product">
             <div className="menu-category">
               <div className="menu-category-img-box">
                 <img src="/images/pig.png" alt="돼지"></img>

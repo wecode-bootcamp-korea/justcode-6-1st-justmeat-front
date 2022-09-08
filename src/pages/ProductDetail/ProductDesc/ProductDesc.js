@@ -11,19 +11,24 @@ export default function ProductDesc({
   category,
   decrementCount,
   incrementCount,
-  productCount,
+  paymentAmount,
+  productAmount,
 }) {
-  useEffect(() => {
-    fetch(`http://localhost:10010/product/`, {
+  const sendToCart = () => {
+    fetch(`http://localhost:10010/cart/${localStorage.getItem('user_pk')}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
+        Authorization: localStorage.getItem('accessToken'),
       },
-    })
-      .then(res => res.json())
-      .then(data => setShopItems(data.itemData));
-  }, []);
+      body: JSON.stringify({
+        productId: id,
+        productAmount: productAmount,
+        paymentAmount: paymentAmount,
+      }),
+    });
+  };
 
   return (
     <div className="product-desc-contain setting-center">
@@ -90,7 +95,7 @@ export default function ProductDesc({
               >
                 -
               </button>
-              <div className="product-desc-count">{productCount}</div>
+              <div className="product-desc-count">{productAmount}</div>
               <button
                 className="product-desc-plus-btn"
                 onClick={incrementCount}
@@ -104,7 +109,9 @@ export default function ProductDesc({
           <div className="product-desc-btn-wrapper">
             <button className="product-desc-buy-now">바로구매</button>
             <Link to="/cart">
-              <button className="product-desc-to-cart">장바구니</button>
+              <button className="product-desc-to-cart" onClick={sendToCart}>
+                장바구니
+              </button>
             </Link>
           </div>
         </div>

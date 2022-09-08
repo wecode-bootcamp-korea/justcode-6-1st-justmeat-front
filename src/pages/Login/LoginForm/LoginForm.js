@@ -44,7 +44,10 @@ function LoginForm(props) {
             className="login-btn"
             type="submit"
             disabled={btnState1}
-            style={{ backgroundColor: btnState2 }}
+            style={{
+              backgroundColor: btnState2,
+              cursor: !btnState1 ? 'pointer' : 'auto',
+            }}
             onClick={goToHome}
             onKeyUp={e => {
               if (e.key === 'Enter') return goToHome;

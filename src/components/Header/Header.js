@@ -17,7 +17,7 @@ function Header() {
   const goToCart = () => {
     {
       localStorage.getItem('accessToken') !== null
-        ? navigate(`/sale/localStorage.getItem('user_pk')`)
+        ? navigate(`/cart/localStorage.getItem('user_pk')`)
         : navigate(`/login`);
     }
   };
@@ -37,7 +37,7 @@ function Header() {
             </div>
             <ul className="navigation-mainmenu">
               <li>
-                <Link to="/shop" style={{ textDecoration: 'none' }}>
+                <Link to="/product" style={{ textDecoration: 'none' }}>
                   <span>쇼핑하기</span>
                 </Link>
               </li>

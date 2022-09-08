@@ -3,15 +3,15 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function ImageSlider() {
-  const [currentImgIndex, setCurrentImgIndex] = useState(0);
+  // const [currentImgIndex, setCurrentImgIndex] = useState(0);
   const [style, setStyle] = useState({
-    transform: `translateX(-${currentImgIndex}00%)`,
+    transform: `translateX(0px)`,
     transition: `all 0.4s ease-in-out`,
   });
   const moveImg = () => {
-    setCurrentImgIndex(currentImgIndex + 1);
+    // setCurrentImgIndex(currentImgIndex + 1);
     setStyle({
-      transform: `translateX(-${currentImgIndex + 1}00%)`,
+      transform: `translateX(-2160px)`,
       transition: `all 0.4s ease-in-out`,
     });
   };

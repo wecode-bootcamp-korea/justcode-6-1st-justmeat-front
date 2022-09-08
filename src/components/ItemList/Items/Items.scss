@@ -3,10 +3,18 @@
   padding: 0px 0px 0px 0px;
 }
 
+.item {
+  margin: 50px 0px;
+  width: 430px;
+  height: 440px;
+  background-color: #f9f7f8;
+  cursor: pointer;
+}
+
 .product-img {
-  margin: 70px 0px 0px 40px;
-  width: 276px;
-  height: 276px;
+  margin: 60px 0px 0px 65px;
+  width: 300px;
+  height: 300px;
   border-radius: 5px;
 }
 
@@ -22,14 +30,6 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-}
-
-.item {
-  margin: 32px 0px 0px;
-  width: 365px;
-  height: 416px;
-  background-color: #f9f7f8;
-  cursor: pointer;
 }
 
 .product-info {
