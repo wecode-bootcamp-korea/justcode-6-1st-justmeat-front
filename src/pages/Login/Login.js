@@ -95,6 +95,7 @@ function Login() {
   // backend DB 등록 user
   // email: tkdwk2889@naver.com
   // password: qufqkqh2378
+  // phoneNum: 7533 7357
 
   return (
     // 전체 감싸는 div

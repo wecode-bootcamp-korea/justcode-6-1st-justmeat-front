@@ -17,29 +17,40 @@ const Items = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [count, setCount] = useState(1);
+  const [priceAmount, setPriceAmount] = useState(1);
+
   const decrementCount = () => {
-    setCount(prevCount => prevCount - 1);
+    if (count > 1) {
+      setCount(prevCount => prevCount - 1);
+      setPriceAmount(Number(price) * (count - 1));
+    }
   };
   const incrementCount = () => {
     setCount(prevCount => prevCount + 1);
+    setPriceAmount(Number(price) * (count + 1));
   };
 
   const navigate = useNavigate();
+
   const goToDetails = e => {
     navigate(`/product/${e.target.id}`);
   };
 
-  // useEffect(() => {
-  //   fetch(`http://localhost:10010/product/`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       Accept: 'application/json',
-  //     },
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => setShopItems(data.));
-  // }, []);
+  const sendToCart = () => {
+    fetch(`http://localhost:10010/cart/${localStorage.getItem('user_pk')}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: localStorage.getItem('accessToken'),
+      },
+      body: JSON.stringify({
+        productId: id,
+        productAmount: count,
+        paymentAmount: priceAmount,
+      }),
+    });
+  };
 
   return (
     <ul className="items">
@@ -61,7 +72,14 @@ const Items = ({
               alt="장바구니"
               src="images/cart-icon.png"
             />
-            <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+            <Modal
+              open={isOpen}
+              onClose={() => setIsOpen(false)}
+              productName={name}
+              priceAmount={priceAmount}
+              productAmount={count}
+              sendToCart={sendToCart}
+            >
               <div className="product-amount-wrapper">
                 <div className="product-amount">
                   <button className="minus-btn" onClick={decrementCount}>

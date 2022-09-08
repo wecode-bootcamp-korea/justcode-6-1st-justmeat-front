@@ -8,9 +8,10 @@ import Menumodal from './Menumodal/Menumodal.js';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  console.log(localStorage.getItem('accessToken'));
   const logoutButtonClick = () => {
     localStorage.removeItem('accessToken');
+    setMenuOpen(false);
+    navigate('/');
   };
 
   const navigate = useNavigate();
@@ -95,6 +96,7 @@ function Header() {
         logoutButtonClick={logoutButtonClick}
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}
+        goToCart={goToCart}
       ></Menumodal>
     </>
   );

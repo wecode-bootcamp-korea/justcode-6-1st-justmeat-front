@@ -18,7 +18,11 @@ function ImageSlider() {
 
   return (
     <div className="image-slider-container">
-      <img onClick={moveImg} style={style} src="/images/main-image-3.png"></img>
+      <img
+        onClick={moveImg}
+        style={style}
+        src="/images/main-img-logo.png"
+      ></img>
 
       <img onClick={moveImg} style={style} src="/images/main-pork.png"></img>
     </div>

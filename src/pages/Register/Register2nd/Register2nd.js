@@ -184,7 +184,7 @@ function Register2nd(props) {
               type: '비밀번호 확인',
               content: '비밀번호와 비밀번호 확인이 일치하지 않습니다.',
             });
-          } else if (result.message === 'Different_verification') {
+          } else if (result.message === '인증번호가 일치하지 않습니다') {
             setCreatedCode(0);
             setIsRegisterModal(true);
             setErrorMessage({

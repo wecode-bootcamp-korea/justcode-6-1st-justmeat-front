@@ -49,30 +49,25 @@
   justify-content: space-between;
   align-items: center;
   width: 400px;
+  height: 40px;
   font-size: 20px;
   border: 1px solid gray;
   margin-top: 20px;
-}
-
-.product-amount-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.minus-btn {
-  display: flex;
-  justify-content: center;
-  padding: 0px 10px;
-  font-size: 20px;
-  background-color: white;
-}
-
-.plus-btn {
-  display: flex;
-  justify-content: center;
-  padding: 0px 10px;
-  font-size: 20px;
-  background-color: white;
+  .minus-btn {
+    height: 38px;
+    border: none;
+    border-right: 1px solid gray;
+    padding-top: 5px;
+  }
+  .plus-btn {
+    height: 38px;
+    border: none;
+    border-left: 1px solid gray;
+    padding-top: 5px;
+  }
+  span {
+    padding-top: 3px;
+  }
 }
 
 .price {

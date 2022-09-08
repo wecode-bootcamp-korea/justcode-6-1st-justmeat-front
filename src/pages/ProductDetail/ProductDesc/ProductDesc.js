@@ -35,7 +35,7 @@ export default function ProductDesc({
       <div className="product-desc-product-img-wrapper">
         <img src={img} alt="고기사진" className="product-desc-product-img" />
       </div>
-      <div className="product-desc-content todo">
+      <div className="product-desc-content">
         <p className="product-desc-product-name">{name}</p>
         <p className="product-desc-price">
           기준가 {price}원 ({weight}g)
@@ -77,7 +77,9 @@ export default function ProductDesc({
         )}
         <div className="product-desc-custom-order-flex">
           <div className="product-desc-custom-order-wrapper">
-            <span className="product-desc-custom-order-title">옵션</span>
+            <span className="product-desc-custom-order-title text-center">
+              옵션
+            </span>
             <select className="product-desc-custom-order">
               <option value="0">보통 (16mm)</option>
               <option value="1">얇게 (11mm)</option>
@@ -87,7 +89,7 @@ export default function ProductDesc({
         </div>
         <div className="product-desc-amount-flex">
           <div className="product-desc-amount-wrapper">
-            <span className="product-desc-amount-title">수량</span>
+            <span className="product-desc-amount-title text-center">수량</span>
             <div className="product-desc-amount">
               <button
                 className="product-desc-minus-btn"

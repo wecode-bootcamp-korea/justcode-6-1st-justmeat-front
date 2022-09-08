@@ -3,7 +3,7 @@ import { faCartShopping, faX } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import './Menumodal.scss';
 
-function Menumodal({ menuOpen, setMenuOpen, logoutButtonClick }) {
+function Menumodal({ menuOpen, setMenuOpen, logoutButtonClick, goToCart }) {
   return (
     <div className={menuOpen ? 'activate' : 'before-activate'}>
       <section className="menu-wrapper">
@@ -19,6 +19,7 @@ function Menumodal({ menuOpen, setMenuOpen, logoutButtonClick }) {
             <FontAwesomeIcon
               icon={faCartShopping}
               className="menu-cart-icon"
+              onClick={goToCart}
             ></FontAwesomeIcon>
             <FontAwesomeIcon
               icon={faX}

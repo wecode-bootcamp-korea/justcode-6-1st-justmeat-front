@@ -5,12 +5,19 @@ import CartPayment from './CartPayment/CartPayment';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { faAppStoreIos } from '@fortawesome/free-brands-svg-icons';
+import CartModal from './CartModal/CartModal';
 
 function Cart() {
   const [cartListMockData, setCartListMockData] = useState([]);
 
-  // const [payId, setPayID] = useState(0);
-  const [message, setMessage] = useState('');
+  // error 모달 관리 state value
+  const [isBuyModal, setIsBuyModal] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  // 모달 닫는 함수
+  const closeCartModal = () => {
+    setIsBuyModal(false);
+  };
 
   /*접속 user의 장바구니 데이터 서버에서 불러오기*/
   useEffect(() => {
@@ -137,16 +144,41 @@ function Cart() {
       }),
     })
       .then(res => res.json())
-      .then(data => setMessage(data.message))
-      .catch(error => console.log(error));
+      .then(data => {
+        console.log(data);
 
-    if (
-      message === '구매가 완료 되었습니다. 신선한 상품으로 배송해드리겠습니다'
-    ) {
-      alert('구매가 완료 되었습니다. 신선한 상품으로 배송해드리겠습니다');
-    } else if (message === 'Point가 없습니다. 구매에 실패하셨습니다.') {
-      alert('Point가 없습니다. 구매에 실패하셨습니다.');
-    }
+        if (
+          data.message ===
+          '구매가 완료 되었습니다. 신선한 상품으로 배송해드리겠습니다'
+        ) {
+          setIsBuyModal(true);
+          setErrorMessage({
+            type: '구매 성공',
+            content:
+              '구매가 완료 되었습니다. 신선한 상품으로 배송해드리겠습니다.',
+          });
+          setCartListMockData([]);
+        } else if (data === 'Point가 부족합니다. 구매에 실패하셨습니다.') {
+          setIsBuyModal(true);
+          setErrorMessage({
+            type: '구매 실패',
+            content: 'Point가 부족합니다. 구매에 실패하셨습니다.',
+          });
+        } else if (data.message === '카트가 비어있습니다') {
+          setIsBuyModal(true);
+          setErrorMessage({
+            type: '구매 실패',
+            content: '카트가 비어있습니다',
+          });
+        } else if (data === '상품 재고가 부족합니다') {
+          setIsBuyModal(true);
+          setErrorMessage({
+            type: '구매 실패',
+            content: '상품 재고가 부족합니다',
+          });
+        }
+      })
+      .catch(error => console.log(error));
   }
 
   function resetCart() {
@@ -192,6 +224,13 @@ function Cart() {
           payForSales={payForSales}
           resetCart={resetCart}
         ></CartPayment>
+        {isBuyModal && (
+          <CartModal
+            id={0}
+            message={errorMessage}
+            closeModal={closeCartModal}
+          ></CartModal>
+        )}
       </section>
     </div>
   );
