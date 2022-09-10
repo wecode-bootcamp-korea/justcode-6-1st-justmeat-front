@@ -1,0 +1,39 @@
+.cartmodal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.cartmodal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 550px;
+  padding: 30px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.cartmodal-error-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.cartmodal-error-content {
+  margin-top: 25px;
+  margin-bottom: 70px;
+}
+
+.cartmodal-btn {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 5px 30px;
+  border: 1px solid rgb(204, 204, 204);
+  background-color: rgb(229, 229, 229);
+  cursor: pointer;
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import './ProductDetail.scss';
 import ProductDesc from './ProductDesc/ProductDesc';
 import ProductInfo from './ProductInfo/ProductInfo';
@@ -9,11 +9,19 @@ function ProductDetail() {
   const [itemDetails, setItemDetails] = useState();
 
   const [count, setCount] = useState(1);
+
+  const [price, setPrice] = useState(1);
+
   const decrementCount = () => {
-    setCount(prevCount => prevCount - 1);
+    if (count > 1) {
+      setCount(prevCount => prevCount - 1);
+      setPrice(Number(itemDetails[0].price) * (count - 1));
+    }
   };
+
   const incrementCount = () => {
     setCount(prevCount => prevCount + 1);
+    setPrice(Number(itemDetails[0].price) * (count + 1));
   };
 
   const [tapType, setTapType] = useState('상품설명');
@@ -34,6 +42,8 @@ function ProductDetail() {
     })
       .then(res => res.json())
       .then(data => {
+        console.log(data);
+        setPrice(Number(data.itemData[0].price));
         setItemDetails(data.itemData);
       });
   }, [productId]);
@@ -42,27 +52,55 @@ function ProductDetail() {
     <>
       <div className="details-wrapper">
         <div className="details-product-details">
-          {/* {itemDetails &&
-            itemDetails.map((itemDetail, index) => ( */}
-          <ProductDesc
-          // key={index}
-          // id={itemDetail.id}
-          // img={itemDetail.productImgMain}
-          // name={itemDetail.productName}
-          // price={itemDetail.price}
-          // weight={itemDetail.weight}
-          // decrementCount={decrementCount}
-          // incrementCount={incrementCount}
-          // productCount={count}
-          />
-          ))}
+          {itemDetails &&
+            itemDetails.map((itemDetail, index) => (
+              <ProductDesc
+                key={index}
+                id={itemDetail.id}
+                img={itemDetail.productImgMain}
+                name={itemDetail.productName}
+                price={itemDetail.price}
+                weight={itemDetail.weight}
+                decrementCount={decrementCount}
+                incrementCount={incrementCount}
+                paymentAmount={price}
+                productAmount={count}
+              />
+            ))}
         </div>
       </div>
       <div className="product-desc-info-wrapper">
         <div className="product-desc-info">
-          <span onClick={changeTap}>상품설명</span>
-          <span onClick={changeTap}>상품리뷰</span>
-          <span onClick={changeTap}>상품정보안내</span>
+          <span
+            onClick={changeTap}
+            style={{
+              fontWeight: tapType === '상품설명' ? 'bold' : '400',
+              color: tapType === '상품설명' ? 'black' : 'gray',
+              textDecoration: tapType === '상품설명' ? 'underline' : 'none',
+            }}
+          >
+            상품설명
+          </span>
+          <span
+            onClick={changeTap}
+            style={{
+              fontWeight: tapType === '상품리뷰' ? 'bold' : '400',
+              color: tapType === '상품리뷰' ? 'black' : 'gray',
+              textDecoration: tapType === '상품리뷰' ? 'underline' : 'none',
+            }}
+          >
+            상품리뷰
+          </span>
+          <span
+            onClick={changeTap}
+            style={{
+              fontWeight: tapType === '상품정보안내' ? 'bold' : '400',
+              color: tapType === '상품정보안내' ? 'black' : 'gray',
+              textDecoration: tapType === '상품정보안내' ? 'underline' : 'none',
+            }}
+          >
+            상품정보안내
+          </span>
         </div>
       </div>
       <div className="product-desc-product-info">

@@ -2,14 +2,13 @@ import React from 'react';
 import './ReviewModal.scss';
 
 function ReviewModal(props) {
-  const { reviewData, productName, closeModal } = props;
-  // console.log(reviewData);
+  const { reviewData, productName, closeReviewModal } = props;
   return (
     <div className="reviewmodal-container">
       <div className="reviewmodal-content">
         <div
           className="reviewmodal-closed-button text-center"
-          onClick={closeModal}
+          onClick={closeReviewModal}
         >
           x
         </div>
@@ -19,7 +18,7 @@ function ReviewModal(props) {
             {reviewData.createdAt.substr(0, 10)}
           </span>
         </div>
-        <div className="reviewmodal-line"></div>
+        <div className="reviewmodal-line" />
         <div className="reviewmodal-comment">
           <p className="reviewmodal-title">{reviewData.title}</p>
           <p className="reviewmodal-comment">{reviewData.content}</p>

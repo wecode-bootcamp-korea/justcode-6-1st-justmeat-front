@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 // Components
@@ -7,6 +6,8 @@ import LoginForm from './LoginForm/LoginForm';
 import LoginFind from './LoginFind/LoginFind';
 import SocailLogin from './SocialLogin/SocailLogin';
 import LoginSuggestion from './LoginSuggestion/LoginSuggestion';
+import { useNavigate } from 'react-router-dom';
+import LoginModal from './LoginModal/LoginModal';
 
 function Login() {
   // id, pw state value
@@ -17,11 +18,6 @@ function Login() {
   const [btnColor, setBtnColor] = useState('gray');
   // loginButton 활성화 비활성화 state
   const [isDisabled, setisDisabled] = useState(true);
-
-  // login token
-  // const [userToken, setUserToken] = useState('');
-  // const [userPk, setUserPk] = useState('');
-  // const navigate = useNavigate();
 
   // loginSuggestion props
   const suggestionText = ['login', '이 처음', '/signup', '회원가입하기'];
@@ -56,6 +52,16 @@ function Login() {
     }
   }
 
+  // error 모달 관리 state value
+  const navigate = useNavigate();
+  const [isLoginModal, setIsLoginModal] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  // 모달 닫는 함수
+  const closeLoginModal = () => {
+    setIsLoginModal(false);
+  };
+
   // main page 로 이동하는 함수
   const goToHome = e => {
     fetch('http://localhost:10010/user/login', {
@@ -71,15 +77,16 @@ function Login() {
     })
       .then(res => res.json())
       .then(result => {
-        console.log(result);
         if (result.message === 'LOGIN_SUCCESS') {
-          console.log(result.token.accessToken);
-          localStorage.setItem('accessToken', result.token.accessToken); //  token
-          localStorage.setItem('user_pk', result.token.user_pk); // id
-
-          // navigate('/');
-        } else if (result.message === 'NO USER') {
-          alert('등록되지 않은 사용자 입니다.');
+          localStorage.setItem('accessToken', result.token.accessToken); // token
+          localStorage.setItem('user_pk', result.token.user_pk); // userid
+          navigate('/');
+        } else if (result === 'NO_USER') {
+          setIsLoginModal(true);
+          setErrorMessage({
+            type: '로그인 오류',
+            content: '등록되지 않은 사용자 입니다.',
+          });
         }
       });
     e.preventDefault();
@@ -88,6 +95,7 @@ function Login() {
   // backend DB 등록 user
   // email: tkdwk2889@naver.com
   // password: qufqkqh2378
+  // phoneNum: 7533 7357
 
   return (
     // 전체 감싸는 div
@@ -113,6 +121,13 @@ function Login() {
         <SocailLogin type={'login'} title={'SNS 간편 로그인'} />
         {/* login to signup  */}
         <LoginSuggestion text={suggestionText} />
+        {isLoginModal ? (
+          <LoginModal
+            message={errorMessage}
+            id={0}
+            closeModal={closeLoginModal}
+          />
+        ) : null}
       </div>
     </div>
   );

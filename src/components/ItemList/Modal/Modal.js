@@ -3,7 +3,15 @@ import ReactDom from 'react-dom';
 import { Link } from 'react-router-dom';
 import './Modal.scss';
 
-export default function Modal({ open, onClose, children, name, price }) {
+export default function Modal({
+  open,
+  onClose,
+  children,
+  productName,
+  priceAmount,
+  productAmount,
+  sendToCart,
+}) {
   if (!open) return null;
 
   return ReactDom.createPortal(
@@ -13,9 +21,11 @@ export default function Modal({ open, onClose, children, name, price }) {
         <button className="close-modal" onClick={onClose}>
           X
         </button>
-        <h3 className="modal-product-name">{name}</h3>
+        <div className="modal-product-name setting-center">
+          <h4>{productName}</h4>
+        </div>
         {children}
-        <div>
+        <div className="custom-order-container">
           <span className="custom-order-title">옵션선택</span>
           <div className="custom-order-wrapper">
             <select className="custom-order">
@@ -26,13 +36,17 @@ export default function Modal({ open, onClose, children, name, price }) {
           </div>
         </div>
         <div className="modal-price-wrapper">
-          <span className="modal-price">{price}원</span>
+          <span className="modal-price">{priceAmount}원</span>
         </div>
         <div className="btn-wrapper">
-          <button className="buy-now">바로구매</button>
           <Link to="/cart">
-            <button className="to-cart">장바구니</button>
+            <button className="buy-now" onClick={sendToCart}>
+              바로구매
+            </button>
           </Link>
+          <button className="to-cart" onClick={onClose}>
+            장바구니
+          </button>
         </div>
       </div>
     </>,

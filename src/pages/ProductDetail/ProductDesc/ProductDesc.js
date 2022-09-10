@@ -11,30 +11,31 @@ export default function ProductDesc({
   category,
   decrementCount,
   incrementCount,
-  productCount,
+  paymentAmount,
+  productAmount,
 }) {
-  // useEffect(() => {
-  //   fetch(`http://localhost:10010/product/`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       Accept: 'application/json',
-  //     },
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => setShopItems(data.itemData));
-  // }, []);
+  const sendToCart = () => {
+    fetch(`http://localhost:10010/cart/${localStorage.getItem('user_pk')}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: localStorage.getItem('accessToken'),
+      },
+      body: JSON.stringify({
+        productId: id,
+        productAmount: productAmount,
+        paymentAmount: paymentAmount,
+      }),
+    });
+  };
 
   return (
     <div className="product-desc-contain setting-center">
       <div className="product-desc-product-img-wrapper">
-        <img
-          src="{img}"
-          alt="고기사진"
-          className="product-desc-product-img"
-        ></img>
+        <img src={img} alt="고기사진" className="product-desc-product-img" />
       </div>
-      <div className="product-desc-content todo">
+      <div className="product-desc-content">
         <p className="product-desc-product-name">{name}</p>
         <p className="product-desc-price">
           기준가 {price}원 ({weight}g)
@@ -76,7 +77,9 @@ export default function ProductDesc({
         )}
         <div className="product-desc-custom-order-flex">
           <div className="product-desc-custom-order-wrapper">
-            <span className="product-desc-custom-order-title">옵션</span>
+            <span className="product-desc-custom-order-title text-center">
+              옵션
+            </span>
             <select className="product-desc-custom-order">
               <option value="0">보통 (16mm)</option>
               <option value="1">얇게 (11mm)</option>
@@ -86,7 +89,7 @@ export default function ProductDesc({
         </div>
         <div className="product-desc-amount-flex">
           <div className="product-desc-amount-wrapper">
-            <span className="product-desc-amount-title">수량</span>
+            <span className="product-desc-amount-title text-center">수량</span>
             <div className="product-desc-amount">
               <button
                 className="product-desc-minus-btn"
@@ -94,7 +97,7 @@ export default function ProductDesc({
               >
                 -
               </button>
-              <div className="product-desc-count">{productCount}</div>
+              <div className="product-desc-count">{productAmount}</div>
               <button
                 className="product-desc-plus-btn"
                 onClick={incrementCount}
@@ -104,12 +107,13 @@ export default function ProductDesc({
             </div>
           </div>
         </div>
-
         <div className="product-desc-btn-flex">
           <div className="product-desc-btn-wrapper">
             <button className="product-desc-buy-now">바로구매</button>
             <Link to="/cart">
-              <button className="product-desc-to-cart">장바구니</button>
+              <button className="product-desc-to-cart" onClick={sendToCart}>
+                장바구니
+              </button>
             </Link>
           </div>
         </div>

@@ -40,7 +40,7 @@ function ReviewList({ productInfo }) {
           })}
         </div>
       </section>
-      <section className="review-viewmore-btn"></section>
+      <section className="review-viewmore-btn" />
     </div>
   );
 }

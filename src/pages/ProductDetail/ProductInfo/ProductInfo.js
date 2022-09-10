@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './ProductInfo.scss';
 
 function ProductInfo(props) {
   const { productInfo } = props;
-  console.log(productInfo);
 
   return (
-    <>
+    <React.Fragment>
       {productInfo !== undefined ? (
         <div className="ProductInfo-container">
           <div className="ProductInfo-content">
@@ -43,7 +42,7 @@ function ProductInfo(props) {
                   <span>일</span>
                 </div>
               </div>
-              <p className="content"></p>
+              <p className="content" />
             </div>
             <div className="ProductInfo-content-detail setting-center">
               <p className="title">
@@ -59,7 +58,7 @@ function ProductInfo(props) {
                   </div>
                   <div className="card-detail-wrap">
                     <p className="title">깔끔한 냄새</p>
-                    <p className="bar"></p>
+                    <p className="bar" />
                     <p className="content">저스트 미트만의</p>
                     <p className="content">철저한 유통관리로 인한</p>
                     <p className="content">보장된 신선도 !</p>
@@ -74,7 +73,7 @@ function ProductInfo(props) {
                   </div>
                   <div className="card-detail-wrap">
                     <p className="title">질리지 않는 맛</p>
-                    <p className="bar"></p>
+                    <p className="bar" />
                     <p className="content">저스트미트의 상품은</p>
                     <p className="content">먹어도 먹어도</p>
                     <p className="content">질리지 않습니다.</p>
@@ -89,7 +88,7 @@ function ProductInfo(props) {
                   </div>
                   <div className="card-detail-wrap">
                     <p className="title">살아있는 식감</p>
-                    <p className="bar"></p>
+                    <p className="bar" />
                     <p className="content">신선하고</p>
                     <p className="content">건강한 맛</p>
                   </div>
@@ -99,7 +98,7 @@ function ProductInfo(props) {
           </div>
         </div>
       ) : null}
-    </>
+    </React.Fragment>
   );
 }
 

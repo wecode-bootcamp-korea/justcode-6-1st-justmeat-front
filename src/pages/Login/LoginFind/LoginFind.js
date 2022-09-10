@@ -4,7 +4,7 @@ function LoginFind() {
   return (
     <article className="login-find-wrap">
       <div className="login-id-pw-find setting-center">
-        아이디 / 비밀번호 찾기
+        <span>아이디 / 비밀번호 찾기</span>
       </div>
     </article>
   );

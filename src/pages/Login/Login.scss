@@ -1,5 +1,6 @@
 .login-container {
   outline: 0;
+  margin-top: 200px;
 }
 
 .login-content {
@@ -20,7 +21,6 @@
 }
 
 .login-input-wrap {
-  // justify-content: space-between;
   div {
     border: 1px solid rgb(214, 214, 214);
     margin-top: 10px;
@@ -54,6 +54,10 @@
   .login-id-pw-find {
     font-size: 16px;
     font-weight: 500;
+
+    span {
+      cursor: pointer;
+    }
   }
 }
 
@@ -77,6 +81,7 @@
     font-weight: bold;
     border: 0;
     border-radius: 4px;
+    cursor: pointer;
   }
 
   img {

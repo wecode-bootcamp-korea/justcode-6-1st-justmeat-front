@@ -1,12 +1,13 @@
 .best-item-title-wrap {
+  margin-top: 200px;
   width: 1200px;
-  margin: 0px auto 0px auto;
 
   .best-item-title {
     font-size: 32px;
     font-weight: bold;
     line-height: 32px;
-    margin: 100px 0px 0px 30px;
+    margin-right: auto;
+    margin-left: 360px;
     font-family: 'Noto Sans KR', sans-serif;
   }
 }

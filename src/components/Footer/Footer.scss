@@ -1,5 +1,6 @@
-$footer-navigation-fontsize: 18px;
+$footer-navigation-fontsize: 25px;
 $footer-padding: 10px 100px;
+$footer-members-fontsize: 22px;
 @mixin layoutborder {
   border: 1px solid darkgray;
 }
@@ -9,12 +10,13 @@ $footer-padding: 10px 100px;
 }
 
 @mixin footer-logo-size {
-  width: 140px;
-  height: 70px;
+  width: 160px;
+  height: 90px;
 }
 
 .footer-container {
   margin-top: 200px;
+  padding-bottom: 70px;
   .footer-navigation {
     display: flex;
 
@@ -70,10 +72,16 @@ $footer-padding: 10px 100px;
         border-right: solid 1px #aaa;
         padding-right: 30px;
         margin-top: 10px;
+        p {
+          font-size: $footer-members-fontsize;
+        }
       }
       .back-members {
         margin-left: 30px;
         margin-top: 10px;
+        p {
+          font-size: $footer-members-fontsize;
+        }
       }
     }
     .footer-main-cs {
@@ -81,11 +89,18 @@ $footer-padding: 10px 100px;
       display: flex;
       justify-content: flex-end;
       @include footer-main-cs-text-align;
+      p {
+        font-size: $footer-members-fontsize;
+        span {
+          font-size: $footer-members-fontsize;
+        }
+      }
       button {
         padding: 5px 15px;
         margin: 5px 0px 5px 10px;
         background-color: #fff;
         border-radius: 5px;
+        font-size: $footer-members-fontsize;
       }
     }
   }

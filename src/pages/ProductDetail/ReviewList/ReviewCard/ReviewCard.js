@@ -5,14 +5,13 @@ import './ReviewCard.scss';
 function ReviewCard(props) {
   const { reviewListData, productName } = props;
 
-  // review 함께 구매한 상품 더보기 state value
-  const [isModal, setIsModal] = useState(false);
-  const openModal = e => {
-    setIsModal(true);
+  // review 함께 구매한 상품 더보기 모달 state value
+  const [isReviewModal, setIsReviewModal] = useState(false);
+  const openReviewModal = () => {
+    setIsReviewModal(true);
   };
-  const closeModal = e => {
-    console.log(e.target);
-    setIsModal(false);
+  const closeReviewModal = () => {
+    setIsReviewModal(false);
   };
 
   return (
@@ -45,7 +44,7 @@ function ReviewCard(props) {
             </div>
           )}
         </div>
-        <div className="review-purchase-record-wrap" onClick={openModal}>
+        <div className="review-purchase-record-wrap" onClick={openReviewModal}>
           <ul>함께 구매하신 상품 ({reviewListData.purchaseRecord.length})</ul>
           {reviewListData.purchaseRecord.length < 3 ? (
             reviewListData.purchaseRecord.map((purchaseList, index) => {
@@ -61,11 +60,11 @@ function ReviewCard(props) {
         </div>
       </article>
 
-      {isModal ? (
+      {isReviewModal ? (
         <ReviewModal
           reviewData={reviewListData}
           productName={productName}
-          closeModal={closeModal}
+          closeReviewModal={closeReviewModal}
         />
       ) : null}
     </>

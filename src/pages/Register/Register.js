@@ -1,17 +1,19 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Register.scss';
 
 // Components
 import Register1st from './Register1st/Register1st';
 import Register2nd from './Register2nd/Register2nd';
 import RegisterButton from './RegisterButton/RegisterButton';
+import RegisterModal from './RegisterModal/RegisterModal';
 import RegisterOrderBar from './RegisterOrderBar/RegisterOrderBar';
 
 function Register() {
   // 01. 약관동의 버튼
   const [isCheckbox1, setIsCheckbox1] = useState(false);
   const [isCheckbox2, setIsCheckbox2] = useState(false);
-  // 01. 동의하기 버튼
+  // 01. 동의하기, 가입하기 버튼
   const [isSubmitBtn, setIsSubmitBtn] = useState(false);
   // 02. 정보입력 input state
 
@@ -39,13 +41,37 @@ function Register() {
   const submitBtnValidation1 = () => {
     switch (isCheckbox1 && isCheckbox2) {
       case true:
-        setIsSubmitBtn(true);
+        setIsSubmitBtn(true); // 동의하기 버튼 활성화
         break;
       case false:
-        setIsSubmitBtn(false);
-        alert('이용약관과 개인정보 이용 방침에 모두 동의해주세요.');
+        setIsSubmitBtn(false); // 동의하기 버튼 비활성화
+        setIsRegisterModal(true); // error 모달 띄움
+        // error 모달에 전달할 메시지 세팅
+        setErrorMessage({
+          type: '약관 동의',
+          content: '이용약관과 개인정보 이용 방침에 모두 동의해주세요.',
+        });
+        break;
+      default:
         break;
     }
+  };
+
+  // 이전으로 버튼
+  const navigate = useNavigate();
+  const prePageButtonFor1st = () => {
+    navigate('/signup');
+  };
+  const prePageButtonFor2nd = () => {
+    window.location.reload();
+  };
+
+  // error 모달 관리 state value
+  const [isRegisterModal, setIsRegisterModal] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  // 모달 닫는 함수
+  const closeRegisterModal = () => {
+    setIsRegisterModal(false);
   };
 
   return (
@@ -69,7 +95,14 @@ function Register() {
             <RegisterButton
               inputText={'동의하기'}
               submitBtnValidation={submitBtnValidation1}
+              prePageButton={prePageButtonFor1st}
             />
+            {isRegisterModal ? (
+              <RegisterModal
+                message={errorMessage}
+                closeModal={closeRegisterModal}
+              />
+            ) : null}
           </div>
         ) : (
           <div>
@@ -77,7 +110,7 @@ function Register() {
               color={['rgb(186, 186, 186)', 'black']}
               imgURL={register2ndImgURL}
             />
-            <Register2nd setIsSubmitBtn={setIsSubmitBtn} />
+            <Register2nd prePageButton={prePageButtonFor2nd} />
           </div>
         )}
       </div>

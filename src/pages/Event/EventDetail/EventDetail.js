@@ -20,10 +20,7 @@ function EventDetail() {
     })
       .then(res => res.json())
       .then(data => {
-        data.result.map(eventInfo => {
-          setEventDetailContent(eventInfo.content);
-          console.log(eventInfo.content);
-        });
+        data.result.map(eventInfo => setEventDetailContent(eventInfo.content));
       });
   }, [params.id]);
 
@@ -35,7 +32,6 @@ function EventDetail() {
           src={eventDetailContent}
           alt="event content img"
         />
-        {/* <img src="/images/content1.png" alt="content img" /> */}
       </div>
     </div>
   );

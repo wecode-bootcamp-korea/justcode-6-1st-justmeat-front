@@ -45,13 +45,13 @@ function Footer() {
 
             <div className="footer-main-team-info">
               <div className="front-members">
-                <h4>Front end</h4>
+                <h2>Front end</h2>
                 <p>구현 3436hyun@gmail.com </p>
                 <p>박기호 gpontheg@gmail.com</p>
                 <p>정세영 siiyong16@naver.com</p>
               </div>
               <div className="back-members">
-                <h4>Back end</h4>
+                <h2>Back end</h2>
                 <p>이해연 haeyeon1796@gmail.com</p>
                 <p>오인환 yunoroy@gmail.com</p>
               </div>
@@ -59,7 +59,7 @@ function Footer() {
           </article>
           <article className="footer-main-cs">
             <div>
-              <h6>고객센터</h6>
+              <h2>고객센터</h2>
               <h3>1800-0658</h3>
               <p>
                 평일:08:30 - 17:30

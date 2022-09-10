@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import RegisterButton from '../RegisterButton/RegisterButton';
 import RegisterInput from '../RegisterInput/RegisterInput';
+import RegisterModal from '../RegisterModal/RegisterModal';
 import './Register2nd.scss';
 
-function Register2nd() {
+function Register2nd(props) {
+  const { prePageButton } = props;
+
   // 정보입력란 state value
   const [regEmail, setRegEmail] = useState('');
   const [regPassword, setRegPassword] = useState('');
@@ -86,12 +89,20 @@ function Register2nd() {
       .then(res => res.json())
       .then(result => {
         if (result.message === '존재하는 핸드폰 번호 입니다') {
-          alert(result.message);
+          setIsRegisterModal(true);
+          setErrorMessage({
+            type: '전화번호 중복',
+            content: result.message,
+          });
           setRegPhoneNum0('');
           setRegPhoneNum1('');
           setRegPhoneNum2('');
         } else {
-          alert('인증번호를 발송하였습니다.');
+          setIsRegisterModal(true);
+          setErrorMessage({
+            type: '인증번호가 발송되었습니다.',
+            content: `3분 이내에 인증번호를 입력하신 후\n다음 단계로 진행해주세요.`,
+          });
           setRegCode(result.message);
         }
       });
@@ -116,48 +127,109 @@ function Register2nd() {
     })
       .then(res => res.json())
       .then(result => {
-        console.log(result);
-        // console.log('=============가입하기 버튼===============');
-        // console.log('email:', regEmail);
-        // console.log('pw:', regPassword);
-        // console.log('pw-confirm:', regCheckPassword);
-        // console.log('name:', regName);
-        // console.log('phone:', '010' + regPhoneNum1 + regPhoneNum2);
-        // console.log('verification:', regCode);
-        // console.log('--result--');
-        // console.log(result);
-        // console.log('======================================');
         if (regEmail || regPassword || regCheckPassword || regName || regCode) {
           if (result.message === 'Not Found email') {
-            alert('email 이/가 없습니다.');
+            setCreatedCode(0);
+            setIsRegisterModal(true);
+            setErrorMessage({
+              type: '아아디(이메일주소) 확인',
+              content: '아이디(이메일주소)가 없습니다.',
+            });
           } else if (result.message === 'Not Found password') {
-            alert('password 이/가 없습니다.');
+            setCreatedCode(0);
+            setIsRegisterModal(true);
+            setErrorMessage({
+              type: '비밀번호 확인',
+              content: '비밀번호가 없습니다.',
+            });
           } else if (result.message === 'Not Found pwconfirm') {
-            alert('pwconfirm 이/가 없습니다.');
+            setCreatedCode(0);
+            setIsRegisterModal(true);
+            setErrorMessage({
+              type: '비밀번호 확인',
+              content: '비밀번호 확인이 없습니다.',
+            });
           } else if (result.message === 'Not Found name') {
-            alert('name 이/가 없습니다.');
+            setCreatedCode(0);
+            setIsRegisterModal(true);
+            setErrorMessage({
+              type: '이름 확인',
+              content: '이름이 없습니다.',
+            });
           } else if (result.message === 'Not Found phone') {
-            alert('phone 이/가 없습니다.');
+            setCreatedCode(0);
+            setIsRegisterModal(true);
+            setErrorMessage({
+              type: '휴대폰번호 확인',
+              content: '휴대폰번호가 없습니다.',
+            });
           } else if (result.message === 'Not Found verification') {
-            alert('verification 이/가 없습니다.');
+            setCreatedCode(0);
+            setIsRegisterModal(true);
+            setErrorMessage({
+              type: '인증번호 확인',
+              content: '인증번호가 없습니다.',
+            });
           } else if (result.message === 'Password_INVALID') {
-            alert('비밀번호 10글자 이상');
+            setCreatedCode(0);
+            setIsRegisterModal(true);
+            setErrorMessage({
+              type: '비밀번호 확인',
+              content: '비밀번호를 8자 이상으로 입력해주세요.',
+            });
           } else if (result.message === 'Different_Password') {
-            alert('비밀번호 두개 다름');
+            setCreatedCode(0);
+            setIsRegisterModal(true);
+            setErrorMessage({
+              type: '비밀번호 확인',
+              content: '비밀번호와 비밀번호 확인이 일치하지 않습니다.',
+            });
+          } else if (result.message === '인증번호가 일치하지 않습니다') {
+            setCreatedCode(0);
+            setIsRegisterModal(true);
+            setErrorMessage({
+              type: '인증번호가 잘못되었습니다.',
+              content: `인증번호가 맞지 않습니다.\n휴대전화로 받으신 인증번호를 다시 입력해주세요`,
+            });
+          } else if (result.message === 'EXISTED_USER') {
+            setCreatedCode(0);
+            setIsRegisterModal(true);
+            setErrorMessage({
+              type: '회원 정보 중복',
+              content: '이미 등록된 회원이 존재합니다.',
+            });
           } else if (result.message === 'userCreated') {
-            alert('회원가입이 완료되었습니다.');
-            navigate('/');
+            setCreatedCode(1);
+            setIsRegisterModal(true);
+            setErrorMessage({
+              type: '환영합니다.',
+              content: '회원가입이 완료되었습니다.',
+            });
           }
         } else {
-          alert('모든 정보를 입력해주세요.');
+          setCreatedCode(0);
+          setIsRegisterModal(true);
+          setErrorMessage({
+            type: '정보 입력',
+            content: '모든 정보를 입력해주세요.',
+          });
         }
       });
-    //navigate('/home');
+  };
 
-    // password 10글자 이상
-    // email @만 포함
-
-    e.preventDefault();
+  // error 모달 관리 state value
+  const [isRegisterModal, setIsRegisterModal] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [createdCode, setCreatedCode] = useState(0);
+  // 모달 닫는 함수
+  const closeRegisterModal = e => {
+    if (e.target.id === '1') {
+      // 회원가입 완료시 모달창 "확인" 버튼 누르면 메인화면으로 이동
+      navigate('/');
+    } else if (e.target.id === '0') {
+      // 회원가입 정보 입력 오류시 그냥 모달창만 닫기
+      setIsRegisterModal(false);
+    }
   };
 
   return (
@@ -166,6 +238,7 @@ function Register2nd() {
         <div className="register-2nd-title">
           <span>가입정보 입력</span>
         </div>
+        {/* 아아디, 비밀번호, 비밀번호 확인, 이름 입력란 */}
         <div className="register-2nd-content-wrap">
           {registerData.map((data, index) => {
             return (
@@ -178,6 +251,7 @@ function Register2nd() {
               />
             );
           })}
+          {/* 휴대폰 번호 입력란  */}
           <div className="register-2nd-content-wrap-2">
             <div className="register-2nd-input-wrap">
               <div className="register-2nd-input-type setting-center">
@@ -222,6 +296,7 @@ function Register2nd() {
                   style={{
                     color: regPhoneBtnTextColor,
                     backgroundColor: regPhoneBtnBackColor,
+                    cursor: !isRegPhoneNumBtnDisabled ? 'pointer' : 'auto',
                   }}
                   onClick={phoneNumBtnValidation}
                 >
@@ -229,6 +304,7 @@ function Register2nd() {
                 </button>
               </div>
             </div>
+            {/* 인증번호 입력란 */}
             <RegisterInput
               type="text"
               content="인증번호"
@@ -242,7 +318,15 @@ function Register2nd() {
       <RegisterButton
         inputText={'가입하기'}
         submitBtnValidation={submitBtnValidation2}
+        prePageButton={prePageButton}
       />
+      {isRegisterModal ? (
+        <RegisterModal
+          message={errorMessage}
+          id={createdCode}
+          closeModal={closeRegisterModal}
+        />
+      ) : null}
     </React.Fragment>
   );
 }
